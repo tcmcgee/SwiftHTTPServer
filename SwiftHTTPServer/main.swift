@@ -1,4 +1,5 @@
 import Foundation
 
-print("Hello, World!")
-
+let server = HTTPServer()
+server.start()
+NSRunLoop.main().run()

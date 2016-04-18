@@ -20,6 +20,7 @@ class HTTPServer: NSObject {
             }
             prepareListeningHandle(nativeSocket: nativeSocket)
             if (listeningHandle != nil) {
+                print ("Server started at localhost:\(defaultPort)")
                 listeningHandle!.acceptConnectionInBackgroundAndNotify()
             }
             else {

@@ -16,32 +16,32 @@ class HTTPResponseHandler: NSObject {
     func startResponse(){
         
         print("\(method) + ---- \(requestURL)\n")
-        var response : CFHTTPMessage?
+        var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
         if (method == "GET" || method == "OPTIONS"){
             CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
-            CFHTTPMessageSetHeaderFieldValue(response!, "Content-Type", "text/html")
+            CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
             
             if (method == "OPTIONS")
             {
                 if (requestURL?.relativePath! == "/method_options"){
-                    CFHTTPMessageSetHeaderFieldValue(response!, "Allow", "GET,HEAD,POST,OPTIONS,PUT")
+                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET,HEAD,POST,OPTIONS,PUT")
                 }
                 else{
-                    CFHTTPMessageSetHeaderFieldValue(response!, "Allow", "GET")
+                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET")
                 }
             }
 
             let bodyString = ("This was a \(method) request for \(requestURL)\n")
-            CFHTTPMessageSetBody(response!, bodyString.data(using: NSUTF8StringEncoding)!)
+            CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
             
         else {
             CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
             let bodyString = "501 - Method not yet implemented"
-            CFHTTPMessageSetBody(response!, bodyString.data(using: NSUTF8StringEncoding)!)
+            CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
 
-        let responseData = CFHTTPMessageCopySerializedMessage(response!)
+        let responseData = CFHTTPMessageCopySerializedMessage(response.takeUnretainedValue())
         if let fileHandler = fileHandle{
             fileHandler.write(responseData!.takeUnretainedValue())
         }
