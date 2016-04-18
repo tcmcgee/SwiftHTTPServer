@@ -16,12 +16,11 @@ class HTTPResponseHandler: NSObject {
     func startResponse(){
         
         print("\(method) + ---- \(requestURL)\n")
-        var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
-        if (method == "GET" || method == "OPTIONS"){
+        var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
+        if (method == "GET" || method == "OPTIONS" || method == "POST" || method == "PUT"){
             response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
             CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
-            
-            if (method == "OPTIONS")
+             if (method == "OPTIONS")
             {
                 if (requestURL?.relativePath! == "/method_options"){
                     CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET,HEAD,POST,OPTIONS,PUT")
@@ -31,13 +30,12 @@ class HTTPResponseHandler: NSObject {
                 }
             }
 
-            let bodyString = ("This was a \(method) request for \(requestURL)\n")
+            let bodyString = ("This was a \(method) request for \(requestURL!)\n")
             CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
             
         else {
-            response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
-            let bodyString = "501 - Method not yet implemented"
+            let bodyString = "404 - Not Found"
             CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
 
