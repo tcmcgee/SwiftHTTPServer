@@ -18,7 +18,7 @@ class HTTPResponseHandler: NSObject {
         print("\(method) + ---- \(requestURL)\n")
         var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
         if (method == "GET" || method == "OPTIONS"){
-            CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
+            response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
             CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
             
             if (method == "OPTIONS")
@@ -36,7 +36,7 @@ class HTTPResponseHandler: NSObject {
         }
             
         else {
-            CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
+            response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
             let bodyString = "501 - Method not yet implemented"
             CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
