@@ -23,7 +23,7 @@ class HTTPResponseHandler: NSObject {
              if (method == "OPTIONS")
             {
                 if (requestURL?.relativePath! == "/method_options"){
-                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET,HEAD,POST,OPTIONS,PUT")
+                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET,HEAD,POST,OPTxIONS,PUT")
                 }
                 else{
                     CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET")

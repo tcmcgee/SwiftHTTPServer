@@ -20,6 +20,20 @@
                ReferencedContainer = "container:SwiftHTTPServer.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E2E15EAC1CC5240B0054DA4F"
+               BuildableName = "SwiftHTTPServerTests.xctest"
+               BlueprintName = "SwiftHTTPServerTests"
+               ReferencedContainer = "container:SwiftHTTPServer.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
