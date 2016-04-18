@@ -17,5 +17,19 @@ class SwiftHTTPServerTests: XCTestCase {
         XCTAssertEqual(5000, server.defaultPort)
     }
     
+    func testPrepareSocketAddressPort(){
+        let socketAddress : sockaddr_in = server.prepareSocketAddress()
+        let expectedPort : UInt16 = 5000
+        
+        XCTAssertEqual(expectedPort.bigEndian, socketAddress.sin_port)
+    }
+    
+    func testPrepareSocketAddressIsLocalHost(){
+        let socketAddress : sockaddr_in = server.prepareSocketAddress()
+        let expectedAddress : UInt32 = 0 
+        
+        XCTAssertEqual(expectedAddress.bigEndian, socketAddress.sin_addr.s_addr)
+    }
+    
     
 }
