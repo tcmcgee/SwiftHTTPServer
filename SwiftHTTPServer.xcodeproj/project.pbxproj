@@ -11,6 +11,9 @@
 		E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EAF1CC5240B0054DA4F /* SwiftHTTPServerTests.swift */; };
 		E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EB71CC524400054DA4F /* HttpServer.swift */; };
 		E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EB71CC524400054DA4F /* HttpServer.swift */; };
+		E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
+		E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
+		E2E15EBE1CC53F230054DA4F /* HTTPResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -32,6 +35,8 @@
 		E2E15EAF1CC5240B0054DA4F /* SwiftHTTPServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftHTTPServerTests.swift; sourceTree = "<group>"; };
 		E2E15EB11CC5240B0054DA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E15EB71CC524400054DA4F /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
+		E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandler.swift; sourceTree = "<group>"; };
+		E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +80,7 @@
 			children = (
 				E2E15EA21CC523C80054DA4F /* main.swift */,
 				E2E15EB71CC524400054DA4F /* HttpServer.swift */,
+				E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -84,6 +90,7 @@
 			children = (
 				E2E15EAF1CC5240B0054DA4F /* SwiftHTTPServerTests.swift */,
 				E2E15EB11CC5240B0054DA4F /* Info.plist */,
+				E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -178,6 +185,7 @@
 			files = (
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
 				E2E15EA31CC523C80054DA4F /* main.swift in Sources */,
+				E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +194,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
+				E2E15EBE1CC53F230054DA4F /* HTTPResponseHandlerTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
+				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +340,7 @@
 				E2E15EA81CC523C80054DA4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E2E15EB21CC5240B0054DA4F /* Build configuration list for PBXNativeTarget "SwiftHTTPServerTests" */ = {
 			isa = XCConfigurationList;
@@ -338,6 +349,7 @@
 				E2E15EB41CC5240B0054DA4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

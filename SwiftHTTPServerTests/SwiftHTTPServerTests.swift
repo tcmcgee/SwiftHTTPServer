@@ -38,12 +38,13 @@ class SwiftHTTPServerTests: XCTestCase {
         XCTAssertEqual(expectedFamily, socketAddress.sin_family)
         
     }
+    
     func testPrepareSocketAddressLength(){
         let socketAddress : sockaddr_in = server.prepareSocketAddress()
         let expectedLength = UInt8(16)
         
         XCTAssertEqual(expectedLength, socketAddress.sin_len)
-        
     }
+    
     
 }
