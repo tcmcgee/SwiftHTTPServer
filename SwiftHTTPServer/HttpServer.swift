@@ -1,10 +1,14 @@
 import Foundation
 
 class HTTPServer: NSObject {
-    let defaultPort : UInt16 = 5000
+    var defaultPort : UInt16 = 5000
     var listeningHandle : NSFileHandle? = nil
-    
-    func start(){
+        
+    func start(port : UInt16?){
+        if (port != nil)
+        {
+            defaultPort = port!
+        }
         if let socket : CFSocket = createUnboundSocket() {
             let nativeSocket = CFSocketGetNative(socket)
             var reuse = true
