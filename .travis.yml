@@ -6,4 +6,5 @@ before_install:
   - sudo installer -pkg $SWIFT_VERSION-osx.pkg -target /
   - export TOOLCHAINS=swift
 script:
+  - xcodebuild -list
   - xcodebuild -scheme SwiftHTTPServer test
