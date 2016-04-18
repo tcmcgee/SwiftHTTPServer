@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tcmcgee/SwiftHTTPServer.svg?branch=master)](https://travis-ci.org/tcmcgee/SwiftHTTPServer)
 # SwiftHTTPServer
 
 built using toolchain: swift-DEVELOPMENT-SNAPSHOT-2016-04-12-a 
