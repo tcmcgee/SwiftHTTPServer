@@ -1,3 +1,5 @@
+https://travis-ci.org/tcmcgee/SwiftHTTPServer.svg?branch=master
+
 # SwiftHTTPServer
 
 built using toolchain: swift-DEVELOPMENT-SNAPSHOT-2016-04-12-a 
