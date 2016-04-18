@@ -26,10 +26,24 @@ class SwiftHTTPServerTests: XCTestCase {
     
     func testPrepareSocketAddressIsLocalHost(){
         let socketAddress : sockaddr_in = server.prepareSocketAddress()
-        let expectedAddress : UInt32 = 0 
+        let expectedAddress : UInt32 = 0
         
         XCTAssertEqual(expectedAddress.bigEndian, socketAddress.sin_addr.s_addr)
     }
     
+    func testPrepareSocketAddressDefaultSinFamily(){
+        let socketAddress : sockaddr_in = server.prepareSocketAddress()
+        let expectedFamily = sa_family_t(AF_INET)
+        
+        XCTAssertEqual(expectedFamily, socketAddress.sin_family)
+        
+    }
+    func testPrepareSocketAddressLength(){
+        let socketAddress : sockaddr_in = server.prepareSocketAddress()
+        let expectedLength = UInt8(16)
+        
+        XCTAssertEqual(expectedLength, socketAddress.sin_len)
+        
+    }
     
 }
