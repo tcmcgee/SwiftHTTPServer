@@ -15,7 +15,7 @@ class HTTPResponseHandler: NSObject {
     
     func startResponse(){
         
-        print("\(method) + ---- \(requestURL)\n")
+        print("\(method) + ---- \(requestURL!)\n")
         var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
         if (method == "GET" || method == "OPTIONS" || method == "POST" || method == "PUT"){
             response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
@@ -35,7 +35,7 @@ class HTTPResponseHandler: NSObject {
         }
             
         else {
-            let bodyString = "404 - Not Found"
+            let bodyString = "501 - Not Implemented"
             CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
         }
 
