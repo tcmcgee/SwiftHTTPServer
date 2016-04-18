@@ -37,7 +37,9 @@ class HTTPServer: NSObject {
                 let incomingRequest = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, true).takeUnretainedValue() as CFHTTPMessage
                 if CFHTTPMessageAppendBytes(incomingRequest, UnsafePointer<UInt8>(data.bytes), data.length) == true {
                     if CFHTTPMessageIsHeaderComplete(incomingRequest) == true {
-                        //TAKE MESSAGE CREATE RESPONSE AND SEND IT HERE
+                        let responseHandler = HTTPResponseHandler()
+                        responseHandler.parseRequest(request: incomingRequest, fileHandle: incomingFileHandle!)
+                        responseHandler.startResponse()
                     }
                 }
             }
