@@ -4,17 +4,19 @@ class HTTPResponseHandler: NSObject {
     var fileHandle: NSFileHandle?
     var requestURL = NSURL(string: "")
     var method = ""
+    var URI : String? = ""
     var bodyData: NSData?
     
     func parseRequest(request: CFHTTPMessage, fileHandle: NSFileHandle){
      self.fileHandle = fileHandle
      self.requestURL = getRequestURL(request: request)
+     self.URI = requestURL?.relativePath
      self.method = getRequestMethod(request: request)
      self.bodyData = getRequestBodyData(request: request)
     }
     
     func startResponse(){
-        
+        print("URI + \(URI!)")
         print("\(method) + ---- \(requestURL!)\n")
         var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
         if (method == "GET" || method == "OPTIONS" || method == "POST" || method == "PUT"){
@@ -28,6 +30,11 @@ class HTTPResponseHandler: NSObject {
                 else{
                     CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET")
                 }
+            }
+            else if (method == "POST" || method == "PUT") {
+                //var dataString : NSString = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
+                //print(dataString)
+            
             }
 
             let bodyString = ("This was a \(method) request for \(requestURL!)\n")

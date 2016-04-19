@@ -39,6 +39,7 @@ class HTTPServer: NSObject {
         if let userInfo = notification.userInfo as? [String : AnyObject] {
             let incomingFileHandle = userInfo[NSFileHandleNotificationFileHandleItem] as? NSFileHandle
             if let data = incomingFileHandle?.availableData {
+                //let myData = String(data: incomingFileHandle!.readDataToEndOfFile(), encoding: NSUTF8StringEncoding)
                 let incomingRequest = CFHTTPMessageCreateEmpty(kCFAllocatorDefault, true).takeUnretainedValue() as CFHTTPMessage
                 if CFHTTPMessageAppendBytes(incomingRequest, UnsafePointer<UInt8>(data.bytes), data.length) == true {
                     if CFHTTPMessageIsHeaderComplete(incomingRequest) == true {
