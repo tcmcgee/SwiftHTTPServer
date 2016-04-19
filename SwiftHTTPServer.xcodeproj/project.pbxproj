@@ -14,6 +14,10 @@
 		E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
 		E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
 		E2E15EBE1CC53F230054DA4F /* HTTPResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */; };
+		E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
+		E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
+		E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
+		E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +41,8 @@
 		E2E15EB71CC524400054DA4F /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
 		E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandler.swift; sourceTree = "<group>"; };
 		E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandlerTests.swift; sourceTree = "<group>"; };
+		E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseGenerator.swift; sourceTree = "<group>"; };
+		E2E92FBD1CC6933A003C2757 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,8 @@
 				E2E15EA21CC523C80054DA4F /* main.swift */,
 				E2E15EB71CC524400054DA4F /* HttpServer.swift */,
 				E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */,
+				E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */,
+				E2E92FBD1CC6933A003C2757 /* FormData.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -183,8 +191,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
 				E2E15EA31CC523C80054DA4F /* main.swift in Sources */,
+				E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */,
 				E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,7 +206,9 @@
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
 				E2E15EBE1CC53F230054DA4F /* HTTPResponseHandlerTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
+				E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
 				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
+				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,36 +16,8 @@ class HTTPResponseHandler: NSObject {
     }
     
     func startResponse(){
-        print("URI + \(URI!)")
-        print("\(method) + ---- \(requestURL!)\n")
-        var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 501, nil, kCFHTTPVersion1_1)
-        if (method == "GET" || method == "OPTIONS" || method == "POST" || method == "PUT"){
-            response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
-            CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
-             if (method == "OPTIONS")
-            {
-                if (requestURL?.relativePath! == "/method_options"){
-                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET,HEAD,POST,OPTIONS,PUT")
-                }
-                else{
-                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", "GET")
-                }
-            }
-            else if (method == "POST" || method == "PUT") {
-                //var dataString : NSString = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
-                //print(dataString)
-            
-            }
-
-            let bodyString = ("This was a \(method) request for \(requestURL!)\n")
-            CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
-        }
-            
-        else {
-            let bodyString = "501 - Not Implemented"
-            CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
-        }
-
+        let responseGenerator = HTTPResponseGenerator()
+        let response = responseGenerator.generateResponse(URI: URI, method: method, bodyData: bodyData)
         let responseData = CFHTTPMessageCopySerializedMessage(response.takeUnretainedValue())
         if let fileHandler = fileHandle{
             fileHandler.write(responseData!.takeUnretainedValue())
