@@ -4,7 +4,7 @@ class HTTPServer: NSObject {
     var defaultPort : UInt16 = 5000
     var listeningHandle : NSFileHandle? = nil
         
-    func start(port : UInt16?){
+    func start(port : UInt16?) {
         if (port != nil)
         {
             defaultPort = port!
@@ -72,7 +72,7 @@ class HTTPServer: NSObject {
         return CFSocketSetAddress(socket, socketAddressData) == CFSocketError.success
     }
     
-    func createUnboundSocket() -> CFSocket{
+    func createUnboundSocket() -> CFSocket {
         return CFSocketCreate(kCFAllocatorDefault, PF_INET, SOCK_STREAM, IPPROTO_TCP,0, nil, nil)
     }
     

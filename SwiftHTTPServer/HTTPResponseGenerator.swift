@@ -18,20 +18,21 @@ class HTTPResponseGenerator{
                 if (URI! == "/form") {
                     let formData = FormData()
                     if (method == "POST" || method == "PUT") {
-                        formData.Write(string: "YOLO")
                         print(method)
-                        let dataString : NSString = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
+                        let dataString : String = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
+                        formData.Write(string: dataString)
                         print(dataString)
                     }
                     else if (method == "DELETE")
                     {
+                        formData.Delete()
                         //Remove the data from the text file, calls appropriate method on form
                     }
                     else if (method == "GET")
                     {
-                        formData.Write(string: "YOLO")
                         //Get the data from the form and add it to the body
-                        CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
+                        let formBody = formData.Read()
+                        CFHTTPMessageSetBody(response.takeUnretainedValue(), formBody.data(using: NSUTF8StringEncoding)!)
                     }
                 }
                 else{
@@ -59,8 +60,9 @@ class HTTPResponseGenerator{
             allowedMethods.add("POST")
             allowedMethods.add("OPTIONS")
             allowedMethods.add("PUT")
-
+            allowedMethods.add("DELETE")
         }
+
         return allowedMethods
     }
 }
