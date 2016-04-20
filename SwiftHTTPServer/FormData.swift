@@ -5,8 +5,7 @@ class FormData {
     let file = "form.txt"
     let fileManager = NSFileManager.defaultManager()
     
-    func Write(string : String)
-    {
+    func Write(string : String) {
         if let dir : String = fileManager.currentDirectoryPath {
             do {
                 let filePath = (dir + "/" + file)
@@ -33,15 +32,13 @@ class FormData {
         return text2!
     }
     
-    func Delete()
-    {
+    func Delete() {
         if let dir : String = fileManager.currentDirectoryPath {
             do {
                 let filePath = (dir + "/" + file)
                 try fileManager.removeItem(atPath: filePath)
             }
             catch {
-                print("ERROR REMOVING FILE")
             }
         }
     }

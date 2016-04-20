@@ -1,12 +1,12 @@
 import Foundation
 
-class HTTPResponseGenerator{
+class HTTPResponseGenerator {
     
-    func generateResponse(URI : String?, method : String, body : String? ) -> Unmanaged<CFHTTPMessage>{
+    func generateResponse(URI : String?, method : String, body : String? ) -> Unmanaged<CFHTTPMessage> {
         var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
-        if (isValidURI(URI: URI!)){
+        if (isValidURI(URI: URI!)) {
             var bodyString = ("\(method) for \(URI!)\n")
-            if (getAllowedMethods(URI: URI!).contains(method)){
+            if (getAllowedMethods(URI: URI!).contains(method)) {
                 response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
                 CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
                 if (method == "OPTIONS")
@@ -20,17 +20,15 @@ class HTTPResponseGenerator{
                     if (method == "POST" || method == "PUT") {
                         formData.Write(string: body!)
                     }
-                    else if (method == "DELETE")
-                    {
+                    else if (method == "DELETE") {
                         formData.Delete()
                     }
-                    else if (method == "GET")
-                    {
+                    else if (method == "GET") {
                         let formBody = formData.Read()
                         CFHTTPMessageSetBody(response.takeUnretainedValue(), formBody.data(using: NSUTF8StringEncoding)!)
                     }
                 }
-                else{
+                else {
                     //Placeholder body with just the request and URI
                     CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
                 }
@@ -43,11 +41,11 @@ class HTTPResponseGenerator{
         return response
     }
     
-    func isValidURI(URI : String) -> Bool{
+    func isValidURI(URI : String) -> Bool {
         return true
     }
     
-    func getAllowedMethods(URI: String) -> NSSet{
+    func getAllowedMethods(URI: String) -> NSSet {
         let allowedMethods = NSMutableSet()
         allowedMethods.add("GET")
         allowedMethods.add("OPTIONS")

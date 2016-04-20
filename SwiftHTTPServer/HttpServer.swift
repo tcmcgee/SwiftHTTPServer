@@ -18,7 +18,7 @@ class HTTPServer: NSObject {
             }
             var address: sockaddr_in = prepareSocketAddress()
             let bindingSocketSuccess = bindSocket(socket: socket, pointer: &address)
-            if (!bindingSocketSuccess){
+            if (!bindingSocketSuccess) {
                 print("UNABLE TO BIND SOCKET")
                 return
             }
@@ -35,13 +35,19 @@ class HTTPServer: NSObject {
             print("UNABLE TO CREATE SOCKET")
         }
     }
+    
+    func prepareListeningHandle(nativeSocket: CFSocketNativeHandle) {
+        listeningHandle = NSFileHandle(fileDescriptor: nativeSocket, closeOnDealloc: true)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(receiveIncomingAcceptedConnectionNotification), name: NSFileHandleConnectionAcceptedNotification, object: nil)
+    }
+    
     func receiveIncomingAcceptedConnectionNotification(notification: NSNotification) {
         if let userInfo = notification.userInfo as? [String : AnyObject] {
             let incomingFileHandle = userInfo[NSFileHandleNotificationFileHandleItem] as? NSFileHandle
             if let data = incomingFileHandle?.availableData {
                 let incomingRequestString = String.init(data: data, encoding: NSUTF8StringEncoding)
-                print (incomingRequestString!)
-                if (incomingRequestString!.characters.count > 0){
+                //print (incomingRequestString!)
+                if (incomingRequestString!.characters.count > 0) {
                     let request : Request = Request(requestString: incomingRequestString!)
                     let responseHandler = HTTPResponseHandler()
                     responseHandler.startResponse(request: request, fileHandle: incomingFileHandle)
@@ -50,12 +56,7 @@ class HTTPServer: NSObject {
         }
         listeningHandle!.acceptConnectionInBackgroundAndNotify()
     }
-    
-    func prepareListeningHandle(nativeSocket: CFSocketNativeHandle){
-        listeningHandle = NSFileHandle(fileDescriptor: nativeSocket, closeOnDealloc: true)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(receiveIncomingAcceptedConnectionNotification), name: NSFileHandleConnectionAcceptedNotification, object: nil)
-        
-    }
+
     
     func prepareSocketAddress() -> sockaddr_in {
         var zeroAddress = sockaddr_in()
