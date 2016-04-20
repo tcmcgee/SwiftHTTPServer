@@ -42,11 +42,8 @@ class HTTPServer: NSObject {
                 let incomingRequestString = String.init(data: data, encoding: NSUTF8StringEncoding)
                 print (incomingRequestString!)
                 let request : Request = Request(requestString: incomingRequestString!)
-                //if CFHTTPMessageAppendBytes(incomingRequest, UnsafePointer<UInt8>(data.bytes), data.length) == true {
-                  //  if CFHTTPMessageIsHeaderComplete(incomingRequest) == true {
-                        //let responseHandler = HTTPResponseHandler()
-                        //responseHandler.parseRequest(request: incomingRequest, fileHandle: incomingFileHandle!)
-                        //responseHandler.startResponse()
+                let responseHandler = HTTPResponseHandler()
+                responseHandler.startResponse(request: request, fileHandle: incomingFileHandle)
                     //}
                 //}
             }

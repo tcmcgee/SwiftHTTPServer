@@ -4,11 +4,18 @@ class Request{
     
     var method = ""
     var URI : String? = ""
-    var bodyData: NSData?
+    var body: String?
     var headerDictionary : Dictionary<String,String>?
     
     init(requestString : String){
-        headerDictionary = getHeaders(head: getHead(requestString: requestString))
+        let head = getHead(requestString: requestString)
+        let statusLine = getStatusLine(head: head)
+        
+        method = getMethod(statusLine: statusLine)
+        URI = getURI(statusLine: statusLine)
+        headerDictionary = getHeaders(head: head)
+       
+        body = getBody(requestString: requestString)
         
     }
     

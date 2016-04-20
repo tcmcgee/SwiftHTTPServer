@@ -2,7 +2,7 @@ import Foundation
 
 class HTTPResponseGenerator{
     
-    func generateResponse(URI : String?, method : String, bodyData : NSData? ) -> Unmanaged<CFHTTPMessage>{
+    func generateResponse(URI : String?, method : String, body : String? ) -> Unmanaged<CFHTTPMessage>{
         var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
         if (isValidURI(URI: URI!)){
             var bodyString = ("\(method) for \(URI!)\n")
@@ -18,17 +18,14 @@ class HTTPResponseGenerator{
                 if (URI! == "/form") {
                     let formData = FormData()
                     if (method == "POST" || method == "PUT") {
-                        let dataString : String = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
-                        formData.Write(string: dataString)
+                        formData.Write(string: body!)
                     }
                     else if (method == "DELETE")
                     {
                         formData.Delete()
-                        //Remove the data from the text file, calls appropriate method on form
                     }
                     else if (method == "GET")
                     {
-                        //Get the data from the form and add it to the body
                         let formBody = formData.Read()
                         CFHTTPMessageSetBody(response.takeUnretainedValue(), formBody.data(using: NSUTF8StringEncoding)!)
                     }
@@ -51,7 +48,7 @@ class HTTPResponseGenerator{
     }
     
     func getAllowedMethods(URI: String) -> NSSet{
-        var allowedMethods = NSMutableSet()
+        let allowedMethods = NSMutableSet()
         allowedMethods.add("GET")
         allowedMethods.add("OPTIONS")
         if (URI != "/method_options2") {
