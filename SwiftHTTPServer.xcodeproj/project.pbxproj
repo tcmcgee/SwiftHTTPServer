@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E2D9C1291CC7CF3900B7B5CB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9C1281CC7CF3900B7B5CB /* Request.swift */; };
+		E2D9C12A1CC7CF3900B7B5CB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9C1281CC7CF3900B7B5CB /* Request.swift */; };
+		E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9C12E1CC7D08F00B7B5CB /* RequestTests.swift */; };
 		E2E15EA31CC523C80054DA4F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EA21CC523C80054DA4F /* main.swift */; };
 		E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EAF1CC5240B0054DA4F /* SwiftHTTPServerTests.swift */; };
 		E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EB71CC524400054DA4F /* HttpServer.swift */; };
@@ -33,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E2D9C1281CC7CF3900B7B5CB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		E2D9C12E1CC7D08F00B7B5CB /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
 		E2E15E9F1CC523C80054DA4F /* SwiftHTTPServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SwiftHTTPServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E15EA21CC523C80054DA4F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E2E15EAD1CC5240B0054DA4F /* SwiftHTTPServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftHTTPServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +94,7 @@
 				E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */,
 				E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */,
 				E2E92FBD1CC6933A003C2757 /* FormData.swift */,
+				E2D9C1281CC7CF3900B7B5CB /* Request.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -99,6 +105,7 @@
 				E2E15EAF1CC5240B0054DA4F /* SwiftHTTPServerTests.swift */,
 				E2E15EB11CC5240B0054DA4F /* Info.plist */,
 				E2E15EBD1CC53F230054DA4F /* HTTPResponseHandlerTests.swift */,
+				E2D9C12E1CC7D08F00B7B5CB /* RequestTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
+				E2D9C1291CC7CF3900B7B5CB /* Request.swift in Sources */,
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
 				E2E15EA31CC523C80054DA4F /* main.swift in Sources */,
 				E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */,
@@ -204,9 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
+				E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */,
 				E2E15EBE1CC53F230054DA4F /* HTTPResponseHandlerTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
 				E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
+				E2D9C12A1CC7CF3900B7B5CB /* Request.swift in Sources */,
 				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,
 			);

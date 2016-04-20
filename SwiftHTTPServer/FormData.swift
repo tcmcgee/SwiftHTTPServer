@@ -8,18 +8,17 @@ class FormData {
     func Write(string : String)
     {
         if let dir : String = fileManager.currentDirectoryPath {
-            do{
+            do {
                 let filePath = (dir + "/" + file)
-                try string.write(toFile: (dir + "/" + file), atomically: true, encoding: NSUTF8StringEncoding)
+                try string.write(toFile: filePath, atomically: true, encoding: NSUTF8StringEncoding)
             }
-            catch{
-                print("Error")
+            catch {
+                print("ERROR WRITING TO FILE")
             }
         }
-
     }
 
-    func Read() -> String{
+    func Read() -> String {
         var text2 : String?
         if let dir : String = fileManager.currentDirectoryPath {
             let filePath = (dir + "/" + file)
@@ -27,7 +26,7 @@ class FormData {
                 text2 = try NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String
             }
             catch {
-                print("ERROR")
+                text2 = ""
             }
             
         }
@@ -37,13 +36,12 @@ class FormData {
     func Delete()
     {
         if let dir : String = fileManager.currentDirectoryPath {
-            do{
-                let string : String = ""
+            do {
                 let filePath = (dir + "/" + file)
-                try string.write(toFile: (dir + "/" + file), atomically: true, encoding: NSUTF8StringEncoding)
+                try fileManager.removeItem(atPath: filePath)
             }
-            catch{
-                print("Error")
+            catch {
+                print("ERROR REMOVING FILE")
             }
         }
     }

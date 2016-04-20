@@ -18,10 +18,8 @@ class HTTPResponseGenerator{
                 if (URI! == "/form") {
                     let formData = FormData()
                     if (method == "POST" || method == "PUT") {
-                        print(method)
                         let dataString : String = String(data: bodyData!, encoding: NSUTF8StringEncoding)!
                         formData.Write(string: dataString)
-                        print(dataString)
                     }
                     else if (method == "DELETE")
                     {
@@ -55,10 +53,10 @@ class HTTPResponseGenerator{
     func getAllowedMethods(URI: String) -> NSSet{
         var allowedMethods = NSMutableSet()
         allowedMethods.add("GET")
+        allowedMethods.add("OPTIONS")
         if (URI != "/method_options2") {
             allowedMethods.add("HEAD")
             allowedMethods.add("POST")
-            allowedMethods.add("OPTIONS")
             allowedMethods.add("PUT")
             allowedMethods.add("DELETE")
         }
