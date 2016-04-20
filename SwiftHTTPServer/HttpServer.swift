@@ -41,11 +41,11 @@ class HTTPServer: NSObject {
             if let data = incomingFileHandle?.availableData {
                 let incomingRequestString = String.init(data: data, encoding: NSUTF8StringEncoding)
                 print (incomingRequestString!)
-                let request : Request = Request(requestString: incomingRequestString!)
-                let responseHandler = HTTPResponseHandler()
-                responseHandler.startResponse(request: request, fileHandle: incomingFileHandle)
-                    //}
-                //}
+                if (incomingRequestString!.characters.count > 0){
+                    let request : Request = Request(requestString: incomingRequestString!)
+                    let responseHandler = HTTPResponseHandler()
+                    responseHandler.startResponse(request: request, fileHandle: incomingFileHandle)
+                }
             }
         }
         listeningHandle!.acceptConnectionInBackgroundAndNotify()
