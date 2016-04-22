@@ -9,5 +9,13 @@
 import Foundation
 
 class Response {
+    var response: String = ""
     
+    func setResponse(response: String) {
+        self.response = response
+    }
+    
+    func getResponse() -> String {
+        return response
+    }
 }

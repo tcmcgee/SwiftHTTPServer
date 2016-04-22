@@ -1,10 +1,3 @@
-//
-//  ResponseTests.swift
-//  SwiftHTTPServer
-//
-//  Created by Tom McGee on 4/20/16.
-//  Copyright © 2016 Tom McGee. All rights reserved.
-//
 
 import XCTest
 
@@ -16,6 +9,25 @@ class ResponseTests: XCTestCase {
         super.setUp()
         response = Response()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    func testSetResponse(){
+        let myResponse: String = "Pickle juice\r\n" +
+                                "Taco Party"
+        response!.setResponse(response: myResponse)
+        
+        XCTAssertEqual(myResponse, response!.response)
+    }
+    
+    
+    func testGetResponse() {
+        let myResponse: String = "HTTP1.1 GET OK\r\n" +
+                                "Content-Length: 123"
+        
+        response!.response = myResponse
+        
+        XCTAssertEqual(response!.getResponse(), myResponse)
+        
     }
     
     
