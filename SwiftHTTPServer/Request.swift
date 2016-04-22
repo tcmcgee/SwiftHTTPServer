@@ -71,10 +71,11 @@ class Request{
         return headerDictionary
     }
     
-    func getHeader(header: String) -> String{
-        let value = headerDictionary![header]
-        return value!
+    func getHeader(header: String) -> String {
+        let value = headerDictionary![header] ?? ""
+        return value
     }
+
     func split(string: String, separator: String) -> Array<String>
     {
             return string.components(separatedBy: separator)
