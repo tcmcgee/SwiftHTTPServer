@@ -5,10 +5,10 @@ class HTTPResponseHandler: NSObject {
     func startResponse(request: Request, fileHandle: NSFileHandle?) {
         let responseGenerator = HTTPResponseGenerator()
         let response = responseGenerator.generateResponse(URI: request.URI, method: request.method, body: request.body)
-        let responseData = CFHTTPMessageCopySerializedMessage(response.takeUnretainedValue())
+        let responseString = response
+        let responseData = responseString.data(using: NSUTF8StringEncoding, allowLossyConversion: false)!
         if let fileHandler = fileHandle{
-            print(String.init(data: responseData!.takeUnretainedValue(), encoding: NSUTF8StringEncoding))
-            fileHandler.write(responseData!.takeUnretainedValue())
+            fileHandler.write(responseData)
         }
     }
 }

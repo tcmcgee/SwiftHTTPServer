@@ -46,7 +46,6 @@ class HTTPServer: NSObject {
             let incomingFileHandle = userInfo[NSFileHandleNotificationFileHandleItem] as? NSFileHandle
             if let data = incomingFileHandle?.availableData {
                 let incomingRequestString = String.init(data: data, encoding: NSUTF8StringEncoding)
-                //print (incomingRequestString!)
                 if (incomingRequestString!.characters.count > 0) {
                     let request : Request = Request(requestString: incomingRequestString!)
                     let responseHandler = HTTPResponseHandler()

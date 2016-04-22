@@ -2,18 +2,18 @@ import Foundation
 
 class HTTPResponseGenerator {
     
-    func generateResponse(URI : String?, method : String, body : String? ) -> Unmanaged<CFHTTPMessage> {
-        var response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 404, nil, kCFHTTPVersion1_1)
+    func generateResponse(URI : String?, method : String, body : String? ) -> String {
+        let response = Response()
         if (isValidURI(URI: URI!)) {
             var bodyString = ("\(method) for \(URI!)\n")
             if (getAllowedMethods(URI: URI!).contains(method)) {
-                response = CFHTTPMessageCreateResponse(kCFAllocatorDefault, 200, nil, kCFHTTPVersion1_1)
-                CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue() , "Content-Type", "text/html")
+                response.setStatusCode(statusCode: "200")
+                response.setHeader(header: "Content-Type", value: "text/html")
                 if (method == "OPTIONS")
                 {
                     let optionsArray : NSArray = ((getAllowedMethods(URI: URI!)).allObjects)
                     let allowedMethodString = optionsArray.componentsJoined(by: ",")
-                    CFHTTPMessageSetHeaderFieldValue(response.takeUnretainedValue(), "Allow", allowedMethodString)
+                    response.setHeader(header: "Allow", value: allowedMethodString)
                 }
                 if (URI! == "/form") {
                     let formData = FormData()
@@ -25,20 +25,20 @@ class HTTPResponseGenerator {
                     }
                     else if (method == "GET") {
                         let formBody = formData.Read()
-                        CFHTTPMessageSetBody(response.takeUnretainedValue(), formBody.data(using: NSUTF8StringEncoding)!)
+                        response.setBody(body:formBody)
                     }
                 }
                 else {
                     //Placeholder body with just the request and URI
-                    CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
+                    response.setBody(body: bodyString)
                 }
             } else {
                 bodyString = "501 - Not Implemented"
-                CFHTTPMessageSetBody(response.takeUnretainedValue(), bodyString.data(using: NSUTF8StringEncoding)!)
+                response.setBody(body: bodyString)
             }
         }
         
-        return response
+        return response.GetHTTPResponse()
     }
     
     func isValidURI(URI : String) -> Bool {
