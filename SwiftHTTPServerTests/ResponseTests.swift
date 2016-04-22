@@ -1,5 +1,3 @@
-
-
 import XCTest
 
 class ResponseTests: XCTestCase {
