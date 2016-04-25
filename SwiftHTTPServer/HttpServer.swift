@@ -18,6 +18,7 @@ class HTTPServer: NSObject {
         } else {
             print("LISTENING HANDLE NOT PREPARED")
         }
+        
     }
     
     func prepareListeningHandle(nativeSocket: CFSocketNativeHandle) {

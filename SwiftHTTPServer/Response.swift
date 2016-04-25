@@ -16,6 +16,7 @@ class Response {
     func buildReasonPhrases() {
         reasonPhrases["200"] = "OK"
         reasonPhrases["404"] = "Not Found"
+        reasonPhrases["501"] = "Not Implemented"
     }
     
     func GetHTTPResponse() -> String {

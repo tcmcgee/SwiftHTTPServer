@@ -15,7 +15,7 @@ class SwiftSocket: NSObject {
             var address: sockaddr_in = prepareSocketAddress()
             let bindingSocketSuccess = bindSocket(socket: socket, pointer: &address)
             if (!bindingSocketSuccess) {
-                print("UNABLE TO BIND SOCKET")
+                print("Unable to bind socket -- Is the port already being used?")
                 return nil
             }
             return nativeSocket

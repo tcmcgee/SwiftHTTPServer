@@ -2,9 +2,18 @@ import Foundation
 
 class FormData {
     
-    let file = "form.txt"
+    var file = "form.txt"
     let fileManager = NSFileManager.defaultManager()
     
+    
+    func formAction(method: String, body: String?){
+        if (method == "POST" || method == "PUT"){
+            Write(string: body!)
+        }
+        else if (method == "DELETE") {
+            Delete()
+        }
+    }
     func Write(string : String) {
         if let dir : String = fileManager.currentDirectoryPath {
             do {
