@@ -10,7 +10,7 @@ class HTTPResponseGenerator {
             response.setBody(body: bodyString)
             if (router.isAllowedMethod(method: method)) {
                 response.setStatusCode(statusCode: "200")
-                response.setHeader(header: "Content-Type", value: "text/html")
+                response.setHeader(header: "Content-Type", value: "text/html; charset=UTF-8")
                 if (method == "OPTIONS") {
                     response.setHeader(header: "Allow", value: router.getAllowedMethodsString())
                 }
