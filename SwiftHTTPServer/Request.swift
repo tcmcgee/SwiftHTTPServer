@@ -5,6 +5,7 @@ class Request{
     var method = ""
     var URI : String? = ""
     var body: String?
+    var baseURI: String? = ""
     var headerDictionary : Dictionary<String,String>?
     
     init(requestString : String){
@@ -13,6 +14,13 @@ class Request{
         
         method = getMethod(statusLine: statusLine)
         URI = getURI(statusLine: statusLine)
+        let splitURI = split(string: URI!, separator: "?")
+        if splitURI.count > 1{
+            baseURI = splitURI[0]
+        }
+        else {
+            baseURI = URI
+        }
         headerDictionary = getHeaders(head: head)
        
         body = getBody(requestString: requestString)

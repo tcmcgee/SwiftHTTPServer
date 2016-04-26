@@ -2,8 +2,8 @@ import Foundation
 
 class HTTPResponseGenerator {
 
-    func generateResponse(URI : String?, method : String, body : String? ) -> String {
-        let router = Router(uri: URI!)
+    func generateResponse(URI : String?, baseURI: String, method : String, body : String? ) -> String {
+        let router = Router(uri: baseURI)
         let response = Response()
         if (router.isAllowedURI()) {
             var bodyString = ("\(method) for \(URI!)\n")
@@ -14,7 +14,7 @@ class HTTPResponseGenerator {
                 if (method == "OPTIONS") {
                     response.setHeader(header: "Allow", value: router.getAllowedMethodsString())
                 }
-                if (URI! == "/form") {
+                if (router.uri == "/form") {
                     let formData = FormData()
                     if (method == "POST" || method == "PUT" || method == "DELETE") {
                         formData.formAction(method: method, body: body!)
@@ -22,6 +22,10 @@ class HTTPResponseGenerator {
                         let formBody = formData.Read()
                         response.setBody(body:formBody)
                     }
+                } else if (uriIsParametersWithParams(URI: URI)) {
+                    let decoder = ParameterDecoder(uri: URI!)
+                    response.setStatusCode(statusCode: "200")
+                    response.setBody(body: decoder.getDecodedParameters())
                 }
             } else {
                 response.setStatusCode(statusCode: "501")
@@ -34,5 +38,13 @@ class HTTPResponseGenerator {
             response.setBody(body: "404 - Not Found")
         }
         return response.GetHTTPResponse()
+    }
+    
+    func uriIsParametersWithParams(URI: String?) -> Bool {
+        var parameterRegExp: NSRegularExpression?
+        do{
+            parameterRegExp = try NSRegularExpression(pattern: "parameters?.*", options: .caseInsensitive)
+        } catch{}
+        return (parameterRegExp!.firstMatch(in: URI!, options: NSMatchingOptions.reportCompletion, range: NSRange(location: 0,length: URI!.characters.count)) != nil)
     }
 }

@@ -2,7 +2,7 @@ import Foundation
 
 class Router{
     var uri: String?
-    let URIs = NSMutableSet(objects: "/method_options", "/method_options2", "/form", "/")
+    let URIs = NSMutableSet(objects: "/method_options", "/method_options2", "/form", "/", "/parameters")
     
     
     init(uri: String) {
