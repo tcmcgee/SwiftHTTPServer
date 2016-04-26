@@ -29,6 +29,10 @@ class HTTPResponseGenerator {
                 response.setBody(body: bodyString)
             }
         }
+        else {
+            response.setStatusCode(statusCode: "404")
+            response.setBody(body: "404 - Not Found")
+        }
         return response.GetHTTPResponse()
     }
 }
