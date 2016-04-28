@@ -4,7 +4,6 @@ class Router{
     var uri: String?
     var uriTypeDict = Dictionary<String,Route>()
     var routeNotFound = NotFoundRoute(allowedMethods: "GET,OPTIONS")
-    let URIs = NSMutableSet(objects: "/method_options", "/method_options2", "/form", "/", "/parameters")
     
     init(uri: String, method: String,body: String?) {
         self.uri = uri
@@ -19,15 +18,11 @@ class Router{
         uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: "GET,OPTIONS")
     }
     
-    func getRoute() -> Route? {
+    func getRoute() -> Route {
         return uriTypeDict.get(key: uri!,defaultValue: routeNotFound)
     }
     
-    func addURI(uri: String) {
-        URIs.add(uri)
-    }
-    
-    func removeURI(uri: String) {
-        URIs.remove(uri)
+    func setRoute(uri: String, route: Route) {
+        uriTypeDict[uri] = route
     }
 }

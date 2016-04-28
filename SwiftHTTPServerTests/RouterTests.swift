@@ -4,25 +4,28 @@ class RouterTests: XCTestCase {
     
     var router = Router(uri: "/Filler",method:"FILLER",body:"FILLER")
     
-    func testAddURI() {
-        router.addURI(uri: "/MyURI")
+    func testInitialiazeRouterDict() {
+        router.uriTypeDict = Dictionary<String,Route>()
         
-        XCTAssert(router.URIs.contains("/MyURI"))
+        router.initializeRouterDict()
+        
+        XCTAssert(router.uriTypeDict.count > 0)
     }
     
-    func testremoveURI(){
-        router.URIs.add("/RemoveThis")
+    func testSetRoute() {
+        router.uriTypeDict = Dictionary<String,Route>()
         
-        router.removeURI(uri: "/RemoveThis")
+        router.setRoute(uri: "/Test", route: BasicRoute(allowedMethods: "GET,OPTIONS"))
         
-        XCTAssertFalse(router.URIs.contains("RemoveThis"))
+        XCTAssert(router.uriTypeDict.keys.contains("/Test"))
+        XCTAssert(router.uriTypeDict.count > 0)
     }
     
     func testGetRoute() {
         let expectedRoute: Route = BasicRoute(allowedMethods: "GET,OPTIONS")
         router = Router(uri:"/method_options2",method:"OPTIONS",body:nil)
         
-        let route = router.getRoute()!
+        let route = router.getRoute()
         
         XCTAssert(route.dynamicType == expectedRoute.dynamicType)
         XCTAssertEqual(route.getAllowedMethods(), expectedRoute.getAllowedMethods())
