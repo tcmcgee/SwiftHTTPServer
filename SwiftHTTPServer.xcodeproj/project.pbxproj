@@ -49,6 +49,7 @@
 		E2F5C8B41CD2749F00793B5C /* ParameterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */; };
 		E2F5C8B51CD2749F00793B5C /* ParameterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */; };
 		E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */; };
+		E2F5C8BB1CD282A200793B5C /* HTTPResponseHandlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8BA1CD282A200793B5C /* HTTPResponseHandlerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,7 @@
 		E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRouteTests.swift; sourceTree = "<group>"; };
 		E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterRoute.swift; sourceTree = "<group>"; };
 		E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterRouteTests.swift; sourceTree = "<group>"; };
+		E2F5C8BA1CD282A200793B5C /* HTTPResponseHandlerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandlerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 				E2F5C8A61CD2590E00793B5C /* NotFoundRouteTests.swift */,
 				E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */,
 				E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */,
+				E2F5C8BA1CD282A200793B5C /* HTTPResponseHandlerTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,
 				E267CD791CD00FF1001AB593 /* BasicRoute.swift in Sources */,
 				E2F5C8AD1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
+				E2F5C8BB1CD282A200793B5C /* HTTPResponseHandlerTests.swift in Sources */,
 				E2F5C8A71CD2590E00793B5C /* NotFoundRouteTests.swift in Sources */,
 				E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */,
 			);

@@ -29,7 +29,8 @@ class HTTPServer: NSObject {
                 if (incomingRequestString!.characters.count > 0) {
                     let request : Request = Request(requestString: incomingRequestString!)
                     let responseHandler = HTTPResponseHandler()
-                    responseHandler.startResponse(request: request, fileHandle: incomingFileHandle)
+                    let response = responseHandler.getResponse(request: request)
+                    responseHandler.sendResponse(responseData: responseHandler.getData(string: response),fileHandle: incomingFileHandle)
                 }
             }
         }
