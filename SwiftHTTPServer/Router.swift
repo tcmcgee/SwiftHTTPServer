@@ -2,12 +2,27 @@ import Foundation
 
 class Router{
     var uri: String?
+    var uriTypeDict = Dictionary<String,Route>()
+    var routeNotFound = NotFoundRoute(allowedMethods: "GET,OPTIONS")
     let URIs = NSMutableSet(objects: "/method_options", "/method_options2", "/form", "/", "/parameters")
     
-    
-    init(uri: String) {
+    init(uri: String, method: String,body: String?) {
         self.uri = uri
+        initializeRouterDict()
     }
+    
+    func initializeRouterDict() {
+        uriTypeDict["/method_options"]  = BasicRoute(allowedMethods: "GET,OPTIONS,HEAD,POST,PUT,DELETE")
+        uriTypeDict["/method_options2"] = BasicRoute(allowedMethods: "GET,OPTIONS")
+        uriTypeDict["/"] = BasicRoute(allowedMethods: "GET, OPTIONS")
+        uriTypeDict["/form"] = FormRoute(allowedMethods: "GET,OPTIONS,PUT,POST,DELETE")
+        uriTypeDict["/parameters"] = BasicRoute(allowedMethods: "GET,OPTIONS")
+    }
+    
+    func getRoute() -> Route? {
+        return uriTypeDict.get(key: uri!,defaultValue: routeNotFound)
+    }
+    
     func addURI(uri: String) {
         URIs.add(uri)
     }
@@ -15,34 +30,4 @@ class Router{
     func removeURI(uri: String) {
         URIs.remove(uri)
     }
-    
-    func isAllowedURI() -> Bool {
-        return URIs.contains(uri!)
-    }
-    
-
-    func isAllowedMethod(method: String) -> Bool {
-        
-        return getAllowedMethods().contains(method)
-    }
-    
-    func getAllowedMethodsString() -> String {
-        let optionsArray : NSArray = ((getAllowedMethods()).allObjects)
-        let allowedMethodString = optionsArray.componentsJoined(by: ",")
-        return allowedMethodString
-    }
-    
-    func getAllowedMethods() -> NSSet {
-        let allowedMethods = NSMutableSet(objects: "GET", "OPTIONS", "HEAD", "POST", "PUT", "DELETE")
-        if (uri == "/method_options2") {
-            allowedMethods.remove("HEAD")
-            allowedMethods.remove("POST")
-            allowedMethods.remove("PUT")
-            allowedMethods.remove("DELETE")
-        }
-        
-        return allowedMethods
-    }
-
-    
 }

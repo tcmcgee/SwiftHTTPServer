@@ -2,7 +2,7 @@ import XCTest
 
 class RouterTests: XCTestCase {
     
-    var router = Router(uri: "/Filler")
+    var router = Router(uri: "/Filler",method:"FILLER",body:"FILLER")
     
     func testAddURI() {
         router.addURI(uri: "/MyURI")
@@ -18,34 +18,14 @@ class RouterTests: XCTestCase {
         XCTAssertFalse(router.URIs.contains("RemoveThis"))
     }
     
-    func testIsAllowedURI() {
-        router = Router(uri: "/Allowed")
-
-        router.URIs.add("/Allowed")
-
-        XCTAssert(router.isAllowedURI())
-    }
-
-    func testIsNotAllowedURI() {
-        router = Router(uri: "/NotAllowed")
-
-        XCTAssertFalse(router.isAllowedURI())
-    }
-    
-    func testGetAllowedMethods() {
-        router = Router(uri: "/method_options2")
+    func testGetRoute() {
+        let expectedRoute: Route = BasicRoute(allowedMethods: "GET,OPTIONS")
+        router = Router(uri:"/method_options2",method:"OPTIONS",body:nil)
         
-        let expectedMethods = NSMutableSet(objects: "GET", "OPTIONS")
+        let route = router.getRoute()!
         
-        XCTAssertEqual(expectedMethods, router.getAllowedMethods())
+        XCTAssert(route.dynamicType == expectedRoute.dynamicType)
+        XCTAssertEqual(route.getAllowedMethods(), expectedRoute.getAllowedMethods())
     }
-    
-    func testIsAllowedMethod() {
-        router = Router(uri: "/method_options2")
-        
-        XCTAssert(router.isAllowedMethod(method: "GET"))
-    }
-    
-    
     
 }
