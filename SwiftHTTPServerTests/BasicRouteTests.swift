@@ -54,7 +54,7 @@ class BasicRouteTests: XCTestCase {
         let route = BasicRoute(allowedMethods: "GET,OPTIONS")
         let expectedResponseCode = "200"
         
-        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode())
+        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "GET"))
     }
 
 }

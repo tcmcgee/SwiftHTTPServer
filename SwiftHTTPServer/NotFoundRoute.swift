@@ -5,7 +5,7 @@ class NotFoundRoute: BasicRoute {
         return "404 - Not Found"
     }
     
-    override func getResponseStatusCode() -> String {
+    override func getResponseStatusCode(method: String) -> String {
         return "404"
     }
     

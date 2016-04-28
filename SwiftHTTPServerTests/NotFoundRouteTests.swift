@@ -23,7 +23,7 @@ class NotFoundRouteTests: XCTestCase {
         let route = NotFoundRoute(allowedMethods: "GET,OPTIONS")
         let expectedResponseCode = "404"
         
-        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode())
+        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "_"))
     }
 
 }

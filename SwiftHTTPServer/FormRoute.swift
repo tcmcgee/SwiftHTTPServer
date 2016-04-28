@@ -1,11 +1,3 @@
-//
-//  FormRoute.swift
-//  SwiftHTTPServer
-//
-//  Created by Tom McGee on 4/28/16.
-//  Copyright © 2016 Tom McGee. All rights reserved.
-//
-
 import Foundation
 
 

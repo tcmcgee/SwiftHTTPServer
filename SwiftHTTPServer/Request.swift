@@ -80,7 +80,7 @@ class Request{
     }
     
     func getHeader(header: String) -> String {
-        let value = headerDictionary![header] ?? ""
+        let value = headerDictionary!.get(key: header,defaultValue: "")
         return value
     }
 

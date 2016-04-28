@@ -8,6 +8,6 @@ protocol Route{
     func getAllowedMethods() -> [String]
     func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> 
     func getResponseBody(uri: String, method: String, requestBody: String?) -> String
-    func getResponseStatusCode() -> String
+    func getResponseStatusCode(method: String) -> String
     func isAllowedMethod(method: String) -> Bool
 }

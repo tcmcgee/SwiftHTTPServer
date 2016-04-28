@@ -31,8 +31,9 @@ class BasicRoute: Route {
         return headers
     }
     
-    func getResponseStatusCode() -> String {
-        return "200"
+    func getResponseStatusCode(method: String) -> String {
+        let statusCode: String = isAllowedMethod(method: method) ? "200" : "404"
+        return statusCode
     }
     
 }

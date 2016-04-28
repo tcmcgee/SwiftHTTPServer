@@ -46,6 +46,9 @@
 		E2F5C8AF1CD26FBD00793B5C /* FormRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */; };
 		E2F5C8B01CD26FBD00793B5C /* FormRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */; };
 		E2F5C8B21CD270D400793B5C /* FormRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */; };
+		E2F5C8B41CD2749F00793B5C /* ParameterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */; };
+		E2F5C8B51CD2749F00793B5C /* ParameterRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */; };
+		E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +92,8 @@
 		E2F5C8AB1CD25AD200793B5C /* DictionaryDefaultValue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDefaultValue.swift; sourceTree = "<group>"; };
 		E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRoute.swift; sourceTree = "<group>"; };
 		E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormRouteTests.swift; sourceTree = "<group>"; };
+		E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterRoute.swift; sourceTree = "<group>"; };
+		E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterRouteTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +150,7 @@
 				E2F5C8A31CD2588200793B5C /* NotFoundRoute.swift */,
 				E2F5C8AB1CD25AD200793B5C /* DictionaryDefaultValue.swift */,
 				E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */,
+				E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -163,6 +169,7 @@
 				E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */,
 				E2F5C8A61CD2590E00793B5C /* NotFoundRouteTests.swift */,
 				E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */,
+				E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -270,6 +277,7 @@
 				E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 				E29B29E71CC83A4A00D60B87 /* Response.swift in Sources */,
 				E2F5C8AC1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
+				E2F5C8B41CD2749F00793B5C /* ParameterRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,11 +292,13 @@
 				E29B29ED1CCA865C00D60B87 /* SwiftSocketTests.swift in Sources */,
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */,
+				E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */,
 				E29B29F61CCE74EE00D60B87 /* FormDataTests.swift in Sources */,
 				E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
 				E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
 				E2F5C8A51CD2588200793B5C /* NotFoundRoute.swift in Sources */,
+				E2F5C8B51CD2749F00793B5C /* ParameterRoute.swift in Sources */,
 				E267CD761CD00F6B001AB593 /* Route.swift in Sources */,
 				E2F5C8B21CD270D400793B5C /* FormRouteTests.swift in Sources */,
 				E29B29E81CC83A4A00D60B87 /* Response.swift in Sources */,
