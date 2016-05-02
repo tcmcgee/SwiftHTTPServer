@@ -15,6 +15,7 @@ class Response {
     
     func buildReasonPhrases() {
         reasonPhrases["200"] = "OK"
+        reasonPhrases["302"] = "See Other"
         reasonPhrases["404"] = "Not Found"
         reasonPhrases["501"] = "Not Implemented"
     }

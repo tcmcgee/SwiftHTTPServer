@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188B81CD7D691009884A3 /* RedirectRoute.swift */; };
+		E24188BA1CD7D691009884A3 /* RedirectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188B81CD7D691009884A3 /* RedirectRoute.swift */; };
+		E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */; };
 		E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */; };
 		E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
 		E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
@@ -65,6 +68,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		E24188B81CD7D691009884A3 /* RedirectRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRoute.swift; sourceTree = "<group>"; };
+		E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRouteTests.swift; sourceTree = "<group>"; };
 		E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoderTests.swift; sourceTree = "<group>"; };
 		E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
 		E267CD741CD00F6B001AB593 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -153,6 +158,7 @@
 				E2F5C8AB1CD25AD200793B5C /* DictionaryDefaultValue.swift */,
 				E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */,
 				E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */,
+				E24188B81CD7D691009884A3 /* RedirectRoute.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -173,6 +179,7 @@
 				E2F5C8B11CD270D400793B5C /* FormRouteTests.swift */,
 				E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */,
 				E2F5C8BA1CD282A200793B5C /* HTTPResponseHandlerTests.swift */,
+				E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -271,6 +278,7 @@
 				E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */,
 				E2F5C8AF1CD26FBD00793B5C /* FormRoute.swift in Sources */,
 				E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
+				E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */,
 				E267CD781CD00FF1001AB593 /* BasicRoute.swift in Sources */,
 				E29B29EA1CCA841200D60B87 /* SwiftSocket.swift in Sources */,
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
@@ -289,6 +297,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F5C8A21CD247AC00793B5C /* BasicRouteTests.swift in Sources */,
+				E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */,
 				E29B29EB1CCA841200D60B87 /* SwiftSocket.swift in Sources */,
 				E29B938C1CC83907008AEED5 /* ResponseTests.swift in Sources */,
 				E2F5C8B01CD26FBD00793B5C /* FormRoute.swift in Sources */,
@@ -315,6 +324,7 @@
 				E2F5C8BB1CD282A200793B5C /* HTTPResponseHandlerTests.swift in Sources */,
 				E2F5C8A71CD2590E00793B5C /* NotFoundRouteTests.swift in Sources */,
 				E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */,
+				E24188BA1CD7D691009884A3 /* RedirectRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

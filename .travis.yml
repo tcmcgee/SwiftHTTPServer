@@ -6,4 +6,6 @@ before_install:
   - sudo installer -pkg $SWIFT_VERSION-osx.pkg -target /
   - export TOOLCHAINS=swift
 script:
-  - xcodebuild -scheme SwiftHTTPServer test
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release test
+  - cd cob_spec
+  - java -jar fitnesse.jar -c "HttpTestSuite.PassingTests?suite&format=text"
