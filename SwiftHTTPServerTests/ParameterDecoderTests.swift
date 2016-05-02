@@ -67,6 +67,12 @@ class ParameterDecoderTests: XCTestCase {
         
     }
     
+    func testGetCharFromURLEncoding() {
+        let decodedChar = decoder!.getCharFromURLEncoding(replacedString: "%21")
+        
+        XCTAssertEqual(decodedChar, "!")
+    }
+    
     func testGetDecodedParameters() {
         let expectedResults = "variable_1 = Operators <, >, =, !=; +, -, *, &, @, #, $, [, ]: \"is that all\"? variable_2 = stuff"
         

@@ -39,14 +39,15 @@ class ParameterDecoder {
         do {
             regexp = try NSRegularExpression(pattern: "%..", options: .caseInsensitive)
         } catch { }
-        while let match = regexp?.firstMatch(in: params as String, options: NSMatchingOptions.reportCompletion, range: NSRange(location: 0,length: (params as String).characters.count)) {
-            let replacedString = params.substring(with: match.range)
-            params = params.replacingCharacters(in: match.range, with: getChars(replacedString: replacedString))
+        while let match = regexp?.firstMatch(in: params as String, options: NSMatchingOptions.reportCompletion,
+                                             range: NSRange(location: 0,length: (params as String).characters.count)) {
+            let stringToReplace = params.substring(with: match.range)
+            params = params.replacingCharacters(in: match.range, with: getCharFromURLEncoding(replacedString: stringToReplace))
         }
         return params as String
     }
     
-    func getChars(replacedString: String) -> String {
+    func getCharFromURLEncoding(replacedString: String) -> String {
         var myString = replacedString
         myString.remove(at:myString.startIndex)
         let value = UInt8(strtoul(myString, nil, 16))
@@ -55,8 +56,7 @@ class ParameterDecoder {
         return result
     }
     
-    func split(string: String, separator: String) -> Array<String>
-    {
+    func split(string: String, separator: String) -> Array<String> {
         return string.components(separatedBy: separator)
     }
 }

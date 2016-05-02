@@ -1,7 +1,7 @@
 import Foundation
 
 
-protocol Route{
+protocol Route {
 
     var allowedMethods: [String]? {get}
     init(allowedMethods: String)
@@ -10,4 +10,5 @@ protocol Route{
     func getResponseBody(uri: String, method: String, requestBody: String?) -> String
     func getResponseStatusCode(method: String) -> String
     func isAllowedMethod(method: String) -> Bool
+
 }

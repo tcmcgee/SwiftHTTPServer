@@ -6,8 +6,8 @@ class FormData {
     let fileManager = NSFileManager.defaultManager()
     
     
-    func formAction(method: String, body: String?){
-        if (method == "POST" || method == "PUT"){
+    func formAction(method: String, body: String?) {
+        if (method == "POST" || method == "PUT") {
             Write(string: body!)
         }
         else if (method == "DELETE") {

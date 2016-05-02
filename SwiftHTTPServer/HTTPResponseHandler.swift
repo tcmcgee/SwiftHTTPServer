@@ -9,7 +9,7 @@ class HTTPResponseHandler: NSObject {
         return responseString
     }
     
-    func getData(string: String) -> NSData{
+    func getData(string: String) -> NSData {
         return string.data(using:NSUTF8StringEncoding, allowLossyConversion: false)!
     }
     
