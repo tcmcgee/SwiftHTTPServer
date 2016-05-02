@@ -6,7 +6,7 @@ before_install:
   - sudo installer -pkg $SWIFT_VERSION-osx.pkg -target /
   - export TOOLCHAINS=swift
   - git clone http://www.github.com/tcmcgee/cob_spec cob_spec
-  - cd cobspec
+  - cd cob_spec
   - mvn package
   - cd ..
 script:
