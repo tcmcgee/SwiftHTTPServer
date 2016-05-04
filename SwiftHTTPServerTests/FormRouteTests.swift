@@ -26,4 +26,12 @@ class FormRouteTests: XCTestCase {
         XCTAssertEqual("Howdy",fileContents)
     }
     
+    func testGetResponseBodyMethodNotAllowed() {
+        formRoute = FormRoute(allowedMethods: "GET,OPTIONS,POST,PUT")
+        
+        let fileContents = formRoute.getResponseBody(uri: "/form", method: "DELETE", requestBody: "")
+        
+        XCTAssertEqual("405 - Method Not Allowed", fileContents)
+    }
+    
 }
