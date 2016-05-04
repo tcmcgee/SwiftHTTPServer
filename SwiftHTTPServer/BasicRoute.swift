@@ -8,7 +8,7 @@ class BasicRoute: Route {
         self.allowedMethods = allowedMethods.components(separatedBy: ",")
     }
     
-    func getAllowedMethods() -> [String] {
+    func getAllowedMethods() -> [String]{
         return allowedMethods!
     }
     

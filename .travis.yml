@@ -9,6 +9,7 @@ before_install:
   - cd cob_spec
   - mvn package
   - cd ..
+  - xcodebuild -configuration Release
 script:
   - xcodebuild -scheme SwiftHTTPServer -configuration Release test
   - cd cob_spec
