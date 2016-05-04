@@ -29,7 +29,7 @@ class BasicRoute: Route {
     }
     
     func getResponseStatusCode(method: String) -> String {
-        let statusCode: String = isAllowedMethod(method: method) ? "200" : "404"
+        let statusCode: String = isAllowedMethod(method: method) ? "200" : "405"
         return statusCode
     }
     

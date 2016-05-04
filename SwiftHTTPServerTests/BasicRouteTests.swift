@@ -56,5 +56,12 @@ class BasicRouteTests: XCTestCase {
         
         XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "GET"))
     }
+    
+    func testGetResponseStatusCodeNotAllowed() {
+        let route = BasicRoute(allowedMethods:"GET")
+        let expectedResponseCode = "405"
+        
+        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "POST"))
+    }
 
 }

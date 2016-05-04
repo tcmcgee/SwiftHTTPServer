@@ -15,6 +15,8 @@ class Router{
         uriTypeDict["/form"] = FormRoute(allowedMethods: "GET,OPTIONS,PUT,POST,DELETE")
         uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: "GET,OPTIONS")
         uriTypeDict["/redirect"] = RedirectRoute(allowedMethods: "GET,OPTIONS,REDIRECT")
+        uriTypeDict["/file1"] = BasicRoute(allowedMethods: "GET")
+        uriTypeDict["/text-file.txt"] = BasicRoute(allowedMethods: "GET")
     }
     
     func getRoute() -> Route {
