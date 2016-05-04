@@ -1,5 +1,3 @@
-import Foundation
-
 class RedirectRoute: BasicRoute {
     
     override func getResponseStatusCode(method: String) -> String {

@@ -1,5 +1,3 @@
-import Foundation
-
 class Response {
     var response: String = ""
     var statusCode: String = "200"

@@ -1,5 +1,3 @@
-import Foundation
-
 class Router{
     var uri: String?
     var uriTypeDict = Dictionary<String,Route>()

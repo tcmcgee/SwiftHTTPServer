@@ -1,5 +1,3 @@
-import Foundation
-
 class HTTPResponseGenerator {
 
     func generateResponse(URI : String?, baseURI: String, method : String, body : String? ) -> String {

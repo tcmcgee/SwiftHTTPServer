@@ -1,6 +1,3 @@
-import Foundation
-
-
 protocol Route {
 
     var allowedMethods: [String]? {get}
