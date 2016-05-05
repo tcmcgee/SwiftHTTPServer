@@ -24,7 +24,6 @@ class BasicRoute: Route {
         if (method == "OPTIONS") {
             headers["Allow"] = allowedMethods!.joined(separator: ",")
         }
-        
         return headers
     }
     

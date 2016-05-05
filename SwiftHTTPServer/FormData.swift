@@ -36,7 +36,6 @@ class FormData {
             catch {
                 text2 = ""
             }
-            
         }
         return text2!
     }

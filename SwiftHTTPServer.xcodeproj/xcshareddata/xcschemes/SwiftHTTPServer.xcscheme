@@ -85,6 +85,12 @@
             ReferencedContainer = "container:SwiftHTTPServer.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "-p 5000 -d /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/cob_spec/public"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

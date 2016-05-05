@@ -2,13 +2,13 @@ import Foundation
 
 class HTTPServer: NSObject {
     var listeningHandle : NSFileHandle? = nil
-        
-    func start(port : UInt16?) {
+    
+    func start() {
         let swiftSocket = SwiftSocket()
-        let nativeSocket = swiftSocket.getSocket(port: port!)
+        let nativeSocket = swiftSocket.getSocket(port: UInt16(Configuration.port))
         prepareListeningHandle(nativeSocket: nativeSocket!)
         if (listeningHandle != nil) {
-            print ("Server started at localhost:\(port!)")
+            print ("Server started at localhost:\(Configuration.port)")
             listeningHandle!.acceptConnectionInBackgroundAndNotify()
         } else {
             print("LISTENING HANDLE NOT PREPARED")

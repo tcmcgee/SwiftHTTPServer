@@ -1,6 +1,13 @@
 import Foundation
 
-var port : UInt16 = 5000
+let cmdArgs = Process.arguments
+
+let port = cmdArgs[2]
+let publicDir = cmdArgs[4]
+
+Configuration.port = UInt16(port)!
+Configuration.publicDirectory = publicDir
+
 let server = HTTPServer()
-server.start(port: port)
+server.start()
 NSRunLoop.main().run()

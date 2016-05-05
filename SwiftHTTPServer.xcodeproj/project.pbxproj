@@ -36,6 +36,12 @@
 		E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EB71CC524400054DA4F /* HttpServer.swift */; };
 		E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
 		E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */; };
+		E2E2D04B1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */; };
+		E2E2D04C1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */; };
+		E2E2D04E1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */; };
+		E2E2D0501CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */; };
+		E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */; };
+		E2E2D0531CDBCABB00C3BE34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */; };
 		E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
 		E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
 		E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
@@ -90,6 +96,10 @@
 		E2E15EB11CC5240B0054DA4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E15EB71CC524400054DA4F /* HttpServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpServer.swift; sourceTree = "<group>"; };
 		E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseHandler.swift; sourceTree = "<group>"; };
+		E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListRoute.swift; sourceTree = "<group>"; };
+		E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListRouteTests.swift; sourceTree = "<group>"; };
+		E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDefaultValueTests.swift; sourceTree = "<group>"; };
+		E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseGenerator.swift; sourceTree = "<group>"; };
 		E2E92FBD1CC6933A003C2757 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRouteTests.swift; sourceTree = "<group>"; };
@@ -159,6 +169,8 @@
 				E2F5C8AE1CD26FBD00793B5C /* FormRoute.swift */,
 				E2F5C8B31CD2749F00793B5C /* ParameterRoute.swift */,
 				E24188B81CD7D691009884A3 /* RedirectRoute.swift */,
+				E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */,
+				E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -180,6 +192,8 @@
 				E2F5C8B61CD274FD00793B5C /* ParameterRouteTests.swift */,
 				E2F5C8BA1CD282A200793B5C /* HTTPResponseHandlerTests.swift */,
 				E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */,
+				E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */,
+				E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -275,8 +289,10 @@
 				E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
 				E2D9C1291CC7CF3900B7B5CB /* Request.swift in Sources */,
 				E267CD751CD00F6B001AB593 /* Route.swift in Sources */,
+				E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */,
 				E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */,
 				E2F5C8AF1CD26FBD00793B5C /* FormRoute.swift in Sources */,
+				E2E2D04B1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */,
 				E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
 				E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */,
 				E267CD781CD00FF1001AB593 /* BasicRoute.swift in Sources */,
@@ -300,6 +316,7 @@
 				E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */,
 				E29B29EB1CCA841200D60B87 /* SwiftSocket.swift in Sources */,
 				E29B938C1CC83907008AEED5 /* ResponseTests.swift in Sources */,
+				E2E2D04E1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift in Sources */,
 				E2F5C8B01CD26FBD00793B5C /* FormRoute.swift in Sources */,
 				E29B29ED1CCA865C00D60B87 /* SwiftSocketTests.swift in Sources */,
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
@@ -316,9 +333,12 @@
 				E29B29E81CC83A4A00D60B87 /* Response.swift in Sources */,
 				E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
 				E2D9C12A1CC7CF3900B7B5CB /* Request.swift in Sources */,
+				E2E2D0531CDBCABB00C3BE34 /* Configuration.swift in Sources */,
+				E2E2D0501CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift in Sources */,
 				E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */,
 				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,
+				E2E2D04C1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */,
 				E267CD791CD00FF1001AB593 /* BasicRoute.swift in Sources */,
 				E2F5C8AD1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
 				E2F5C8BB1CD282A200793B5C /* HTTPResponseHandlerTests.swift in Sources */,

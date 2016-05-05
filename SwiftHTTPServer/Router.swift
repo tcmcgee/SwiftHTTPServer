@@ -11,7 +11,7 @@ class Router{
     func initializeRouterDict() {
         uriTypeDict["/method_options"]  = BasicRoute(allowedMethods: "GET,OPTIONS,HEAD,POST,PUT,DELETE")
         uriTypeDict["/method_options2"] = BasicRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/"] = BasicRoute(allowedMethods: "GET, OPTIONS")
+        uriTypeDict["/"] = DirectoryListRoute(allowedMethods: "GET, OPTIONS")
         uriTypeDict["/form"] = FormRoute(allowedMethods: "GET,OPTIONS,PUT,POST,DELETE")
         uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: "GET,OPTIONS")
         uriTypeDict["/redirect"] = RedirectRoute(allowedMethods: "GET,OPTIONS,REDIRECT")
