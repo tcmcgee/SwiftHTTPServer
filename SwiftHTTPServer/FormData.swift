@@ -1,10 +1,12 @@
-import Foundation
+#if os(Linux)
+import Glibc
+#else
+import Darwin.C
+#endif
 
 class FormData {
     
     var file = "form.txt"
-    let fileManager = NSFileManager.defaultManager()
-    
     
     func formAction(method: String, body: String?) {
         if (method == "POST" || method == "PUT") {
@@ -14,40 +16,34 @@ class FormData {
             Delete()
         }
     }
+
     func Write(string : String) {
-        if let dir : String = fileManager.currentDirectoryPath {
-            do {
-                let filePath = (dir + "/" + file)
-                try string.write(toFile: filePath, atomically: true, encoding: NSUTF8StringEncoding)
-            }
-            catch {
-                print("ERROR WRITING TO FILE")
-            }
-        }
+        let pathToFile = "./\(file)"
+        let writeFile = fopen (pathToFile, "w")
+        fputs(string, writeFile)
+        fclose(writeFile)
     }
 
     func Read() -> String {
-        var text2 : String?
-        if let dir : String = fileManager.currentDirectoryPath {
-            let filePath = (dir + "/" + file)
-            do {
-                text2 = try NSString(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) as String
-            }
-            catch {
-                text2 = ""
-            }
+        
+        let pathToFile = "./\(file)"
+        
+        if( access( pathToFile, F_OK ) == -1 ) {
+            Write(string: "")
         }
-        return text2!
+        
+        let readFile = fopen (pathToFile, "r")
+        let readString : UnsafeMutablePointer<Int8> = UnsafeMutablePointer(allocatingCapacity: 256)
+        fgets(readString, 256, readFile)
+        let string = String(cString: readString)
+        
+        return string.characters.count > 0 ? string : ""
     }
     
     func Delete() {
-        if let dir : String = fileManager.currentDirectoryPath {
-            do {
-                let filePath = (dir + "/" + file)
-                try fileManager.removeItem(atPath: filePath)
-            }
-            catch {
-            }
+        let pathToFile = "./\(file)"
+        if( access( pathToFile, F_OK ) != -1 ) {
+            unlink(pathToFile)
         }
     }
 
