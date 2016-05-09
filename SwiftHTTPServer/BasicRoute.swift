@@ -14,7 +14,8 @@ class BasicRoute: Route {
     }
     
     func getResponseBody(uri: String, method: String, requestBody: String?) -> String {
-        return "\(method) for \(uri)"
+        let bodyString: String = isAllowedMethod(method: method) ? "\(method) for \(uri)" : "405 - Method Not Allowed"
+        return bodyString
     }
     
     func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
