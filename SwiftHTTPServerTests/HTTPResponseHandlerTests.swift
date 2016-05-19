@@ -7,10 +7,11 @@ class HTTPResponseHandlerTests: XCTestCase {
     
     
     func testGetResponse(){
-        let expectedResponse = "HTTP/1.1 200 OK\r\nContent-Type: text/html; charset=UTF-8\r\n\r\nGET for /method_options"
+        let expectedResponse = "HTTP/1.1 200 OK\r\nContent-Type: text/html\r\n\r\nGET for /method_options"
         let response = responseHandler.getResponse(request: HTTPRequest)
+        let responseString = NSString(bytes: response,length: response.count, encoding: NSUTF8StringEncoding)
         
-        XCTAssertEqual(expectedResponse, response)
+        XCTAssertEqual(expectedResponse, responseString)
     }
     
     func testGetData() {

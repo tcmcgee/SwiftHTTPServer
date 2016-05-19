@@ -44,8 +44,8 @@ class ParameterRouteTests: XCTestCase {
     func testGetResponseBody() {
         let expectedResults = "variable_1 = Operators <, >, =, !=; +, -, *, &, @, #, $, [, ]: \"is that all\"? variable_2 = stuff"
         let responseBody = paramsRoute.getResponseBody(uri: URIWithParams, method: "GET", requestBody: "")
-        
-        XCTAssertEqual(responseBody, expectedResults)
+        let responseBodyString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
+        XCTAssertEqual(responseBodyString, expectedResults)
     }
 
 

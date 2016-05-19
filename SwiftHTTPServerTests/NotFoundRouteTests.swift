@@ -15,8 +15,9 @@ class NotFoundRouteTests: XCTestCase {
         let expectedResponseBody = ("404 - Not Found")
         
         let responseBody = route.getResponseBody(uri: "/testing123", method: "GET", requestBody: nil)
-        
-        XCTAssertEqual(expectedResponseBody, responseBody)
+        let responseString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
+        print("\(expectedResponseBody) \(responseString)")
+        XCTAssertEqual(expectedResponseBody, responseString!)
     }
     
     func testGetResponseStatusCode() {

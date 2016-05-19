@@ -28,7 +28,7 @@ class DirectoryListRouteTests: XCTestCase {
     
     func testGetFileNamesInFolder(){
         fopen("DirectoryListRoute.txt","w")
-        let filesArray = directoryListRoute.getFilesArray(publicDir: workingDir!)
+        let filesArray = DirectoryListRoute.getFilesArray(publicDir: workingDir!)
         
         XCTAssert(filesArray.contains("DirectoryListRoute.txt"))
         unlink("./DirectoryListRoute.txt")
@@ -38,16 +38,16 @@ class DirectoryListRouteTests: XCTestCase {
         mkdir("./testing123",0777)
         Configuration.publicDirectory = workingDir! + "testing123/"
         let response = directoryListRoute.getResponseBody(uri: "/YOLO", method: "GET", requestBody: "")
-        
-        XCTAssert(response.contains("<ul></ul>"))
+        let responseString = NSString(bytes: response,length: response.count, encoding: NSUTF8StringEncoding)
+        XCTAssert(responseString!.contains("<ul></ul>"))
         rmdir("./testing123")
     }
     
     func testGetResponseBodyWithElements(){
         Configuration.publicDirectory = workingDir!
         let response = directoryListRoute.getResponseBody(uri: "/YOLO", method: "GET", requestBody: "")
-        
-        XCTAssertFalse(response.contains("<ul></ul>"))
+        let responseString = NSString(bytes: response,length: response.count, encoding: NSUTF8StringEncoding)
+        XCTAssertFalse(responseString!.contains("<ul></ul>"))
     }
     
     func testGetResponseBody(){
@@ -55,8 +55,9 @@ class DirectoryListRouteTests: XCTestCase {
         fopen("./Show.txt","w")
         
         let response = directoryListRoute.getResponseBody(uri: "/YOLO", method: "GET", requestBody: "")
+        let responseString = NSString(bytes: response,length: response.count, encoding: NSUTF8StringEncoding)
         
-        XCTAssert(response.contains("Show.txt"))
+        XCTAssert(responseString!.contains("Show.txt"))
         unlink("./Show.txt")
     }
 
@@ -65,8 +66,9 @@ class DirectoryListRouteTests: XCTestCase {
         Configuration.publicDirectory = workingDir!
         fopen("./.noShow.txt","w")
         let response = directoryListRoute.getResponseBody(uri: "/YOLO", method: "GET", requestBody: "")
+        let responseString = NSString(bytes: response,length: response.count, encoding: NSUTF8StringEncoding)
         
-        XCTAssertFalse(response.contains("noShow.txt"))
+        XCTAssertFalse(responseString!.contains("noShow.txt"))
         unlink("./.noShow.txt")
     }
 

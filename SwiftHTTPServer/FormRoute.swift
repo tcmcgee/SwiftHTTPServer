@@ -1,18 +1,17 @@
 class FormRoute: BasicRoute {
     
-    override func getResponseBody(uri: String, method: String, requestBody: String?) -> String {
-        let formData = FormData()
-        var formBody = ""
+    override func getResponseBody(uri: String, method: String, requestBody: String?) -> [UInt8] {
+        let formData = FileOperations(file: "/form.txt", pathToDir: ".")
+        var formBody = [UInt8]()
         if (isAllowedMethod(method: method)) {
             if ((method == "POST" || method == "PUT" || method == "DELETE")) {
                 formData.formAction(method: method, body: requestBody!)
-                formBody = super.getResponseBody(uri: uri, method: method, requestBody: requestBody)
             } else if (method == "GET") {
                 formBody = formData.Read()
             }
         } else {
-            formBody = "405 - Method Not Allowed"
+            formBody = getByteArrayFromString(string: "405 - Method Not Allowed")
         }
-        return formBody
+        return removeNullBytes(byteArray: formBody)
     }
 }

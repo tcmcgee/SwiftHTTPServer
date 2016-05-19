@@ -30,10 +30,20 @@ class HTTPServer: NSObject {
                     let request : Request = Request(requestString: incomingRequestString!)
                     let responseHandler = HTTPResponseHandler()
                     let response = responseHandler.getResponse(request: request)
-                    responseHandler.sendResponse(responseData: responseHandler.getData(string: response),fileHandle: incomingFileHandle)
+                    let myData = NSData(bytes: response, length: response.count)
+                    incomingFileHandle!.write(myData)
                 }
             }
         }
         listeningHandle!.acceptConnectionInBackgroundAndNotify()
+    }
+    
+    func getByteArrayFromString(string: String) -> UnsafePointer<Int8> {
+        var myArray = [Int8]()
+        let myCString = string.cString(using: NSUTF8StringEncoding)
+        for char in myCString! {
+            myArray.append(char)
+        }
+        return UnsafePointer(myArray)
     }
 }

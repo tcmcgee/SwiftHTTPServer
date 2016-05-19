@@ -1,11 +1,3 @@
-//
-//  FormRouteTests.swift
-//  SwiftHTTPServer
-//
-//  Created by Tom McGee on 4/28/16.
-//  Copyright © 2016 Tom McGee. All rights reserved.
-//
-
 import XCTest
 
 class FormRouteTests: XCTestCase {
@@ -22,16 +14,20 @@ class FormRouteTests: XCTestCase {
         formRoute.getResponseBody(uri: "/form", method: "POST", requestBody:"Howdy")
         
         let fileContents = formRoute.getResponseBody(uri: "/form", method: "GET", requestBody:"")
-        
-        XCTAssertEqual("Howdy",fileContents)
+        let fileContentsString = NSString(bytes: fileContents,length: fileContents.count, encoding: NSUTF8StringEncoding)
+
+        XCTAssertEqual("Howdy",fileContentsString)
     }
     
     func testGetResponseBodyMethodNotAllowed() {
         formRoute = FormRoute(allowedMethods: "GET,OPTIONS,POST,PUT")
         
-        let fileContents = formRoute.getResponseBody(uri: "/form", method: "DELETE", requestBody: "")
+        let expectedResults = "405 - Method Not Allowed"
         
-        XCTAssertEqual("405 - Method Not Allowed", fileContents)
+        let fileContents = formRoute.getResponseBody(uri: "/form", method: "DELETE", requestBody: "")
+        let fileContentsString = NSString(bytes: fileContents,length: fileContents.count, encoding: NSUTF8StringEncoding)
+        
+        XCTAssertEqual(expectedResults, fileContentsString)
     }
     
 }

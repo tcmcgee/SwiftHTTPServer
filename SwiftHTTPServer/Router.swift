@@ -5,7 +5,6 @@ class Router{
     
     init(uri: String, method: String,body: String?) {
         self.uri = uri
-        initializeRouterDict()
     }
     
     func initializeRouterDict() {
@@ -15,12 +14,23 @@ class Router{
         uriTypeDict["/form"] = FormRoute(allowedMethods: "GET,OPTIONS,PUT,POST,DELETE")
         uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: "GET,OPTIONS")
         uriTypeDict["/redirect"] = RedirectRoute(allowedMethods: "GET,OPTIONS,REDIRECT")
-        uriTypeDict["/file1"] = BasicRoute(allowedMethods: "GET, OPTIONS")
-        uriTypeDict["/text-file.txt"] = BasicRoute(allowedMethods: "GET, OPTIONS")
+        uriTypeDict["/file1"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+        uriTypeDict["/text-file.txt"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+        uriTypeDict["/image.jpeg"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+        addDynamicRoutes()
     }
     
     func getRoute() -> Route {
         return uriTypeDict.get(key: uri!,defaultValue: routeNotFound)
+    }
+    
+    func addDynamicRoutes() {
+        let fileNames = DirectoryListRoute.getFilesArray(publicDir: Configuration.publicDirectory)
+        
+        
+        for file in fileNames {
+            uriTypeDict["/\(file)"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+        }
     }
     
     func setRoute(uri: String, route: Route) {

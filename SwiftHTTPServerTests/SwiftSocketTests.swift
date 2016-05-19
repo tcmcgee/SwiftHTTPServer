@@ -7,7 +7,7 @@ class SwiftSocketTests: XCTestCase {
     
     
     func testDefaultPort() {
-        XCTAssertEqual(5000, swiftSocket.defaultPort)
+        XCTAssertEqual(5000, Configuration.port)
     }
     
     func testPrepareSocketAddressPort(){

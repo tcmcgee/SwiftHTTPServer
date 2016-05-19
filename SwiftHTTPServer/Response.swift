@@ -1,11 +1,15 @@
+import Foundation
+
 class Response {
     var response: String = ""
     var statusCode: String = "200"
     var HTTPVersion: String = "HTTP/1.1"
-    var body = ""
+    var body = [UInt8]()
+    var byteResponse = [UInt8]()
     let CRLF = "\r\n"
     var headers: Dictionary<String,String> = Dictionary<String,String>()
     var reasonPhrases: Dictionary<String,String> = Dictionary<String, String>()
+    var responseLength = 0
     
     init() {
         buildReasonPhrases()
@@ -19,12 +23,13 @@ class Response {
         reasonPhrases["501"] = "Not Implemented"
     }
     
-    func GetHTTPResponse() -> String {
+    func GetHTTPResponse() -> [UInt8] {
         response += getStatusLine()
         response += getHeadersString()
-        response += getBody()
         
-        return response
+        byteResponse = getByteArrayFromString(string: response)
+        byteResponse += body
+        return byteResponse
     }
     
     func getStatusLine() -> String {
@@ -73,12 +78,26 @@ class Response {
         HTTPVersion = httpVersion
     }
 
-    func getBody() -> String {
+    func getBody() -> [UInt8] {
         return body
     }
     
-    func setBody(body: String) {
+    func setBody(body: [UInt8]) {
         self.body = body
     }
+    
+    func getByteArrayFromString(string: String) -> [UInt8] {
+        responseLength = -1
+        var myArray = [UInt8]()
+        let myCString = string.cString(using: NSUTF8StringEncoding)
+        for char in myCString! {
+            responseLength += 1
+            if (UInt8(char) != 0) {
+                myArray.append(UInt8(char))
+            }
+        }
+        return myArray
+    }
+
     
 }

@@ -1,25 +1,25 @@
 import XCTest
 
 class FormDataTests: XCTestCase {
-    var formData : FormData?
+    var fileOperations : FileOperations?
     let file = "test.txt"
     let fileManager = NSFileManager()
     
     
     override func setUp() {
         super.setUp()
-        formData = FormData()
-        formData!.file = "test.txt"
+        fileOperations = FileOperations(file: "test.txt", pathToDir: "./")
+        fileOperations!.file = "test.txt"
     }
     
     override func tearDown() {
         super.tearDown()
-        formData!.Delete()
+        fileOperations!.Delete()
     }
     
     func testWrite() {
         
-        formData!.Write(string: "TESTING")
+        fileOperations!.Write(string: "TESTING")
         
         let readText = LocalRead()
         
@@ -30,9 +30,10 @@ class FormDataTests: XCTestCase {
     func testRead() {
         LocalWrite(string: "TESTING123")
         
-        let readText = formData!.Read()
+        let readText = fileOperations!.Read()
+        let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
         
-        XCTAssertEqual(readText, "TESTING123")
+        XCTAssertEqual(readTextString, "TESTING123")
     }
     
     func testDelete() {
@@ -42,14 +43,14 @@ class FormDataTests: XCTestCase {
 
         XCTAssert(fileManager.fileExists(atPath: filePath))
         
-        formData!.Delete()
+        fileOperations!.Delete()
     
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }
     
     func testWriteFormAction() {
         
-        formData!.formAction(method: "POST", body: "TESTING")
+        fileOperations!.formAction(method: "POST", body: "TESTING")
         
         let readText = LocalRead()
         
@@ -64,7 +65,7 @@ class FormDataTests: XCTestCase {
         
         XCTAssert(fileManager.fileExists(atPath: filePath))
         
-        formData!.formAction(method: "DELETE", body: "")
+        fileOperations!.formAction(method: "DELETE", body: "")
         
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }

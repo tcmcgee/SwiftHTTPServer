@@ -10,6 +10,7 @@
 		E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188B81CD7D691009884A3 /* RedirectRoute.swift */; };
 		E24188BA1CD7D691009884A3 /* RedirectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188B81CD7D691009884A3 /* RedirectRoute.swift */; };
 		E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */; };
+		E242515F1CEDE17800F164AA /* FileServingRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */; };
 		E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */; };
 		E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
 		E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
@@ -42,6 +43,8 @@
 		E2E2D0501CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */; };
 		E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */; };
 		E2E2D0531CDBCABB00C3BE34 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */; };
+		E2E2D0551CE3804900C3BE34 /* FileServingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */; };
+		E2E2D0561CE3804900C3BE34 /* FileServingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */; };
 		E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
 		E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
 		E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
@@ -76,6 +79,7 @@
 /* Begin PBXFileReference section */
 		E24188B81CD7D691009884A3 /* RedirectRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRoute.swift; sourceTree = "<group>"; };
 		E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRouteTests.swift; sourceTree = "<group>"; };
+		E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileServingRouteTests.swift; sourceTree = "<group>"; };
 		E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoderTests.swift; sourceTree = "<group>"; };
 		E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
 		E267CD741CD00F6B001AB593 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectoryListRouteTests.swift; sourceTree = "<group>"; };
 		E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DictionaryDefaultValueTests.swift; sourceTree = "<group>"; };
 		E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileServingRoute.swift; sourceTree = "<group>"; };
 		E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseGenerator.swift; sourceTree = "<group>"; };
 		E2E92FBD1CC6933A003C2757 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRouteTests.swift; sourceTree = "<group>"; };
@@ -171,6 +176,7 @@
 				E24188B81CD7D691009884A3 /* RedirectRoute.swift */,
 				E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */,
 				E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */,
+				E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -194,6 +200,7 @@
 				E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */,
 				E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */,
 				E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */,
+				E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -288,6 +295,7 @@
 			files = (
 				E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */,
 				E2D9C1291CC7CF3900B7B5CB /* Request.swift in Sources */,
+				E2E2D0551CE3804900C3BE34 /* FileServingRoute.swift in Sources */,
 				E267CD751CD00F6B001AB593 /* Route.swift in Sources */,
 				E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */,
 				E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */,
@@ -326,6 +334,7 @@
 				E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
 				E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
+				E2E2D0561CE3804900C3BE34 /* FileServingRoute.swift in Sources */,
 				E2F5C8A51CD2588200793B5C /* NotFoundRoute.swift in Sources */,
 				E2F5C8B51CD2749F00793B5C /* ParameterRoute.swift in Sources */,
 				E267CD761CD00F6B001AB593 /* Route.swift in Sources */,
@@ -335,6 +344,7 @@
 				E2D9C12A1CC7CF3900B7B5CB /* Request.swift in Sources */,
 				E2E2D0531CDBCABB00C3BE34 /* Configuration.swift in Sources */,
 				E2E2D0501CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift in Sources */,
+				E242515F1CEDE17800F164AA /* FileServingRouteTests.swift in Sources */,
 				E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */,
 				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,

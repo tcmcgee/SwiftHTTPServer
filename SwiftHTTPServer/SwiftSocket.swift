@@ -1,8 +1,6 @@
 import Foundation
 
 class SwiftSocket: NSObject {
-    var defaultPort : UInt16 = 5000
-    var listeningHandle : NSFileHandle? = nil
     
     func getSocket(port : UInt16?) -> CFSocketNativeHandle? {
         if let socket : CFSocket = createUnboundSocket() {
@@ -29,7 +27,7 @@ class SwiftSocket: NSObject {
         var zeroAddress = sockaddr_in()
         zeroAddress.sin_len = UInt8(sizeofValue(zeroAddress))
         zeroAddress.sin_family = sa_family_t(AF_INET)
-        zeroAddress.sin_port = defaultPort.bigEndian
+        zeroAddress.sin_port = Configuration.port.bigEndian
         return zeroAddress
     }
     

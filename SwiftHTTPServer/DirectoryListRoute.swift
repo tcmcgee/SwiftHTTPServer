@@ -6,8 +6,8 @@
 
 class DirectoryListRoute: BasicRoute {
     
-    override func getResponseBody(uri: String, method: String, requestBody: String?) -> String {
-        let files = getFilesArray(publicDir: Configuration.publicDirectory)
+    override func getResponseBody(uri: String, method: String, requestBody: String?) -> [UInt8] {
+        let files = DirectoryListRoute.getFilesArray(publicDir: Configuration.publicDirectory)
         var htmlBody: String = "<!DOCTYPE html> <html> <body> <ul>"
         
         for file in files {
@@ -17,10 +17,10 @@ class DirectoryListRoute: BasicRoute {
         }
         
         htmlBody += "</ul> </body> <br> </html>"
-        return htmlBody
+        return removeNullBytes(byteArray: getByteArrayFromString(string: htmlBody))
     }
     
-    func getFilesArray(publicDir: String) -> [String] {
+    static func getFilesArray(publicDir: String) -> [String] {
         var files : [String] = [String]()
         var d : UnsafeMutablePointer<DIR>;
         

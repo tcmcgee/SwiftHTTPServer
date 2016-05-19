@@ -24,11 +24,22 @@ class RouterTests: XCTestCase {
     func testGetRoute() {
         let expectedRoute: Route = BasicRoute(allowedMethods: "GET,OPTIONS")
         router = Router(uri:"/method_options2",method:"OPTIONS",body:nil)
+        router.initializeRouterDict()
         
         let route = router.getRoute()
         
         XCTAssert(route.dynamicType == expectedRoute.dynamicType)
         XCTAssertEqual(route.getAllowedMethods(), expectedRoute.getAllowedMethods())
+    }
+    
+    func testAddDynamicRoutes() {
+        router = Router(uri: "/dynamic_rotes", method:"GET",body:nil)
+        
+        XCTAssert(router.uriTypeDict.values.count == 0)
+        
+        router.addDynamicRoutes()
+        
+        XCTAssert(router.uriTypeDict.values.count != 0)
     }
     
 }

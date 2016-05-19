@@ -76,7 +76,7 @@ class ResponseTests: XCTestCase {
     }
     
     func testGetBody() {
-        let body = "Taco"
+        let body: [UInt8] = [1,2,3,4,5,6,7,8,9,10]
         
         response!.body = body
         
@@ -85,7 +85,7 @@ class ResponseTests: XCTestCase {
     
     func testSetBody() {
         
-        let body = "Taco Party"
+        let body: [UInt8] = [5,4,3,2,1,2,3,4,5]
         
         response!.setBody(body: body)
         
@@ -118,12 +118,19 @@ class ResponseTests: XCTestCase {
         response!.headers["Host"] = "localhost:5000"
         response!.headers["Allow"] = "GET"
         response!.headers["Content-Length"] = "0"
-        response!.body = "TACO"
+        response!.body = Array("Taco".utf8)
         
-        let responseString = response!.GetHTTPResponse()
+        let responseData = response!.GetHTTPResponse()
+        let responseString = NSString(bytes: responseData,length: responseData.count, encoding: NSUTF8StringEncoding)
         
-        XCTAssertEqual(responseString, "HTTP/1.1 200 OK\r\nAllow: GET\r\nContent-Length: 0\r\nHost: localhost:5000\r\n\r\nTACO")
+        XCTAssertEqual(responseString, "HTTP/1.1 200 OK\r\nAllow: GET\r\nContent-Length: 0\r\nHost: localhost:5000\r\n\r\nTaco")
         
+    }
+    
+    func testByteArrayFromString() {
+        let byteArray = response!.getByteArrayFromString(string: "aaaa")
+        
+        XCTAssertEqual([97, 97, 97, 97], byteArray)
     }
     
 }

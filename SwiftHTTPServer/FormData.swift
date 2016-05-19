@@ -4,9 +4,16 @@ import Glibc
 import Darwin.C
 #endif
 
-class FormData {
+class FileOperations {
     
     var file = "form.txt"
+    var pathToDir = "./"
+    
+    init(file: String, pathToDir: String) {
+        self.file = file
+        self.pathToDir = pathToDir
+        
+    }
     
     func formAction(method: String, body: String?) {
         if (method == "POST" || method == "PUT") {
@@ -18,35 +25,37 @@ class FormData {
     }
 
     func Write(string : String) {
-        let pathToFile = "./\(file)"
+        let pathToFile = "\(pathToDir)\(file)"
         let writeFile = fopen (pathToFile, "w")
         fputs(string, writeFile)
         fclose(writeFile)
     }
 
-    func Read() -> String {
+    func Read() -> [UInt8] {
+        let pathToFile = "\(pathToDir)\(file)"
+        var int8Array2 = [UInt8]()
+        if( access( pathToFile, F_OK ) != -1 ) {
         
-        let pathToFile = "./\(file)"
-        
-        if( access( pathToFile, F_OK ) == -1 ) {
-            Write(string: "")
+            let readFile = fopen (pathToFile, "r")
+            while(feof(readFile) == 0){
+                let ch = fgetc(readFile)
+                if (ch != -1){
+                    int8Array2.append(UInt8(ch))
+                }
+            }
+            return int8Array2
+        } else {
+            return [UInt8]()
         }
-        
-        let readFile = fopen (pathToFile, "r")
-        let readString : UnsafeMutablePointer<Int8> = UnsafeMutablePointer(allocatingCapacity: 256)
-        fgets(readString, 256, readFile)
-        let string = String(cString: readString)
-        
-        return string.characters.count > 0 ? string : ""
     }
     
+    
     func Delete() {
-        let pathToFile = "./\(file)"
+        let pathToFile = "\(pathToDir)\(file)"
         if( access( pathToFile, F_OK ) != -1 ) {
             unlink(pathToFile)
         }
     }
-
 
 
 }
