@@ -11,6 +11,9 @@
 		E24188BA1CD7D691009884A3 /* RedirectRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188B81CD7D691009884A3 /* RedirectRoute.swift */; };
 		E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */; };
 		E242515F1CEDE17800F164AA /* FileServingRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */; };
+		E24251641CEE184400F164AA /* FileOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24251631CEE184400F164AA /* FileOperations.swift */; };
+		E24251651CEE184400F164AA /* FileOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24251631CEE184400F164AA /* FileOperations.swift */; };
+		E24251671CEE1CEC00F164AA /* FileOperationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E24251661CEE1CEC00F164AA /* FileOperationsTests.swift */; };
 		E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */; };
 		E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
 		E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */; };
@@ -26,7 +29,6 @@
 		E29B29EF1CCE60DB00D60B87 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EE1CCE60DB00D60B87 /* Router.swift */; };
 		E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EE1CCE60DB00D60B87 /* Router.swift */; };
 		E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29F31CCE61A400D60B87 /* RouterTests.swift */; };
-		E29B29F61CCE74EE00D60B87 /* FormDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29F51CCE74EE00D60B87 /* FormDataTests.swift */; };
 		E29B938C1CC83907008AEED5 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B938B1CC83907008AEED5 /* ResponseTests.swift */; };
 		E2D9C1291CC7CF3900B7B5CB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9C1281CC7CF3900B7B5CB /* Request.swift */; };
 		E2D9C12A1CC7CF3900B7B5CB /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2D9C1281CC7CF3900B7B5CB /* Request.swift */; };
@@ -47,8 +49,6 @@
 		E2E2D0561CE3804900C3BE34 /* FileServingRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */; };
 		E2E92FBB1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
 		E2E92FBC1CC68701003C2757 /* HTTPResponseGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */; };
-		E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
-		E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E92FBD1CC6933A003C2757 /* FormData.swift */; };
 		E2F5C8A21CD247AC00793B5C /* BasicRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */; };
 		E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8A31CD2588200793B5C /* NotFoundRoute.swift */; };
 		E2F5C8A51CD2588200793B5C /* NotFoundRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F5C8A31CD2588200793B5C /* NotFoundRoute.swift */; };
@@ -80,6 +80,8 @@
 		E24188B81CD7D691009884A3 /* RedirectRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRoute.swift; sourceTree = "<group>"; };
 		E24188BB1CD7D83F009884A3 /* RedirectRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedirectRouteTests.swift; sourceTree = "<group>"; };
 		E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileServingRouteTests.swift; sourceTree = "<group>"; };
+		E24251631CEE184400F164AA /* FileOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileOperations.swift; sourceTree = "<group>"; };
+		E24251661CEE1CEC00F164AA /* FileOperationsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileOperationsTests.swift; sourceTree = "<group>"; };
 		E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoderTests.swift; sourceTree = "<group>"; };
 		E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterDecoder.swift; sourceTree = "<group>"; };
 		E267CD741CD00F6B001AB593 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -89,7 +91,6 @@
 		E29B29EC1CCA865C00D60B87 /* SwiftSocketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSocketTests.swift; sourceTree = "<group>"; };
 		E29B29EE1CCE60DB00D60B87 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E29B29F31CCE61A400D60B87 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
-		E29B29F51CCE74EE00D60B87 /* FormDataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormDataTests.swift; sourceTree = "<group>"; };
 		E29B938B1CC83907008AEED5 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		E2D9C1281CC7CF3900B7B5CB /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		E2D9C12E1CC7D08F00B7B5CB /* RequestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTests.swift; sourceTree = "<group>"; };
@@ -106,7 +107,6 @@
 		E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileServingRoute.swift; sourceTree = "<group>"; };
 		E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPResponseGenerator.swift; sourceTree = "<group>"; };
-		E2E92FBD1CC6933A003C2757 /* FormData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormData.swift; sourceTree = "<group>"; };
 		E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRouteTests.swift; sourceTree = "<group>"; };
 		E2F5C8A31CD2588200793B5C /* NotFoundRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFoundRoute.swift; sourceTree = "<group>"; };
 		E2F5C8A61CD2590E00793B5C /* NotFoundRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotFoundRouteTests.swift; sourceTree = "<group>"; };
@@ -161,7 +161,6 @@
 				E2E15EB71CC524400054DA4F /* HttpServer.swift */,
 				E2E15EBA1CC53D040054DA4F /* HTTPResponseHandler.swift */,
 				E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */,
-				E2E92FBD1CC6933A003C2757 /* FormData.swift */,
 				E2D9C1281CC7CF3900B7B5CB /* Request.swift */,
 				E29B29E61CC83A4A00D60B87 /* Response.swift */,
 				E29B29E91CCA841200D60B87 /* SwiftSocket.swift */,
@@ -177,6 +176,7 @@
 				E2E2D04A1CDBAA2F00C3BE34 /* DirectoryListRoute.swift */,
 				E2E2D0511CDBCABB00C3BE34 /* Configuration.swift */,
 				E2E2D0541CE3804900C3BE34 /* FileServingRoute.swift */,
+				E24251631CEE184400F164AA /* FileOperations.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -190,7 +190,6 @@
 				E29B938B1CC83907008AEED5 /* ResponseTests.swift */,
 				E29B29EC1CCA865C00D60B87 /* SwiftSocketTests.swift */,
 				E29B29F31CCE61A400D60B87 /* RouterTests.swift */,
-				E29B29F51CCE74EE00D60B87 /* FormDataTests.swift */,
 				E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */,
 				E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */,
 				E2F5C8A61CD2590E00793B5C /* NotFoundRouteTests.swift */,
@@ -201,6 +200,7 @@
 				E2E2D04D1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift */,
 				E2E2D04F1CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift */,
 				E242515E1CEDE17800F164AA /* FileServingRouteTests.swift */,
+				E24251661CEE1CEC00F164AA /* FileOperationsTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -300,6 +300,7 @@
 				E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */,
 				E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */,
 				E2F5C8AF1CD26FBD00793B5C /* FormRoute.swift in Sources */,
+				E24251641CEE184400F164AA /* FileOperations.swift in Sources */,
 				E2E2D04B1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */,
 				E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
 				E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */,
@@ -308,7 +309,6 @@
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29EF1CCE60DB00D60B87 /* Router.swift in Sources */,
 				E2E15EA31CC523C80054DA4F /* main.swift in Sources */,
-				E2E92FBE1CC6933A003C2757 /* FormData.swift in Sources */,
 				E2E15EBB1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
 				E29B29E71CC83A4A00D60B87 /* Response.swift in Sources */,
 				E2F5C8AC1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
@@ -330,7 +330,7 @@
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */,
 				E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */,
-				E29B29F61CCE74EE00D60B87 /* FormDataTests.swift in Sources */,
+				E24251671CEE1CEC00F164AA /* FileOperationsTests.swift in Sources */,
 				E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
 				E267CD731CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
@@ -347,10 +347,10 @@
 				E242515F1CEDE17800F164AA /* FileServingRouteTests.swift in Sources */,
 				E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */,
 				E2E15EBC1CC53D040054DA4F /* HTTPResponseHandler.swift in Sources */,
-				E2E92FBF1CC6933A003C2757 /* FormData.swift in Sources */,
 				E2E2D04C1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */,
 				E267CD791CD00FF1001AB593 /* BasicRoute.swift in Sources */,
 				E2F5C8AD1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
+				E24251651CEE184400F164AA /* FileOperations.swift in Sources */,
 				E2F5C8BB1CD282A200793B5C /* HTTPResponseHandlerTests.swift in Sources */,
 				E2F5C8A71CD2590E00793B5C /* NotFoundRouteTests.swift in Sources */,
 				E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */,

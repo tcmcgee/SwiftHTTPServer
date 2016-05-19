@@ -36,15 +36,43 @@ class FormDataTests: XCTestCase {
         XCTAssertEqual(readTextString, "TESTING123")
     }
     
+    func testReadPartialWholeFile() {
+        LocalWrite(string: "This is partial content")
+        
+        let readText = fileOperations!.ReadPartial(start: 0, end: -2 )
+        let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
+        
+        XCTAssertEqual("This is partial content", readTextString)
+    }
+    
+    
+    func testReadPartialFile() {
+        LocalWrite(string: "This is partial content")
+        
+        let readText = fileOperations!.ReadPartial(start: 0, end: 4 )
+        let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
+        
+        XCTAssertEqual("This ", readTextString)
+    }
+    
+    func testReadPartialOffsetToEnd() {
+        LocalWrite(string: "This is partial content")
+        
+        let readText = fileOperations!.ReadPartial(start: 4, end: -2 )
+        let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
+        
+        XCTAssertEqual(" is partial content", readTextString)
+    }
+    
     func testDelete() {
         LocalWrite(string: "_")
         let filePath = fileManager.currentDirectoryPath + "/" + file
         
-
+        
         XCTAssert(fileManager.fileExists(atPath: filePath))
         
         fileOperations!.Delete()
-    
+        
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }
     
@@ -69,10 +97,10 @@ class FormDataTests: XCTestCase {
         
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }
-
-
-
-///////////// HELPERS /////////////
+    
+    
+    
+    ///////////// HELPERS /////////////
     
     func LocalWrite(string : String) {
         if let dir : String = fileManager.currentDirectoryPath {
@@ -101,5 +129,5 @@ class FormDataTests: XCTestCase {
         }
         return text2!
     }
-
+    
 }

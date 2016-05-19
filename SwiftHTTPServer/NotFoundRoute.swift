@@ -1,6 +1,6 @@
 class NotFoundRoute: BasicRoute {
     
-    override func getResponseBody(uri: String, method: String, requestBody: String?) -> [UInt8] {
+    override func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
         return removeNullBytes(byteArray: getByteArrayFromString(string: "404 - Not Found"))
     }
     

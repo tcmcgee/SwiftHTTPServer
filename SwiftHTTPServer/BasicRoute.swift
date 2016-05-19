@@ -17,7 +17,7 @@ class BasicRoute: Route {
         return getAllowedMethods().contains(method)
     }
     
-    func getResponseBody(uri: String, method: String, requestBody: String?) -> [UInt8] {
+    func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
         let bodyString: String = isAllowedMethod(method: method) ? "\(method) for \(uri)" : "405 - Method Not Allowed"
         return removeNullBytes(byteArray: getByteArrayFromString(string: bodyString))
     }

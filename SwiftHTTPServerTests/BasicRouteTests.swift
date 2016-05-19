@@ -24,7 +24,7 @@ class BasicRouteTests: XCTestCase {
         let route = BasicRoute(allowedMethods: "GET,OPTIONS")
         let expectedResponseBody = ("GET for /testing123")
         
-        let responseBody = route.getResponseBody(uri: "/testing123", method: "GET", requestBody: nil)
+        let responseBody = route.getResponseBody(uri: "/testing123", method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: nil)
         let responseBodyString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual(responseBodyString, expectedResponseBody)

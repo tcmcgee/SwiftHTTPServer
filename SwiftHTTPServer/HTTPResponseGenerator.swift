@@ -1,15 +1,15 @@
 class HTTPResponseGenerator {
 
-    func generateResponse(URI : String?, baseURI: String, method : String, body : String? ) -> [UInt8] {
+    func generateResponse(URI : String?, baseURI: String, method : String, body : String?, requestHeaders: Dictionary<String, String> ) -> [UInt8] {
         let router = Router(uri: baseURI, method: method, body: body)
         router.initializeRouterDict()
         let route = router.getRoute()
         let response = Response()
-    
-        response.setStatusCode(statusCode: route.getResponseStatusCode(method: method))
         
-        let bodyString = route.getResponseBody(uri: URI!, method: method, requestBody: body)
+        let bodyString = route.getResponseBody(uri: URI!, method: method, requestHeaders: requestHeaders, requestBody: body)
         response.setBody(body: bodyString)
+        
+        response.setStatusCode(statusCode: route.getResponseStatusCode(method: method))
         
         let headers = route.getResponseHeaders(uri:baseURI,method: method, requestBody: body)
         for header in headers {
