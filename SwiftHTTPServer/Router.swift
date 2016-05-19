@@ -29,7 +29,7 @@ class Router{
         
         
         for file in fileNames {
-            uriTypeDict["/\(file)"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+            uriTypeDict["/\(file)"] = FileServingRoute(allowedMethods: "GET,OPTIONS,PATCH")
         }
     }
     

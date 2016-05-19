@@ -17,6 +17,7 @@ class Response {
     
     func buildReasonPhrases() {
         reasonPhrases["200"] = "OK"
+        reasonPhrases["204"] = "No Content"
         reasonPhrases["206"] = "Partial Content"
         reasonPhrases["302"] = "See Other"
         reasonPhrases["404"] = "Not Found"

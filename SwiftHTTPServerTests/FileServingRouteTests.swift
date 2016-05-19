@@ -78,5 +78,26 @@ class FileServingRouteTests: XCTestCase {
         XCTAssertEqual(expectedStartIndex, startIndex)
         XCTAssertEqual(expectedEndIndex, endIndex)
     }
+    
+    func testGetStatusCodeAfterPatchRequest() {
+        let fileServingRoute = FileServingRoute(allowedMethods: "GET,PATCH")
+        let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
+        fileServingRoute.getResponseBody(uri: "/blah", method: "PATCH", requestHeaders: requestHeaders, requestBody: "")
+        
+        XCTAssertEqual("204", fileServingRoute.getResponseStatusCode(method: "PATCH"))
+    }
+    
+    func testGetETagHeaderAfterPatchRequest() {
+        let fileServingRoute = FileServingRoute(allowedMethods: "GET,PATCH")
+        let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
+        let expectedResponseHeaders: Dictionary<String,String> = ["ETag": "12345"]
+        
+        fileServingRoute.getResponseBody(uri: "/blah", method: "PATCH", requestHeaders: requestHeaders, requestBody: "")
+        
+        let responseHeaders = fileServingRoute.getResponseHeaders(uri: "/blah", method: "PATCH", requestBody: "")
+        
+        
+        XCTAssertEqual(expectedResponseHeaders, responseHeaders)
+    }
 
 }

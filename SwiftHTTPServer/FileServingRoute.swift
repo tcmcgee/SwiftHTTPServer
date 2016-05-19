@@ -1,27 +1,37 @@
 class FileServingRoute: BasicRoute {
     
     var statusCode = "200"
-    
+    var eTag: String? = nil
     override func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
         let fileOperations = FileOperations(file: uri, pathToDir: Configuration.publicDirectory)
-        let range = requestHeaders.get(key: "Range", defaultValue: "")
-        
         let contents: [UInt8]
-        if (range == "") {
-            contents = fileOperations.Read()
+        if (method == "GET") {
+            let range = requestHeaders.get(key: "Range", defaultValue: "")
+            
+            if (range == "") {
+                contents = fileOperations.Read()
+            } else {
+                statusCode = "206"
+                let startIndex = getRangeIndex(range: range, beginning: true)
+                let endIndex = getRangeIndex(range: range, beginning: false)
+                contents = fileOperations.ReadPartial(start: startIndex, end: endIndex)
+            }
+        } else if (method == "PATCH") {
+            statusCode = "204"
+            fileOperations.Write(string: requestBody!)
+            eTag = requestHeaders.get(key: "If-Match", defaultValue: "")
+            contents = super.getResponseBody(uri: uri, method: method, requestHeaders: requestHeaders, requestBody: requestBody)
         } else {
-            statusCode = "206"
-            let startIndex = getRangeIndex(range: range, beginning: true)
-            let endIndex = getRangeIndex(range: range, beginning: false)
-            contents = fileOperations.ReadPartial(start: startIndex, end: endIndex)
+            contents = super.getResponseBody(uri: uri, method: method, requestHeaders: requestHeaders, requestBody: requestBody)
         }
-        
         return contents
     }
     
     override func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
-        
+        if (method == "PATCH"){
+            headers["ETag"] = eTag!
+        }
         if (method == "OPTIONS") {
             headers["Allow"] = allowedMethods!.joined(separator: ",")
         }
