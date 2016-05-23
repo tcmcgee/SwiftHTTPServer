@@ -1,3 +1,4 @@
 build/
 form.txt
 SwiftHTTPServer.xcodeproj/xcuserdata/*
+logs/log.txt

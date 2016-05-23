@@ -11,6 +11,7 @@ before_install:
   - cd ..
   - xcodebuild -configuration Release
 script:
-  - xcodebuild -scheme SwiftHTTPServer -configuration Release test
   - cd cob_spec
-  - java -jar fitnesse.jar -c "HttpTestSuite.PassingTests?suite&format=text"
+  - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
+  - cd ..
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release test

@@ -87,7 +87,7 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-p 5000 -d /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/cob_spec/public"
+            argument = "-p 5000 -d /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/cob_spec/public -l /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/logs"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

@@ -31,6 +31,13 @@ class FileOperations {
         fclose(writeFile)
     }
     
+    func Append(string: String) {
+        let pathToFile = "\(pathToDir)\(file)"
+        let writeFile = fopen (pathToFile, "a")
+        fputs(string, writeFile)
+        fclose(writeFile)
+    }
+    
     func Read() -> [UInt8] {
         let pathToFile = "\(pathToDir)\(file)"
         var int8Array2 = [UInt8]()
@@ -48,6 +55,7 @@ class FileOperations {
             return [UInt8]()
         }
     }
+    
     
     func ReadPartial(start: Int, end: Int) -> [UInt8] {
         let pathToFile = "\(pathToDir)\(file)"

@@ -17,6 +17,7 @@ class Router{
         uriTypeDict["/file1"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
         uriTypeDict["/text-file.txt"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
         uriTypeDict["/image.jpeg"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
+        uriTypeDict["/logs"] = BasicAuthRoute(allowedMethods: "GET")
         addDynamicRoutes()
     }
     

@@ -1,6 +1,7 @@
 class Request{
     
     var method = ""
+    var statusLine = ""
     var URI : String? = ""
     var body: String?
     var baseURI: String? = ""
@@ -8,7 +9,7 @@ class Request{
     
     init(requestString : String) {
         let head = getHead(requestString: requestString)
-        let statusLine = getStatusLine(head: head)
+        statusLine = getStatusLine(head: head)
         
         method = getMethod(statusLine: statusLine)
         URI = getURI(statusLine: statusLine)

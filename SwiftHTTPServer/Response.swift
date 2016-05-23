@@ -20,6 +20,7 @@ class Response {
         reasonPhrases["204"] = "No Content"
         reasonPhrases["206"] = "Partial Content"
         reasonPhrases["302"] = "See Other"
+        reasonPhrases["401"] = "Unauthorized"
         reasonPhrases["404"] = "Not Found"
         reasonPhrases["405"] = "Not Allowed"
         reasonPhrases["501"] = "Not Implemented"
