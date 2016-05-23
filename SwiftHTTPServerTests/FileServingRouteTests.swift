@@ -18,6 +18,14 @@ class FileServingRouteTests: XCTestCase {
         XCTAssertEqual("206", fileServingRoute.getResponseStatusCode(method: "GET"))
     }
     
+    func testGetStatusCodeErrorAfterInvalidPartialRequest() {
+        let fileServingRoute = FileServingRoute(allowedMethods: "GET")
+        let requestHeaders: Dictionary<String,String> = ["Range": "bytes=30-1"]
+        fileServingRoute.getResponseBody(uri: "/blah", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        
+        XCTAssertEqual("416", fileServingRoute.getResponseStatusCode(method: "GET"))
+    }
+    
     func testGetStatusCodeWithoutPartialRequest() {
         let fileServingRoute = FileServingRoute(allowedMethods: "GET")
         fileServingRoute.getResponseBody(uri: "/blah", method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: "")

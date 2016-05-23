@@ -11,10 +11,7 @@ class FileServingRoute: BasicRoute {
             if (range == "") {
                 contents = fileOperations.Read()
             } else {
-                statusCode = "206"
-                let startIndex = getRangeIndex(range: range, beginning: true)
-                let endIndex = getRangeIndex(range: range, beginning: false)
-                contents = fileOperations.ReadPartial(start: startIndex, end: endIndex)
+                contents = getPartialContent(fileOperations: fileOperations, range: range)
             }
         } else if (method == "PATCH") {
             statusCode = "204"
@@ -46,12 +43,25 @@ class FileServingRoute: BasicRoute {
         }
     }
     
+    func getPartialContent(fileOperations: FileOperations, range: String) -> [UInt8]{
+        statusCode = "206"
+        let startIndex = getRangeIndex(range: range, beginning: true)
+        let endIndex = getRangeIndex(range: range, beginning: false)
+        
+        if (startIndex > endIndex || startIndex < 0 || endIndex < 0) {
+            statusCode = "416"
+        }
+        
+        return fileOperations.ReadPartial(start: startIndex, end: endIndex)
+    }
+    
     
     func getRangeIndex(range: String, beginning: Bool ) -> Int {
         let rangeString: String = String(range.characters.split(separator: "=")[1])
         
         var start = true
         var indexString = ""
+        
         for char in rangeString.characters {
             if (char == "-") {
                 start = false
@@ -77,6 +87,7 @@ class FileServingRoute: BasicRoute {
         if (indexString == "" && !beginning) {
             index = -2
         }
+        
         return index
     }
 

@@ -23,6 +23,7 @@ class Response {
         reasonPhrases["401"] = "Unauthorized"
         reasonPhrases["404"] = "Not Found"
         reasonPhrases["405"] = "Not Allowed"
+        reasonPhrases["416"] = "Requested range not satisfiable"
         reasonPhrases["501"] = "Not Implemented"
     }
     

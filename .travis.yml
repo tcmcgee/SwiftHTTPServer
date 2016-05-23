@@ -14,4 +14,4 @@ script:
   - cd cob_spec
   - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
   - cd ..
-  - xcodebuild -scheme SwiftHTTPServer -configuration Release test
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test
