@@ -48,7 +48,7 @@ class FileServingRoute: BasicRoute {
         let startIndex = getRangeIndex(range: range, beginning: true)
         let endIndex = getRangeIndex(range: range, beginning: false)
         
-        if (startIndex > endIndex || startIndex < 0 || endIndex < 0) {
+        if ((endIndex < startIndex || startIndex < 0 || endIndex < 0) && endIndex != -2) {
             statusCode = "416"
         }
         

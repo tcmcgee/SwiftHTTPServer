@@ -68,6 +68,8 @@ class BasicAuthRouteTests: XCTestCase {
     
     func testGetReponseBodyWithCorrectCredentials() {
         let authRoute = BasicAuthRoute(allowedMethods: "GET,OPTIONS")
+        let logger = Logger(fileName: "/log.txt",pathToDir: Configuration.logDirectory)
+        logger.log(string: "GET /method_options HTTP/1.1")
         let requestHeaders: Dictionary<String,String> = ["Authorization":"auth YWRtaW46aHVudGVyMg=="]
         
         let responseBody = authRoute.getResponseBody(uri: "/Logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")

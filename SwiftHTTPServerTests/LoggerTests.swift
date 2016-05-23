@@ -7,7 +7,7 @@ class LoggerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        fileOperations.Write(string: "")
+        fileOperations.Write(string: "TEST")
     }
     
     override func tearDown() {
