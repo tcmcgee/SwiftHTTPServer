@@ -9,8 +9,10 @@ before_install:
   - cd cob_spec
   - mvn package
   - cd ..
+  - open -a "simulator" --args -CurrentDeviceUDID 00000000-0000-1000-8000-005056A6DCD8
 script:
-  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift clean build
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test | xcpretty -c && exit ${PIPESTATUS[0]}
   - cd cob_spec
   - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
   - cd ..

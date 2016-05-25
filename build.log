@@ -1,0 +1,266 @@
+=== BUILD TARGET SwiftHTTPServerTests OF PROJECT SwiftHTTPServer WITH CONFIGURATION Release ===
+
+Check dependencies
+
+=== BUILD TARGET SwiftHTTPServer OF PROJECT SwiftHTTPServer WITH CONFIGURATION Release ===
+
+Check dependencies
+
+Test Suite 'All tests' started at 2016-05-25 09:34:17.309
+Test Suite 'SwiftHTTPServerTests.xctest' started at 2016-05-25 09:34:17.310
+Test Suite 'BasicAuthRouteTests' started at 2016-05-25 09:34:17.311
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testDecodeBase64]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testDecodeBase64]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithCorrectHeader]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithCorrectHeader]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithIncorrectHeader]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithIncorrectHeader]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithoutHeader]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetAuthorizedWithoutHeader]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetReponseBodyWithCorrectCredentials]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetReponseBodyWithCorrectCredentials]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetReponseBodyWithIncorrectCredentials]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetReponseBodyWithIncorrectCredentials]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetResponseBodyWithOutCredentials]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetResponseBodyWithOutCredentials]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetStatusCodeWithCorrectCredentials]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetStatusCodeWithCorrectCredentials]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetStatusCodeWithoutCredentials]' started.
+Test Case '-[SwiftHTTPServerTests.BasicAuthRouteTests testGetStatusCodeWithoutCredentials]' passed (0.000 seconds).
+Test Suite 'BasicAuthRouteTests' passed at 2016-05-25 09:34:17.321.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.006 (0.010) seconds
+Test Suite 'BasicRouteTests' started at 2016-05-25 09:34:17.321
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testBasicRouteInitializedWithAllowedMethods]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testBasicRouteInitializedWithAllowedMethods]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetAllowedMethods]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetAllowedMethods]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetBody]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetBody]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetByteArrayFromString]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetByteArrayFromString]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseHeaders]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseHeaders]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseStatusCode]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseStatusCode]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseStatusCodeNotAllowed]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testGetResponseStatusCodeNotAllowed]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testIsAllowedMethod]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testIsAllowedMethod]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testRemoveNullBytesFromByteArray]' started.
+Test Case '-[SwiftHTTPServerTests.BasicRouteTests testRemoveNullBytesFromByteArray]' passed (0.000 seconds).
+Test Suite 'BasicRouteTests' passed at 2016-05-25 09:34:17.330.
+	 Executed 9 tests, with 0 failures (0 unexpected) in 0.004 (0.008) seconds
+Test Suite 'DictionaryDefaultValueTests' started at 2016-05-25 09:34:17.330
+Test Case '-[SwiftHTTPServerTests.DictionaryDefaultValueTests testDictionaryReturnsWithDefaultValue]' started.
+Test Case '-[SwiftHTTPServerTests.DictionaryDefaultValueTests testDictionaryReturnsWithDefaultValue]' passed (0.000 seconds).
+Test Suite 'DictionaryDefaultValueTests' passed at 2016-05-25 09:34:17.331.
+	 Executed 1 test, with 0 failures (0 unexpected) in 0.000 (0.001) seconds
+Test Suite 'DirectoryListRouteTests' started at 2016-05-25 09:34:17.332
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetFileNamesInFolder]' started.
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetFileNamesInFolder]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBody]' started.
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBody]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyNoDots]' started.
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyNoDots]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyNoElements]' started.
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyNoElements]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyWithElements]' started.
+Test Case '-[SwiftHTTPServerTests.DirectoryListRouteTests testGetResponseBodyWithElements]' passed (0.000 seconds).
+Test Suite 'DirectoryListRouteTests' passed at 2016-05-25 09:34:17.337.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.003 (0.006) seconds
+Test Suite 'FileServingRouteTests' started at 2016-05-25 09:34:17.338
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetETagHeaderAfterPatchRequest]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetETagHeaderAfterPatchRequest]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetHeaders]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetHeaders]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeEnd]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeEnd]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeEndNoVal]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeEndNoVal]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStart]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStart]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStartEndNoVals]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStartEndNoVals]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStartNoVal]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetRangeStartNoVal]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeAfterPartialRequest]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeAfterPartialRequest]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeAfterPatchRequest]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeAfterPatchRequest]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeErrorAfterInvalidPartialRequest]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeErrorAfterInvalidPartialRequest]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeWithoutPartialRequest]' started.
+Test Case '-[SwiftHTTPServerTests.FileServingRouteTests testGetStatusCodeWithoutPartialRequest]' passed (0.000 seconds).
+Test Suite 'FileServingRouteTests' passed at 2016-05-25 09:34:17.348.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.005 (0.010) seconds
+Test Suite 'FormDataTests' started at 2016-05-25 09:34:17.349
+Test Case '-[SwiftHTTPServerTests.FormDataTests testDelete]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testDelete]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testDeleteFormAction]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testDeleteFormAction]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testRead]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testRead]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialFile]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialFile]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialOffsetToEnd]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialOffsetToEnd]' passed (0.002 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialWholeFile]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testReadPartialWholeFile]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testWrite]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testWrite]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormDataTests testWriteFormAction]' started.
+Test Case '-[SwiftHTTPServerTests.FormDataTests testWriteFormAction]' passed (0.001 seconds).
+Test Suite 'FormDataTests' passed at 2016-05-25 09:34:17.361.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.008 (0.012) seconds
+Test Suite 'FormRouteTests' started at 2016-05-25 09:34:17.361
+Test Case '-[SwiftHTTPServerTests.FormRouteTests testGetResponseBody]' started.
+Test Case '-[SwiftHTTPServerTests.FormRouteTests testGetResponseBody]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.FormRouteTests testGetResponseBodyMethodNotAllowed]' started.
+Test Case '-[SwiftHTTPServerTests.FormRouteTests testGetResponseBodyMethodNotAllowed]' passed (0.000 seconds).
+Test Suite 'FormRouteTests' passed at 2016-05-25 09:34:17.363.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'HTTPResponseHandlerTests' started at 2016-05-25 09:34:17.364
+Test Case '-[SwiftHTTPServerTests.HTTPResponseHandlerTests testGetData]' started.
+Test Case '-[SwiftHTTPServerTests.HTTPResponseHandlerTests testGetData]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.HTTPResponseHandlerTests testGetResponse]' started.
+Test Case '-[SwiftHTTPServerTests.HTTPResponseHandlerTests testGetResponse]' passed (0.001 seconds).
+Test Suite 'HTTPResponseHandlerTests' passed at 2016-05-25 09:34:17.367.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'LoggerTests' started at 2016-05-25 09:34:17.367
+Test Case '-[SwiftHTTPServerTests.LoggerTests testLog]' started.
+Test Case '-[SwiftHTTPServerTests.LoggerTests testLog]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.LoggerTests testLogKeepsContents]' started.
+Test Case '-[SwiftHTTPServerTests.LoggerTests testLogKeepsContents]' passed (0.001 seconds).
+Test Suite 'LoggerTests' passed at 2016-05-25 09:34:17.370.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.002 (0.003) seconds
+Test Suite 'NotFoundRouteTests' started at 2016-05-25 09:34:17.371
+Test Case '-[SwiftHTTPServerTests.NotFoundRouteTests testGetBody]' started.
+404 - Not Found Optional(404 - Not Found)
+Test Case '-[SwiftHTTPServerTests.NotFoundRouteTests testGetBody]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.NotFoundRouteTests testGetResponseStatusCode]' started.
+Test Case '-[SwiftHTTPServerTests.NotFoundRouteTests testGetResponseStatusCode]' passed (0.000 seconds).
+Test Suite 'NotFoundRouteTests' passed at 2016-05-25 09:34:17.373.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'ParameterDecoderTests' started at 2016-05-25 09:34:17.373
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testDoesNotHaveParameters]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testDoesNotHaveParameters]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testDoesntSplit]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testDoesntSplit]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetBaseURI]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetBaseURI]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetCharFromURLEncoding]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetCharFromURLEncoding]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetDecodedParameters]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetDecodedParameters]' passed (0.008 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetInitialReplacements]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetInitialReplacements]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetNoParams]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetNoParams]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetParameters]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testGetParameters]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testHasParameters]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testHasParameters]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testSplit]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterDecoderTests testSplit]' passed (0.000 seconds).
+Test Suite 'ParameterDecoderTests' passed at 2016-05-25 09:34:17.389.
+	 Executed 10 tests, with 0 failures (0 unexpected) in 0.011 (0.016) seconds
+Test Suite 'ParameterRouteTests' started at 2016-05-25 09:34:17.390
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testExtensionOfBasicRouteReturnsCorrectOptionsHeader]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testExtensionOfBasicRouteReturnsCorrectOptionsHeader]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testGetAllowedMethods]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testGetAllowedMethods]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testGetResponseBody]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testGetResponseBody]' passed (0.004 seconds).
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testIsAllowedMethods]' started.
+Test Case '-[SwiftHTTPServerTests.ParameterRouteTests testIsAllowedMethods]' passed (0.000 seconds).
+Test Suite 'ParameterRouteTests' passed at 2016-05-25 09:34:17.397.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.006 (0.007) seconds
+Test Suite 'RedirectRouteTests' started at 2016-05-25 09:34:17.397
+Test Case '-[SwiftHTTPServerTests.RedirectRouteTests testGetHeaders]' started.
+Test Case '-[SwiftHTTPServerTests.RedirectRouteTests testGetHeaders]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RedirectRouteTests testGetStatusCode]' started.
+Test Case '-[SwiftHTTPServerTests.RedirectRouteTests testGetStatusCode]' passed (0.000 seconds).
+Test Suite 'RedirectRouteTests' passed at 2016-05-25 09:34:17.399.
+	 Executed 2 tests, with 0 failures (0 unexpected) in 0.001 (0.002) seconds
+Test Suite 'RequestTests' started at 2016-05-25 09:34:17.400
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetBody]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetBody]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHead]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHead]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHeader]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHeader]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHeaders]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHeaders]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHTTPVersion]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetHTTPVersion]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetMethod]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetMethod]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetStatusLine]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetStatusLine]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetURI]' started.
+Test Case '-[SwiftHTTPServerTests.RequestTests testGetURI]' passed (0.000 seconds).
+Test Suite 'RequestTests' passed at 2016-05-25 09:34:17.407.
+	 Executed 8 tests, with 0 failures (0 unexpected) in 0.004 (0.007) seconds
+Test Suite 'ResponseTests' started at 2016-05-25 09:34:17.407
+Test Case '-[SwiftHTTPServerTests.ResponseTests testAddHeader]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testAddHeader]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testByteArrayFromString]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testByteArrayFromString]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetBody]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetBody]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeader]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeader]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeadersString]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeadersString]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeaderThatsNotDefinited]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHeaderThatsNotDefinited]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHTTPResponse]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHTTPResponse]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHTTPVersion]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetHTTPVersion]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetResponse]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetResponse]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetStatusCode]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetStatusCode]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetStatusLine]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testGetStatusLine]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetBody]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetBody]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetHTTPVersion]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetHTTPVersion]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetResponse]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetResponse]' passed (0.002 seconds).
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetStatusCode]' started.
+Test Case '-[SwiftHTTPServerTests.ResponseTests testSetStatusCode]' passed (0.000 seconds).
+Test Suite 'ResponseTests' passed at 2016-05-25 09:34:17.420.
+	 Executed 15 tests, with 0 failures (0 unexpected) in 0.007 (0.013) seconds
+Test Suite 'RouterTests' started at 2016-05-25 09:34:17.420
+Test Case '-[SwiftHTTPServerTests.RouterTests testAddDynamicRoutes]' started.
+Test Case '-[SwiftHTTPServerTests.RouterTests testAddDynamicRoutes]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.RouterTests testGetRoute]' started.
+Test Case '-[Sw** TEST SUCCEEDED **
+
+iftHTTPServerTests.RouterTests testGetRoute]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.RouterTests testInitialiazeRouterDict]' started.
+Test Case '-[SwiftHTTPServerTests.RouterTests testInitialiazeRouterDict]' passed (0.001 seconds).
+Test Case '-[SwiftHTTPServerTests.RouterTests testSetRoute]' started.
+Test Case '-[SwiftHTTPServerTests.RouterTests testSetRoute]' passed (0.000 seconds).
+Test Suite 'RouterTests' passed at 2016-05-25 09:34:17.424.
+	 Executed 4 tests, with 0 failures (0 unexpected) in 0.002 (0.004) seconds
+Test Suite 'SwiftSocketTests' started at 2016-05-25 09:34:17.425
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testDefaultPort]' started.
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testDefaultPort]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressDefaultSinFamily]' started.
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressDefaultSinFamily]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressIsLocalHost]' started.
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressIsLocalHost]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressLength]' started.
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressLength]' passed (0.000 seconds).
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressPort]' started.
+Test Case '-[SwiftHTTPServerTests.SwiftSocketTests testPrepareSocketAddressPort]' passed (0.000 seconds).
+Test Suite 'SwiftSocketTests' passed at 2016-05-25 09:34:17.428.
+	 Executed 5 tests, with 0 failures (0 unexpected) in 0.002 (0.004) seconds
+Test Suite 'SwiftHTTPServerTests.xctest' passed at 2016-05-25 09:34:17.429.
+	 Executed 99 tests, with 0 failures (0 unexpected) in 0.065 (0.119) seconds
+Test Suite 'All tests' passed at 2016-05-25 09:34:17.431.
+	 Executed 99 tests, with 0 failures (0 unexpected) in 0.065 (0.122) seconds
