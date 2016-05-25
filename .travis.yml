@@ -11,7 +11,7 @@ before_install:
   - cd ..
   - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift clean build
 script:
-  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test | xcpretty -c && exit ${PIPESTATUS[0]}
+  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test
   - cd cob_spec
   - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
   - cd ..
