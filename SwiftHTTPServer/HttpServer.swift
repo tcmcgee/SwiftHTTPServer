@@ -16,6 +16,10 @@ class HTTPServer: NSObject {
         
     }
     
+    func stop() {
+        CFRunLoopStop(CFRunLoopGetCurrent())
+    }
+    
     func prepareListeningHandle(nativeSocket: CFSocketNativeHandle) {
         listeningHandle = NSFileHandle(fileDescriptor: nativeSocket, closeOnDealloc: true)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(receiveIncomingAcceptedConnectionNotification), name: NSFileHandleConnectionAcceptedNotification, object: nil)
