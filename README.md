@@ -3,8 +3,8 @@
 
 # Quick Start
 - clone the repository and navigate into it's directory
-- ```bash init.bash``` to install the toolchain and prepare cob_spec to be run.
-- ```bash tests.bash``` to run all tests xCodeTest and cob_spec ResponseTestSuite
+- ```bash init.bash``` to download and install the toolchain and prepare cob_spec to be run.
+- ```bash tests.bash``` to run all tests: xCodeTest and cob_spec ResponseTestSuite
 - ```bash start.bash``` builds the server and starts it with default values at http://localhost:5000
 
 # Requirements
