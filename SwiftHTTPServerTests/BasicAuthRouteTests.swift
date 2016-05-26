@@ -1,5 +1,4 @@
 import XCTest
-import Foundation
 
 class BasicAuthRouteTests: XCTestCase {
 
@@ -89,3 +88,4 @@ class BasicAuthRouteTests: XCTestCase {
     }
     
 }
+ 

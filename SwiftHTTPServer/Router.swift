@@ -1,4 +1,4 @@
-class Router{
+class Router {
     var uri: String?
     var uriTypeDict = Dictionary<String,Route>()
     var routeNotFound = NotFoundRoute(allowedMethods: "GET,OPTIONS")
