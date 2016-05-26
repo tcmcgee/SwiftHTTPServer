@@ -10,11 +10,7 @@ before_install:
   - mvn package
   - cd ..
 script:
-  - xcodebuild clean -scheme SwiftHTTPServer -configuration Release -toolchain swift
-  - sleep 20
   - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test
   - xcodebuild -configuration Release
   - cd cob_spec
   - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
-  - cd ..
-  - sleep 20
