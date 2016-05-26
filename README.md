@@ -49,6 +49,7 @@ Or
 **If Using XCode**
 _________________________________
 
+- You will need to configure the Scheme to add command line arguments Menus: (Product -> Scheme -> Edit Scheme -> Run -> Arguments passed on launch) Here's what mine looks like ```-p 5000 -d /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/cob_spec/public -l /Users/Tom/8thLight/Apprenticeship/SwiftHTTPServer/logs```
 - Hit the play button or ctrl + R
 
 
