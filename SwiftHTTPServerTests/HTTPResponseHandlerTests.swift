@@ -1,4 +1,5 @@
 import XCTest
+import Foundation
 
 class HTTPResponseHandlerTests: XCTestCase {
     let responseHandler = HTTPResponseHandler()

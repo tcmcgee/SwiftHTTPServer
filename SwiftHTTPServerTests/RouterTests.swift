@@ -1,4 +1,5 @@
 import XCTest
+import Foundation
 
 class RouterTests: XCTestCase {
     
@@ -34,7 +35,7 @@ class RouterTests: XCTestCase {
     
     func testAddDynamicRoutes() {
         router = Router(uri: "/dynamic_rotes", method:"GET",body:nil)
-        
+        Configuration.publicDirectory = "."
         XCTAssert(router.uriTypeDict.values.count == 0)
         
         router.addDynamicRoutes()
