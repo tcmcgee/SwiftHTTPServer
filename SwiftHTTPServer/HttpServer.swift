@@ -2,8 +2,11 @@ import Foundation
 
 class HTTPServer: NSObject {
     var listeningHandle : NSFileHandle? = nil
+    var logger: Logger?
     
     func start() {
+        logger = Logger(fileName: "/log.txt", pathToDir: Configuration.logDirectory)
+
         let swiftSocket = SwiftSocket()
         let nativeSocket = swiftSocket.getSocket(port: UInt16(Configuration.port))
         prepareListeningHandle(nativeSocket: nativeSocket!)
@@ -32,6 +35,7 @@ class HTTPServer: NSObject {
                 let incomingRequestString = String.init(data: data, encoding: NSUTF8StringEncoding)
                 if (incomingRequestString!.characters.count > 0) {
                     let request : Request = Request(requestString: incomingRequestString!)
+                    logger!.log(string: request.statusLine)
                     let responseHandler = HTTPResponseHandler()
                     let response = responseHandler.getResponse(request: request)
                     let myData = NSData(bytes: response, length: response.count)
