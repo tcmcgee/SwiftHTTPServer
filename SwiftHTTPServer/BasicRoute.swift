@@ -74,7 +74,7 @@ class BasicRoute: Route {
         for method in allowedMethods {
             string += method.rawValue
             if (count != allowedMethods.count - 1) {
-                string += separator + " "
+                string += separator
             }
             count = count + 1
         }

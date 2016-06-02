@@ -34,7 +34,7 @@ class BasicRouteTests: XCTestCase {
         let route = BasicRoute(allowedMethods: [.Get, .Options])
         var expectedHeaders = Dictionary<String,String>()
         expectedHeaders["Content-Type"] = "text/html"
-        expectedHeaders["Allow"] = "GET, OPTIONS"
+        expectedHeaders["Allow"] = "GET,OPTIONS"
         
         let headers = route.getResponseHeaders(uri: "/yolo", method: "OPTIONS", requestBody: nil)
         

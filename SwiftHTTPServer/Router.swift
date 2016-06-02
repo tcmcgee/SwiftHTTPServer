@@ -1,7 +1,6 @@
 class Router {
     var uri: String?
     var uriTypeDict = Dictionary<String,Route>()
-    let method = HTTPMethods(rawValue: "GET")
     var routeNotFound = NotFoundRoute(allowedMethods: [.Get, .Options])
     
     init(uri: String, method: String,body: String?) {

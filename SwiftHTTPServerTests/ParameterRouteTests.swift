@@ -20,7 +20,7 @@ class ParameterRouteTests: XCTestCase {
     func testExtensionOfBasicRouteReturnsCorrectOptionsHeader() {
         let headers = paramsRoute.getResponseHeaders(uri: "/_", method: "OPTIONS", requestBody: "")
         
-        XCTAssertEqual(headers["Allow"],"GET, OPTIONS")
+        XCTAssertEqual(headers["Allow"],"GET,OPTIONS")
     }
 
     func testGetResponseBody() {
