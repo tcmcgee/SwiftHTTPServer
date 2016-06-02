@@ -3,7 +3,7 @@ import XCTest
 class NotFoundRouteTests: XCTestCase {
 
     func testGetBody() {
-        let route = NotFoundRoute(allowedMethods: "GET")
+        let route = NotFoundRoute(allowedMethods: [.Get])
         let expectedResponseBody = ("404 - Not Found")
         
         let responseBody = route.getResponseBody(uri: "/testing123", method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: nil)
@@ -13,7 +13,7 @@ class NotFoundRouteTests: XCTestCase {
     }
     
     func testGetResponseStatusCode() {
-        let route = NotFoundRoute(allowedMethods: "GET,OPTIONS")
+        let route = NotFoundRoute(allowedMethods: [.Get, .Options])
         let expectedResponseCode = "404"
         
         XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "_"))

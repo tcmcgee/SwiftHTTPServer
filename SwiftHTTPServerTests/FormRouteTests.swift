@@ -3,7 +3,7 @@ import XCTest
 class FormRouteTests: XCTestCase {
     let fileManager = NSFileManager()
     let file = "testRoute.txt"
-    var formRoute = FormRoute(allowedMethods: "GET,OPTIONS,POST,PUT,DELETE")
+    var formRoute = FormRoute(allowedMethods: [.Get, .Options, .Post, .Put, .Delete])
     
     override func tearDown() {
         super.tearDown()
@@ -20,7 +20,7 @@ class FormRouteTests: XCTestCase {
     }
     
     func testGetResponseBodyMethodNotAllowed() {
-        formRoute = FormRoute(allowedMethods: "GET,OPTIONS,POST,PUT")
+        formRoute = FormRoute(allowedMethods: [.Get, .Options, .Post, .Put])
         
         let expectedResults = "405 - Method Not Allowed"
         

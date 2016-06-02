@@ -2,19 +2,19 @@ import Foundation
 
 class BasicRoute: Route {
     
-    var allowedMethods: [String]?
+    var allowedMethods: [HTTPMethods]
     var contentLength = 0
     
-    required init(allowedMethods: String) {
-        self.allowedMethods = allowedMethods.components(separatedBy: ",")
+    required init(allowedMethods: [HTTPMethods]) {
+        self.allowedMethods = allowedMethods
     }
     
-    func getAllowedMethods() -> [String]{
-        return allowedMethods!
+    func getAllowedMethods() -> [HTTPMethods]{
+        return allowedMethods
     }
     
     func isAllowedMethod(method: String) -> Bool {
-        return getAllowedMethods().contains(method)
+        return contains(allowedMethods: getAllowedMethods(), method: method)
     }
     
     func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
@@ -27,7 +27,7 @@ class BasicRoute: Route {
 
         headers["Content-Type"] = "text/html"
         if (method == "OPTIONS") {
-            headers["Allow"] = allowedMethods!.joined(separator: ",")
+            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         return headers
     }
@@ -56,6 +56,30 @@ class BasicRoute: Route {
             myArray.append(UInt8(char))
         }
         return myArray
+    }
+    
+    func contains(allowedMethods: [HTTPMethods], method: String) -> Bool{
+        for httpMethod in allowedMethods {
+            if (httpMethod.rawValue == method)
+            {
+                return true
+            }
+        }
+        return false
+    }
+    
+    func joined(allowedMethods: [HTTPMethods], separator: String) -> String {
+        var string = ""
+        var count = 0
+        for method in allowedMethods {
+            string += method.rawValue
+            if (count != allowedMethods.count - 1) {
+                string += separator + " "
+            }
+            count = count + 1
+        }
+        
+        return string
     }
     
 }

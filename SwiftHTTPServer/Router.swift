@@ -1,23 +1,24 @@
 class Router {
     var uri: String?
     var uriTypeDict = Dictionary<String,Route>()
-    var routeNotFound = NotFoundRoute(allowedMethods: "GET,OPTIONS")
+    let method = HTTPMethods(rawValue: "GET")
+    var routeNotFound = NotFoundRoute(allowedMethods: [.Get, .Options])
     
     init(uri: String, method: String,body: String?) {
         self.uri = uri
     }
     
     func initializeRouterDict() {
-        uriTypeDict["/method_options"]  = BasicRoute(allowedMethods: "GET,OPTIONS,HEAD,POST,PUT,DELETE")
-        uriTypeDict["/method_options2"] = BasicRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/"] = DirectoryListRoute(allowedMethods: "GET, OPTIONS")
-        uriTypeDict["/form"] = FormRoute(allowedMethods: "GET,OPTIONS,PUT,POST,DELETE")
-        uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/redirect"] = RedirectRoute(allowedMethods: "GET,OPTIONS,REDIRECT")
-        uriTypeDict["/file1"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/text-file.txt"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/image.jpeg"] = FileServingRoute(allowedMethods: "GET,OPTIONS")
-        uriTypeDict["/logs"] = BasicAuthRoute(allowedMethods: "GET")
+        uriTypeDict["/method_options"]  = BasicRoute(allowedMethods: [.Get, .Options, .Head, .Post, .Put, .Delete])
+        uriTypeDict["/method_options2"] = BasicRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/"] = DirectoryListRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/form"] = FormRoute(allowedMethods: [.Get, .Options, .Put, .Post, .Delete])
+        uriTypeDict["/parameters"] = ParameterRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/redirect"] = RedirectRoute(allowedMethods: [.Get, .Options, .Redirect])
+        uriTypeDict["/file1"] = FileServingRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/text-file.txt"] = FileServingRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/image.jpeg"] = FileServingRoute(allowedMethods: [.Get, .Options])
+        uriTypeDict["/logs"] = BasicAuthRoute(allowedMethods: [.Get])
         addDynamicRoutes()
     }
     
@@ -30,7 +31,7 @@ class Router {
         
         
         for file in fileNames {
-            uriTypeDict["/\(file)"] = FileServingRoute(allowedMethods: "GET,OPTIONS,PATCH")
+            uriTypeDict["/\(file)"] = FileServingRoute(allowedMethods: [.Get, .Options, .Patch])
         }
     }
     

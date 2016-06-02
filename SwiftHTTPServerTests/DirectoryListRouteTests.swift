@@ -8,14 +8,14 @@ import XCTest
 
 class DirectoryListRouteTests: XCTestCase {
 
-    var directoryListRoute = DirectoryListRoute(allowedMethods:"GET,OPTIONS")
+    var directoryListRoute = DirectoryListRoute(allowedMethods: [.Get, .Options])
     var currentDir: UnsafeMutablePointer<Int8>?
     var workingDir: String?
 
 
     override func setUp() {
         super.setUp()
-        directoryListRoute = DirectoryListRoute(allowedMethods:"GET,OPTIONS")
+        directoryListRoute = DirectoryListRoute(allowedMethods: [.Get, .Options])
         currentDir = UnsafeMutablePointer<Int8>(allocatingCapacity: 1000)
         workingDir = String(cString: getcwd(currentDir, 1000)) + "/"
     }

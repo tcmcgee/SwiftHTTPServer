@@ -30,7 +30,7 @@ class FileServingRoute: BasicRoute {
             headers["ETag"] = eTag!
         }
         if (method == "OPTIONS") {
-            headers["Allow"] = allowedMethods!.joined(separator: ",")
+            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         return headers
     }

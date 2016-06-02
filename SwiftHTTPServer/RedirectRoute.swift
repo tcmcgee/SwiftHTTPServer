@@ -8,7 +8,7 @@ class RedirectRoute: BasicRoute {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
         headers["Location"] = "http://localhost:5000/"
         if (method == "OPTIONS") {
-            headers["Allow"] = allowedMethods!.joined(separator: ",")
+            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         
         return headers
