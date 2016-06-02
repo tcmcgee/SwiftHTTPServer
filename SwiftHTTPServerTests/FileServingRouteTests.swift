@@ -5,7 +5,7 @@ class FileServingRouteTests: XCTestCase {
     func testGetHeaders() {
         let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
         let expectedHeaders: Dictionary<String,String> = [:]
-        let headers = fileServingRoute.getResponseHeaders(uri: "/blah", method: "GET", requestBody: "")
+        let headers = fileServingRoute.getResponseHeaders(uri: "/blah", method: .Get, requestBody: "")
         
         XCTAssertEqual(expectedHeaders, headers)
     }
@@ -13,24 +13,24 @@ class FileServingRouteTests: XCTestCase {
     func testGetStatusCodeAfterPartialRequest() {
         let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
         let requestHeaders: Dictionary<String,String> = ["Range": "bytes=0-1"]
-        fileServingRoute.getResponseBody(uri: "/blah", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
-        XCTAssertEqual("206", fileServingRoute.getResponseStatusCode(method: "GET"))
+        XCTAssertEqual("206", fileServingRoute.getResponseStatusCode(method: .Get))
     }
     
     func testGetStatusCodeErrorAfterInvalidPartialRequest() {
         let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
         let requestHeaders: Dictionary<String,String> = ["Range": "bytes=30-1"]
-        fileServingRoute.getResponseBody(uri: "/blah", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
-        XCTAssertEqual("416", fileServingRoute.getResponseStatusCode(method: "GET"))
+        XCTAssertEqual("416", fileServingRoute.getResponseStatusCode(method: .Get))
     }
     
     func testGetStatusCodeWithoutPartialRequest() {
         let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
-        fileServingRoute.getResponseBody(uri: "/blah", method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: "")
+        fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: "")
         
-        XCTAssertEqual("200", fileServingRoute.getResponseStatusCode(method: "GET"))
+        XCTAssertEqual("200", fileServingRoute.getResponseStatusCode(method: .Get))
     }
     
     func testGetRangeStart() {
@@ -90,9 +90,9 @@ class FileServingRouteTests: XCTestCase {
     func testGetStatusCodeAfterPatchRequest() {
         let fileServingRoute = FileServingRoute(allowedMethods: [.Get, .Patch])
         let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
-        fileServingRoute.getResponseBody(uri: "/blah", method: "PATCH", requestHeaders: requestHeaders, requestBody: "")
+        fileServingRoute.getResponseBody(uri: "/blah", method: .Patch, requestHeaders: requestHeaders, requestBody: "")
         
-        XCTAssertEqual("204", fileServingRoute.getResponseStatusCode(method: "PATCH"))
+        XCTAssertEqual("204", fileServingRoute.getResponseStatusCode(method: .Patch))
     }
     
     func testGetETagHeaderAfterPatchRequest() {
@@ -100,9 +100,9 @@ class FileServingRouteTests: XCTestCase {
         let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
         let expectedResponseHeaders: Dictionary<String,String> = ["ETag": "12345"]
         
-        fileServingRoute.getResponseBody(uri: "/blah", method: "PATCH", requestHeaders: requestHeaders, requestBody: "")
+        fileServingRoute.getResponseBody(uri: "/blah", method: .Patch, requestHeaders: requestHeaders, requestBody: "")
         
-        let responseHeaders = fileServingRoute.getResponseHeaders(uri: "/blah", method: "PATCH", requestBody: "")
+        let responseHeaders = fileServingRoute.getResponseHeaders(uri: "/blah", method: .Patch, requestBody: "")
         
         
         XCTAssertEqual(expectedResponseHeaders, responseHeaders)

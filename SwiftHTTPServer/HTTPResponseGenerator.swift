@@ -1,6 +1,6 @@
 class HTTPResponseGenerator {
 
-    func generateResponse(URI : String?, baseURI: String, method : String, body : String?, requestHeaders: Dictionary<String, String> ) -> [UInt8] {
+    func generateResponse(URI : String?, baseURI: String, method : HTTPMethods, body : String?, requestHeaders: Dictionary<String, String> ) -> [UInt8] {
         let router = Router(uri: baseURI, method: method, body: body)
         router.initializeRouterDict()
         let route = router.getRoute()

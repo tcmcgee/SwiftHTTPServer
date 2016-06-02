@@ -6,7 +6,7 @@
 
 class DirectoryListRoute: BasicRoute {
     
-    override func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
+    override func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
         let files = DirectoryListRoute.getFilesArray(publicDir: Configuration.publicDirectory)
         var htmlBody: String = "<!DOCTYPE html> <html> <body> <ul>"
         

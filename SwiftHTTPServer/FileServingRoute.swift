@@ -2,10 +2,10 @@ class FileServingRoute: BasicRoute {
     
     var statusCode = "200"
     var eTag: String? = nil
-    override func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
+    override func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
         let fileOperations = FileOperations(file: uri, pathToDir: Configuration.publicDirectory)
         let contents: [UInt8]
-        if (method == "GET") {
+        if (method == .Get) {
             let range = requestHeaders.get(key: "Range", defaultValue: "")
             
             if (range == "") {
@@ -13,7 +13,7 @@ class FileServingRoute: BasicRoute {
             } else {
                 contents = getPartialContent(fileOperations: fileOperations, range: range)
             }
-        } else if (method == "PATCH") {
+        } else if (method == .Patch) {
             statusCode = "204"
             fileOperations.Write(string: requestBody!)
             eTag = requestHeaders.get(key: "If-Match", defaultValue: "")
@@ -24,18 +24,18 @@ class FileServingRoute: BasicRoute {
         return contents
     }
     
-    override func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
+    override func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
-        if (method == "PATCH"){
+        if (method == .Patch){
             headers["ETag"] = eTag!
         }
-        if (method == "OPTIONS") {
+        if (method == .Options) {
             headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         return headers
     }
     
-    override func getResponseStatusCode(method: String) -> String {
+    override func getResponseStatusCode(method: HTTPMethods) -> String {
         if (isAllowedMethod(method: method)){
             return statusCode
         } else {

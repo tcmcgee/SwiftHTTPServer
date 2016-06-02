@@ -6,7 +6,7 @@ class BasicAuthRoute: BasicRoute {
     
     var statusCode = "200"
     
-    override func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String, String>, requestBody: String?) -> [UInt8] {
+    override func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String, String>, requestBody: String?) -> [UInt8] {
         var content = [UInt8]()
         let authorized = getAuthorized(requestHeaders: requestHeaders)
         
@@ -20,7 +20,7 @@ class BasicAuthRoute: BasicRoute {
         return content
     }
     
-    override func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String, String> {
+    override func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String, String> {
         var headers = Dictionary<String,String>()
         if (statusCode != "200"){
             headers["WWW-Authenticate"] =  "Basic realm=\"Naperville\""
@@ -28,7 +28,7 @@ class BasicAuthRoute: BasicRoute {
         return headers
     }
     
-    override func getResponseStatusCode(method: String) -> String {
+    override func getResponseStatusCode(method: HTTPMethods) -> String {
         return statusCode
     }
     

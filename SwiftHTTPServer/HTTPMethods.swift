@@ -7,4 +7,5 @@ enum HTTPMethods: String {
     case Put = "PUT"
     case Delete = "DELETE"
     case Redirect = "REDIRECT"
+    case NotAllowed = "Not Allowed"
 }

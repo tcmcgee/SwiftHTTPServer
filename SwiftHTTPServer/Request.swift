@@ -1,6 +1,6 @@
 class Request{
     
-    var method = ""
+    var method: HTTPMethods?
     var statusLine = ""
     var URI : String? = ""
     var body: String?
@@ -10,8 +10,7 @@ class Request{
     init(requestString : String) {
         let head = getHead(requestString: requestString)
         statusLine = getStatusLine(head: head)
-        
-        method = getMethod(statusLine: statusLine)
+        method = (HTTPMethods(rawValue: getMethod(statusLine: statusLine))) ?? .NotAllowed
         URI = getURI(statusLine: statusLine)
         let splitURI = split(string: URI!, separator: "?")
         if (splitURI.count > 1) {

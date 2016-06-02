@@ -13,26 +13,26 @@ class BasicRoute: Route {
         return allowedMethods
     }
     
-    func isAllowedMethod(method: String) -> Bool {
+    func isAllowedMethod(method: HTTPMethods) -> Bool {
         return contains(allowedMethods: getAllowedMethods(), method: method)
     }
     
-    func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
-        let bodyString: String = isAllowedMethod(method: method) ? "\(method) for \(uri)" : "405 - Method Not Allowed"
+    func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
+        let bodyString: String = isAllowedMethod(method: method) ? "\(method.rawValue) for \(uri)" : "405 - Method Not Allowed"
         return removeNullBytes(byteArray: getByteArrayFromString(string: bodyString))
     }
     
-    func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
+    func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
 
         headers["Content-Type"] = "text/html"
-        if (method == "OPTIONS") {
+        if (method == .Options) {
             headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         return headers
     }
     
-    func getResponseStatusCode(method: String) -> String {
+    func getResponseStatusCode(method: HTTPMethods) -> String {
         let statusCode: String = isAllowedMethod(method: method) ? "200" : "405"
         return statusCode
     }
@@ -58,25 +58,21 @@ class BasicRoute: Route {
         return myArray
     }
     
-    func contains(allowedMethods: [HTTPMethods], method: String) -> Bool{
-        for httpMethod in allowedMethods {
-            if (httpMethod.rawValue == method)
-            {
-                return true
-            }
+    func contains(allowedMethods: [HTTPMethods], method: HTTPMethods) -> Bool {
+        return allowedMethods.contains { ele in
+            ele.rawValue == method.rawValue
         }
-        return false
     }
     
     func joined(allowedMethods: [HTTPMethods], separator: String) -> String {
         var string = ""
         var count = 0
         for method in allowedMethods {
+            count = count + 1
             string += method.rawValue
-            if (count != allowedMethods.count - 1) {
+            if (count != allowedMethods.count) {
                 string += separator
             }
-            count = count + 1
         }
         
         return string

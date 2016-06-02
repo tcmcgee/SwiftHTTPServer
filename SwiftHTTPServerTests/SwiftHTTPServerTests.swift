@@ -5,7 +5,7 @@ class SwiftHTTPServerTests: XCTestCase {
     let server = HTTPServer()
     override func setUp() {
         super.setUp()
-        Configuration.port = 5000
+        Configuration.port = 5001
         server.start()
     }
     

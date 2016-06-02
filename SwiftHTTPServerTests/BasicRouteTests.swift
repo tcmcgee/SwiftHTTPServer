@@ -17,14 +17,14 @@ class BasicRouteTests: XCTestCase {
     func testIsAllowedMethod() {
         let route = BasicRoute(allowedMethods: [.Get, .Options, .Post])
         
-        XCTAssert(route.isAllowedMethod(method: "GET"))
+        XCTAssert(route.isAllowedMethod(method: .Get))
     }
     
     func testGetBody() {
         let route = BasicRoute(allowedMethods: [.Get, .Options])
         let expectedResponseBody = ("GET for /testing123")
         
-        let responseBody = route.getResponseBody(uri: "/testing123", method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: nil)
+        let responseBody = route.getResponseBody(uri: "/testing123", method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: nil)
         let responseBodyString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual(responseBodyString, expectedResponseBody)
@@ -36,7 +36,7 @@ class BasicRouteTests: XCTestCase {
         expectedHeaders["Content-Type"] = "text/html"
         expectedHeaders["Allow"] = "GET,OPTIONS"
         
-        let headers = route.getResponseHeaders(uri: "/yolo", method: "OPTIONS", requestBody: nil)
+        let headers = route.getResponseHeaders(uri: "/yolo", method: .Options, requestBody: nil)
         
         XCTAssertEqual(expectedHeaders, headers)
         
@@ -46,14 +46,14 @@ class BasicRouteTests: XCTestCase {
         let route = BasicRoute(allowedMethods: [.Get, .Options])
         let expectedResponseCode = "200"
         
-        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "GET"))
+        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: .Get))
     }
     
     func testGetResponseStatusCodeNotAllowed() {
         let route = BasicRoute(allowedMethods:[.Get])
         let expectedResponseCode = "405"
         
-        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: "POST"))
+        XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: .Post))
     }
     
     func testGetByteArrayFromString() {
@@ -78,7 +78,7 @@ class BasicRouteTests: XCTestCase {
         
         let route = BasicRoute(allowedMethods: allowedMethods)
         
-        XCTAssertTrue(route.contains(allowedMethods: allowedMethods, method: "GET"))
+        XCTAssertTrue(route.contains(allowedMethods: allowedMethods, method: .Get))
     }
     
     func testJoined() {

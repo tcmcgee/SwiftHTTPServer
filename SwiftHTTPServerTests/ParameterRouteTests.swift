@@ -14,18 +14,18 @@ class ParameterRouteTests: XCTestCase {
     }
     
     func testIsAllowedMethods() {
-        XCTAssert(paramsRoute.isAllowedMethod(method: "OPTIONS"))
+        XCTAssert(paramsRoute.isAllowedMethod(method: .Options))
     }
     
     func testExtensionOfBasicRouteReturnsCorrectOptionsHeader() {
-        let headers = paramsRoute.getResponseHeaders(uri: "/_", method: "OPTIONS", requestBody: "")
+        let headers = paramsRoute.getResponseHeaders(uri: "/_", method: .Options, requestBody: "")
         
         XCTAssertEqual(headers["Allow"],"GET,OPTIONS")
     }
 
     func testGetResponseBody() {
         let expectedResults = "variable_1 = Operators <, >, =, !=; +, -, *, &, @, #, $, [, ]: \"is that all\"? variable_2 = stuff"
-        let responseBody = paramsRoute.getResponseBody(uri: URIWithParams, method: "GET", requestHeaders: Dictionary<String,String>(), requestBody: "")
+        let responseBody = paramsRoute.getResponseBody(uri: URIWithParams, method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: "")
         let responseBodyString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
         XCTAssertEqual(responseBodyString, expectedResults)
     }

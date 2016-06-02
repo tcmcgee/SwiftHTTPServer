@@ -1,10 +1,13 @@
 class Router {
-    var uri: String?
+    var uri: String
+    var method: HTTPMethods
     var uriTypeDict = Dictionary<String,Route>()
     var routeNotFound = NotFoundRoute(allowedMethods: [.Get, .Options])
+    var methodNotAllowedRoute = NotAllowedRoute(allowedMethods: [.Get])
     
-    init(uri: String, method: String,body: String?) {
+    init(uri: String, method: HTTPMethods,body: String?) {
         self.uri = uri
+        self.method = method
     }
     
     func initializeRouterDict() {
@@ -22,7 +25,11 @@ class Router {
     }
     
     func getRoute() -> Route {
-        return uriTypeDict.get(key: uri!,defaultValue: routeNotFound)
+        if (method == .NotAllowed) {
+            return methodNotAllowedRoute
+        } else {
+            return uriTypeDict.get(key: uri,defaultValue: routeNotFound)
+        }
     }
     
     func addDynamicRoutes() {

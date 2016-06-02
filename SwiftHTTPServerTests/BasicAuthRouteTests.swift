@@ -42,7 +42,7 @@ class BasicAuthRouteTests: XCTestCase {
         let authRoute = BasicAuthRoute(allowedMethods: [.Get, .Options])
         let requestHeaders = Dictionary<String,String>()
         
-        let responseBody = authRoute.getResponseBody(uri: "/logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        let responseBody = authRoute.getResponseBody(uri: "/logs", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
         XCTAssertEqual([UInt8](), responseBody)
     }
@@ -51,8 +51,8 @@ class BasicAuthRouteTests: XCTestCase {
         let authRoute = BasicAuthRoute(allowedMethods: [.Get, .Options])
         let requestHeaders = Dictionary<String,String>()
         
-        authRoute.getResponseBody(uri: "/logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")
-        let statusCode = authRoute.getResponseStatusCode(method: "GET")
+        authRoute.getResponseBody(uri: "/logs", method: .Get, requestHeaders: requestHeaders, requestBody: "")
+        let statusCode = authRoute.getResponseStatusCode(method: .Get)
         
         XCTAssertEqual("401", statusCode)
     }
@@ -61,7 +61,7 @@ class BasicAuthRouteTests: XCTestCase {
         let authRoute = BasicAuthRoute(allowedMethods: [.Get, .Options])
         let requestHeaders: Dictionary<String,String> = ["Authorization":"auth VG9tIE1jR2VlIFJ1bGVz"]
         
-        let responseBody = authRoute.getResponseBody(uri: "/Logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        let responseBody = authRoute.getResponseBody(uri: "/Logs", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
         XCTAssertEqual([UInt8](), responseBody)
     }
@@ -73,7 +73,7 @@ class BasicAuthRouteTests: XCTestCase {
         logger.log(string: "GET /method_options HTTP/1.1")
         let requestHeaders: Dictionary<String,String> = ["Authorization":"auth YWRtaW46aHVudGVyMg=="]
         
-        let responseBody = authRoute.getResponseBody(uri: "/Logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")
+        let responseBody = authRoute.getResponseBody(uri: "/Logs", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
         XCTAssertNotEqual([UInt8](), responseBody)
     }
@@ -82,8 +82,8 @@ class BasicAuthRouteTests: XCTestCase {
         let authRoute = BasicAuthRoute(allowedMethods: [.Get, .Options])
         let requestHeaders: Dictionary<String,String> = ["Authorization":"auth YWRtaW46aHVudGVyMg=="]
         
-        authRoute.getResponseBody(uri: "/Logs", method: "GET", requestHeaders: requestHeaders, requestBody: "")
-        let statusCode = authRoute.getResponseStatusCode(method: "GET")
+        authRoute.getResponseBody(uri: "/Logs", method: .Get, requestHeaders: requestHeaders, requestBody: "")
+        let statusCode = authRoute.getResponseStatusCode(method: .Get)
         XCTAssertEqual("200", statusCode)
     }
     
