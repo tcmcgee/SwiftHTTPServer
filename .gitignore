@@ -3,3 +3,4 @@ form.txt
 SwiftHTTPServer.xcodeproj/xcuserdata/*
 logs/log.txt
 SwiftHTTPServer.xcodeproj/project.xcworkspace/xcuserdata/Tom.xcuserdatad/UserInterfaceState.xcuserstate
+DerivedData/*
