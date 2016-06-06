@@ -1,10 +1,10 @@
 import XCTest
 
-class NotFoundRouteTests: XCTestCase {
-
+class NotAllowedRouteTests: XCTestCase {
+    
     func testGetBody() {
-        let route = NotFoundRoute(allowedMethods: [.Get])
-        let expectedResponseBody = ("404 - Not Found")
+        let route = NotAllowedRoute(allowedMethods: [.Get])
+        let expectedResponseBody = ("405 - Method Not Allowed")
         
         let responseBody = route.getResponseBody(uri: "/testing123", method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: nil)
         let responseString = NSString(bytes: responseBody,length: responseBody.count, encoding: NSUTF8StringEncoding)
@@ -13,10 +13,10 @@ class NotFoundRouteTests: XCTestCase {
     }
     
     func testGetResponseStatusCode() {
-        let route = NotFoundRoute(allowedMethods: [.Get, .Options])
-        let expectedResponseCode = "404"
+        let route = NotAllowedRoute(allowedMethods: [.Get, .Options])
+        let expectedResponseCode = "405"
         
         XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: .Get))
     }
-
+    
 }

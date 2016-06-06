@@ -2,37 +2,37 @@ import Foundation
 
 class BasicRoute: Route {
     
-    var allowedMethods: [String]?
+    var allowedMethods: [HTTPMethods]
     var contentLength = 0
     
-    required init(allowedMethods: String) {
-        self.allowedMethods = allowedMethods.components(separatedBy: ",")
+    required init(allowedMethods: [HTTPMethods]) {
+        self.allowedMethods = allowedMethods
     }
     
-    func getAllowedMethods() -> [String]{
-        return allowedMethods!
+    func getAllowedMethods() -> [HTTPMethods]{
+        return allowedMethods
     }
     
-    func isAllowedMethod(method: String) -> Bool {
-        return getAllowedMethods().contains(method)
+    func isAllowedMethod(method: HTTPMethods) -> Bool {
+        return contains(allowedMethods: getAllowedMethods(), method: method)
     }
     
-    func getResponseBody(uri: String, method: String, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
-        let bodyString: String = isAllowedMethod(method: method) ? "\(method) for \(uri)" : "405 - Method Not Allowed"
+    func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
+        let bodyString: String = isAllowedMethod(method: method) ? "\(method.rawValue) for \(uri)" : "405 - Method Not Allowed"
         return removeNullBytes(byteArray: getByteArrayFromString(string: bodyString))
     }
     
-    func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
+    func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
 
         headers["Content-Type"] = "text/html"
-        if (method == "OPTIONS") {
-            headers["Allow"] = allowedMethods!.joined(separator: ",")
+        if (method == .Options) {
+            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         return headers
     }
     
-    func getResponseStatusCode(method: String) -> String {
+    func getResponseStatusCode(method: HTTPMethods) -> String {
         let statusCode: String = isAllowedMethod(method: method) ? "200" : "405"
         return statusCode
     }
@@ -56,6 +56,26 @@ class BasicRoute: Route {
             myArray.append(UInt8(char))
         }
         return myArray
+    }
+    
+    func contains(allowedMethods: [HTTPMethods], method: HTTPMethods) -> Bool {
+        return allowedMethods.contains { ele in
+            ele.rawValue == method.rawValue
+        }
+    }
+    
+    func joined(allowedMethods: [HTTPMethods], separator: String) -> String {
+        var string = ""
+        var count = 0
+        for method in allowedMethods {
+            count = count + 1
+            string += method.rawValue
+            if (count != allowedMethods.count) {
+                string += separator
+            }
+        }
+        
+        return string
     }
     
 }
