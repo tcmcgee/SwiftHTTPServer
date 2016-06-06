@@ -17,28 +17,28 @@ class FileOperations {
     
     func formAction(method: String, body: String?) {
         if (method == "POST" || method == "PUT") {
-            Write(string: body!)
+            write(string: body!)
         }
         else if (method == "DELETE") {
-            Delete()
+            delete()
         }
     }
     
-    func Write(string : String) {
+    func write(string : String) {
         let pathToFile = "\(pathToDir)\(file)"
         let writeFile = fopen (pathToFile, "w")
         fputs(string, writeFile)
         fclose(writeFile)
     }
     
-    func Append(string: String) {
+    func append(string: String) {
         let pathToFile = "\(pathToDir)\(file)"
         let writeFile = fopen (pathToFile, "a")
         fputs(string, writeFile)
         fclose(writeFile)
     }
     
-    func Read() -> [UInt8] {
+    func read() -> [UInt8] {
         let pathToFile = "\(pathToDir)\(file)"
         var int8Array2 = [UInt8]()
         if( access( pathToFile, F_OK ) != -1 ) {
@@ -57,7 +57,7 @@ class FileOperations {
     }
     
     
-    func ReadPartial(start: Int, end: Int) -> [UInt8] {
+    func readPartial(start: Int, end: Int) -> [UInt8] {
         let pathToFile = "\(pathToDir)\(file)"
         var int8Array2 = [UInt8]()
         if( access( pathToFile, F_OK ) != -1 ) {
@@ -80,7 +80,7 @@ class FileOperations {
     }
     
     
-    func Delete() {
+    func delete() {
         let pathToFile = "\(pathToDir)\(file)"
         if( access( pathToFile, F_OK ) != -1 ) {
             unlink(pathToFile)

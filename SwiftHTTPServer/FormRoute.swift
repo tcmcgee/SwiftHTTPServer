@@ -7,7 +7,7 @@ class FormRoute: BasicRoute {
             if ((method == "POST" || method == "PUT" || method == "DELETE")) {
                 formData.formAction(method: method, body: requestBody!)
             } else if (method == "GET") {
-                formBody = formData.Read()
+                formBody = formData.read()
             }
         } else {
             formBody = getByteArrayFromString(string: "405 - Method Not Allowed")

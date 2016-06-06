@@ -17,7 +17,7 @@ class Logger {
         let logger = FileOperations(file: fileName, pathToDir: pathToDir)
         let logString = getCurrentTime() + string + "\n"
         
-        logger.Append(string: logString)
+        logger.append(string: logString)
     }
     
     func getCurrentTime() -> String {

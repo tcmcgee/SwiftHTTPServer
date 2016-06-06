@@ -9,13 +9,13 @@ class FileServingRoute: BasicRoute {
             let range = requestHeaders.get(key: "Range", defaultValue: "")
             
             if (range == "") {
-                contents = fileOperations.Read()
+                contents = fileOperations.read()
             } else {
                 contents = getPartialContent(fileOperations: fileOperations, range: range)
             }
         } else if (method == "PATCH") {
             statusCode = "204"
-            fileOperations.Write(string: requestBody!)
+            fileOperations.write(string: requestBody!)
             eTag = requestHeaders.get(key: "If-Match", defaultValue: "")
             contents = super.getResponseBody(uri: uri, method: method, requestHeaders: requestHeaders, requestBody: requestBody)
         } else {
@@ -52,7 +52,7 @@ class FileServingRoute: BasicRoute {
             statusCode = "416"
         }
         
-        return fileOperations.ReadPartial(start: startIndex, end: endIndex)
+        return fileOperations.readPartial(start: startIndex, end: endIndex)
     }
     
     

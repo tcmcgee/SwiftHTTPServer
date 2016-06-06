@@ -12,7 +12,7 @@ class BasicAuthRoute: BasicRoute {
         
         if (authorized) {
             let fileOperations = FileOperations(file:"/log.txt", pathToDir: Configuration.logDirectory)
-            content = fileOperations.Read()
+            content = fileOperations.read()
         } else {
             statusCode = "401"
         }

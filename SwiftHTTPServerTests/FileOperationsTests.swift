@@ -14,12 +14,12 @@ class FormDataTests: XCTestCase {
     
     override func tearDown() {
         super.tearDown()
-        fileOperations!.Delete()
+        fileOperations!.delete()
     }
     
     func testWrite() {
         
-        fileOperations!.Write(string: "TESTING")
+        fileOperations!.write(string: "TESTING")
         
         let readText = LocalRead()
         
@@ -30,7 +30,7 @@ class FormDataTests: XCTestCase {
     func testRead() {
         LocalWrite(string: "TESTING123")
         
-        let readText = fileOperations!.Read()
+        let readText = fileOperations!.read()
         let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual(readTextString, "TESTING123")
@@ -39,7 +39,7 @@ class FormDataTests: XCTestCase {
     func testReadPartialWholeFile() {
         LocalWrite(string: "This is partial content")
         
-        let readText = fileOperations!.ReadPartial(start: 0, end: -2 )
+        let readText = fileOperations!.readPartial(start: 0, end: -2 )
         let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual("This is partial content", readTextString)
@@ -49,7 +49,7 @@ class FormDataTests: XCTestCase {
     func testReadPartialFile() {
         LocalWrite(string: "This is partial content")
         
-        let readText = fileOperations!.ReadPartial(start: 0, end: 4 )
+        let readText = fileOperations!.readPartial(start: 0, end: 4 )
         let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual("This ", readTextString)
@@ -58,7 +58,7 @@ class FormDataTests: XCTestCase {
     func testReadPartialOffsetToEnd() {
         LocalWrite(string: "This is partial content")
         
-        let readText = fileOperations!.ReadPartial(start: 4, end: -2 )
+        let readText = fileOperations!.readPartial(start: 4, end: -2 )
         let readTextString = NSString(bytes: readText,length: readText.count, encoding: NSUTF8StringEncoding)
         
         XCTAssertEqual(" is partial content", readTextString)
@@ -71,7 +71,7 @@ class FormDataTests: XCTestCase {
         
         XCTAssert(fileManager.fileExists(atPath: filePath))
         
-        fileOperations!.Delete()
+        fileOperations!.delete()
         
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }
