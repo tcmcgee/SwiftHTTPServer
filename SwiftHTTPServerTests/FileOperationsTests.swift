@@ -78,7 +78,7 @@ class FormDataTests: XCTestCase {
     
     func testWriteFormAction() {
         
-        fileOperations!.formAction(method: "POST", body: "TESTING")
+        fileOperations!.formAction(method: .Post , body: "TESTING")
         
         let readText = LocalRead()
         
@@ -93,7 +93,7 @@ class FormDataTests: XCTestCase {
         
         XCTAssert(fileManager.fileExists(atPath: filePath))
         
-        fileOperations!.formAction(method: "DELETE", body: "")
+        fileOperations!.formAction(method: .Delete, body: "")
         
         XCTAssertFalse(fileManager.fileExists(atPath: filePath))
     }

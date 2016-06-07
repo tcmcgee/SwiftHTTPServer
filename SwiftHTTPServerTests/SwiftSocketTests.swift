@@ -7,6 +7,7 @@ class SwiftSocketTests: XCTestCase {
     
     
     func testDefaultPort() {
+        Configuration.port = 5000
         XCTAssertEqual(5000, Configuration.port)
     }
     

@@ -1,11 +1,11 @@
-class NotFoundRoute: BasicRoute {
+class NotAllowedRoute: BasicRoute {
     override func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String, String>, requestBody: String?) -> [UInt8] {
-        return removeNullBytes(byteArray: getByteArrayFromString(string: "404 - Not Found"))
-
+        return removeNullBytes(byteArray: getByteArrayFromString(string: "405 - Method Not Allowed"))
+        
     }
     
     override func getResponseStatusCode(method: HTTPMethods) -> String {
-        return "404"
+        return "405"
     }
     
 }

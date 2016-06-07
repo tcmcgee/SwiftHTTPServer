@@ -15,11 +15,11 @@ class FileOperations {
         
     }
     
-    func formAction(method: String, body: String?) {
-        if (method == "POST" || method == "PUT") {
+    func formAction(method: HTTPMethods, body: String?) {
+        if (method == .Post || method == .Put) {
             write(string: body!)
         }
-        else if (method == "DELETE") {
+        else if (method == .Delete) {
             delete()
         }
     }

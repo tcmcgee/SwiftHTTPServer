@@ -1,14 +1,14 @@
 class RedirectRoute: BasicRoute {
     
-    override func getResponseStatusCode(method: String) -> String {
+    override func getResponseStatusCode(method: HTTPMethods) -> String {
         return "302"
     }
     
-    override func getResponseHeaders(uri: String, method: String, requestBody: String?) -> Dictionary<String,String> {
+    override func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
         headers["Location"] = "http://localhost:5000/"
-        if (method == "OPTIONS") {
-            headers["Allow"] = allowedMethods!.joined(separator: ",")
+        if (method == .Options) {
+            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
         }
         
         return headers
