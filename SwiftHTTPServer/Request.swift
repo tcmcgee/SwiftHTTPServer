@@ -1,6 +1,6 @@
 class Request{
     
-    var method: HTTPMethods?
+    var method: HTTPMethods = .Get
     var statusLine = ""
     var URI : String? = ""
     var body: String?

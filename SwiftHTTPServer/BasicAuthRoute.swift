@@ -22,7 +22,7 @@ class BasicAuthRoute: BasicRoute {
     
     override func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String, String> {
         var headers = Dictionary<String,String>()
-        if (statusCode != "200"){
+        if (statusCode != "200") {
             headers["WWW-Authenticate"] =  "Basic realm=\"Naperville\""
         }
         return headers

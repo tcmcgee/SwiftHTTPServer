@@ -9,7 +9,7 @@ class BasicRoute: Route {
         self.allowedMethods = allowedMethods
     }
     
-    func getAllowedMethods() -> [HTTPMethods]{
+    func getAllowedMethods() -> [HTTPMethods] {
         return allowedMethods
     }
     

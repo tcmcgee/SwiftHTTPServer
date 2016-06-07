@@ -25,9 +25,6 @@
 		E267CD791CD00FF1001AB593 /* BasicRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E267CD771CD00FF1001AB593 /* BasicRoute.swift */; };
 		E29B29E71CC83A4A00D60B87 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29E61CC83A4A00D60B87 /* Response.swift */; };
 		E29B29E81CC83A4A00D60B87 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29E61CC83A4A00D60B87 /* Response.swift */; };
-		E29B29EA1CCA841200D60B87 /* SwiftSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29E91CCA841200D60B87 /* SwiftSocket.swift */; };
-		E29B29EB1CCA841200D60B87 /* SwiftSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29E91CCA841200D60B87 /* SwiftSocket.swift */; };
-		E29B29ED1CCA865C00D60B87 /* SwiftSocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EC1CCA865C00D60B87 /* SwiftSocketTests.swift */; };
 		E29B29EF1CCE60DB00D60B87 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EE1CCE60DB00D60B87 /* Router.swift */; };
 		E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EE1CCE60DB00D60B87 /* Router.swift */; };
 		E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29F31CCE61A400D60B87 /* RouterTests.swift */; };
@@ -99,8 +96,6 @@
 		E267CD741CD00F6B001AB593 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		E267CD771CD00FF1001AB593 /* BasicRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRoute.swift; sourceTree = "<group>"; };
 		E29B29E61CC83A4A00D60B87 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		E29B29E91CCA841200D60B87 /* SwiftSocket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSocket.swift; sourceTree = "<group>"; };
-		E29B29EC1CCA865C00D60B87 /* SwiftSocketTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftSocketTests.swift; sourceTree = "<group>"; };
 		E29B29EE1CCE60DB00D60B87 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E29B29F31CCE61A400D60B87 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		E29B938B1CC83907008AEED5 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
@@ -181,7 +176,6 @@
 				E2E92FBA1CC68701003C2757 /* HTTPResponseGenerator.swift */,
 				E2D9C1281CC7CF3900B7B5CB /* Request.swift */,
 				E29B29E61CC83A4A00D60B87 /* Response.swift */,
-				E29B29E91CCA841200D60B87 /* SwiftSocket.swift */,
 				E29B29EE1CCE60DB00D60B87 /* Router.swift */,
 				E267CD711CCFADFA001AB593 /* ParameterDecoder.swift */,
 				E267CD741CD00F6B001AB593 /* Route.swift */,
@@ -210,7 +204,6 @@
 				E2E15EB11CC5240B0054DA4F /* Info.plist */,
 				E2D9C12E1CC7D08F00B7B5CB /* RequestTests.swift */,
 				E29B938B1CC83907008AEED5 /* ResponseTests.swift */,
-				E29B29EC1CCA865C00D60B87 /* SwiftSocketTests.swift */,
 				E29B29F31CCE61A400D60B87 /* RouterTests.swift */,
 				E267CD6F1CCFADE6001AB593 /* ParameterDecoderTests.swift */,
 				E2F5C8A11CD247AC00793B5C /* BasicRouteTests.swift */,
@@ -333,7 +326,6 @@
 				E267CD721CCFADFA001AB593 /* ParameterDecoder.swift in Sources */,
 				E24188B91CD7D691009884A3 /* RedirectRoute.swift in Sources */,
 				E267CD781CD00FF1001AB593 /* BasicRoute.swift in Sources */,
-				E29B29EA1CCA841200D60B87 /* SwiftSocket.swift in Sources */,
 				E2E15EB81CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29EF1CCE60DB00D60B87 /* Router.swift in Sources */,
 				E2E15EA31CC523C80054DA4F /* main.swift in Sources */,
@@ -352,11 +344,9 @@
 				E2CCD06E1D008F3700BE4E1E /* HTTPMethods.swift in Sources */,
 				E2F5C8A21CD247AC00793B5C /* BasicRouteTests.swift in Sources */,
 				E24188BC1CD7D83F009884A3 /* RedirectRouteTests.swift in Sources */,
-				E29B29EB1CCA841200D60B87 /* SwiftSocket.swift in Sources */,
 				E29B938C1CC83907008AEED5 /* ResponseTests.swift in Sources */,
 				E2E2D04E1CDBAA4000C3BE34 /* DirectoryListRouteTests.swift in Sources */,
 				E2F5C8B01CD26FBD00793B5C /* FormRoute.swift in Sources */,
-				E29B29ED1CCA865C00D60B87 /* SwiftSocketTests.swift in Sources */,
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */,
 				E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */,
