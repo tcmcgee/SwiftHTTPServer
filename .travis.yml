@@ -1,16 +1,6 @@
 language: objective-c
 osx_image: xcode7.3
 before_install:
-  - export SWIFT_VERSION=swift-DEVELOPMENT-SNAPSHOT-2016-04-12-a 
-  - curl -O https://swift.org/builds/development/xcode/$SWIFT_VERSION/$SWIFT_VERSION-osx.pkg
-  - sudo installer -pkg $SWIFT_VERSION-osx.pkg -target /
-  - export TOOLCHAINS=swift
-  - git clone http://www.github.com/tcmcgee/cob_spec cob_spec
-  - cd cob_spec
-  - mvn package
-  - cd ..
+- bash init.bash
 script:
-  - xcodebuild -scheme SwiftHTTPServer -configuration Release -toolchain swift test
-  - xcodebuild -configuration Release
-  - cd cob_spec
-  - java -jar fitnesse.jar -c "HttpTestSuite.ResponseTestSuite?suite&format=text"
+- bash tests.bash
