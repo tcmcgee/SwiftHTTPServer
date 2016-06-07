@@ -62,8 +62,8 @@ class HTTPServer {
                 let myData = NSData(bytes: &buffer, length: buffer.count)
                 let requestString = NSString(data: myData, encoding: NSUTF8StringEncoding )
                 
-                let responseHandler = HTTPResponseHandler()
-                let response = responseHandler.getResponse(request: Request(requestString: requestString as! String))
+                let responseGenerator = HTTPResponseGenerator()
+                let response = responseGenerator.generateResponse(request: Request(requestString: requestString as! String))
                 
                 /* Write a response to the client */
                 
