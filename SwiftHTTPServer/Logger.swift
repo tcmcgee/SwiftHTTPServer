@@ -14,13 +14,24 @@ class Logger {
     }
     
     func log(string: String) {
-        let logger = FileOperations(file: fileName, pathToDir: pathToDir)
-        let logString = getCurrentTime() + string + "\n"
-        
-        logger.append(string: logString)
+        if (Configuration.enableLogging){
+            let logger = FileOperations(file: fileName, pathToDir: pathToDir)
+            let logString = Logger.getCurrentTime() + string + "\n"
+            
+            logger.append(string: logString)
+        }
     }
     
-    func getCurrentTime() -> String {
+    static func log(fileName: String, pathToDir: String, string: String) {
+        if (Configuration.enableLogging){
+            let logger = FileOperations(file: fileName, pathToDir: pathToDir)
+            let logString = Logger.getCurrentTime() + string + "\n"
+            
+            logger.append(string: logString)
+        }
+    }
+    
+    static func getCurrentTime() -> String {
         var myTime = time(nil)
         let current_time = "[ \(String(cString: strtok(ctime(&myTime),"\n"))) ] "
         return current_time

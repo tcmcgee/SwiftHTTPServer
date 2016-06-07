@@ -29,6 +29,12 @@
 		E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29EE1CCE60DB00D60B87 /* Router.swift */; };
 		E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B29F31CCE61A400D60B87 /* RouterTests.swift */; };
 		E29B938C1CC83907008AEED5 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E29B938B1CC83907008AEED5 /* ResponseTests.swift */; };
+		E2B400DD1D074B0900242F48 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400DC1D074B0900242F48 /* Routes.swift */; };
+		E2B400DE1D074B0900242F48 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400DC1D074B0900242F48 /* Routes.swift */; };
+		E2B400E01D074F6B00242F48 /* RoutesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400DF1D074F6B00242F48 /* RoutesTests.swift */; };
+		E2B400E21D0764FA00242F48 /* OptionsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400E11D0764FA00242F48 /* OptionsRoute.swift */; };
+		E2B400E31D0764FA00242F48 /* OptionsRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400E11D0764FA00242F48 /* OptionsRoute.swift */; };
+		E2B400E51D076DEC00242F48 /* OptionsRouteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B400E41D076DEC00242F48 /* OptionsRouteTests.swift */; };
 		E2CCD06D1D008F3700BE4E1E /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCD06C1D008F3700BE4E1E /* HTTPMethods.swift */; };
 		E2CCD06E1D008F3700BE4E1E /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCD06C1D008F3700BE4E1E /* HTTPMethods.swift */; };
 		E2CCD0701D00C80E00BE4E1E /* NotAllowedRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2CCD06F1D00C80E00BE4E1E /* NotAllowedRoute.swift */; };
@@ -96,6 +102,10 @@
 		E29B29EE1CCE60DB00D60B87 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E29B29F31CCE61A400D60B87 /* RouterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		E29B938B1CC83907008AEED5 /* ResponseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		E2B400DC1D074B0900242F48 /* Routes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		E2B400DF1D074F6B00242F48 /* RoutesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoutesTests.swift; sourceTree = "<group>"; };
+		E2B400E11D0764FA00242F48 /* OptionsRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsRoute.swift; sourceTree = "<group>"; };
+		E2B400E41D076DEC00242F48 /* OptionsRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsRouteTests.swift; sourceTree = "<group>"; };
 		E2CCD06C1D008F3700BE4E1E /* HTTPMethods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		E2CCD06F1D00C80E00BE4E1E /* NotAllowedRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotAllowedRoute.swift; sourceTree = "<group>"; };
 		E2CCD0721D00C94300BE4E1E /* NotAllowedRouteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotAllowedRouteTests.swift; sourceTree = "<group>"; };
@@ -187,6 +197,8 @@
 				E2DEF4851CEF419F00E4A274 /* BasicAuthRoute.swift */,
 				E2CCD06C1D008F3700BE4E1E /* HTTPMethods.swift */,
 				E2CCD06F1D00C80E00BE4E1E /* NotAllowedRoute.swift */,
+				E2B400DC1D074B0900242F48 /* Routes.swift */,
+				E2B400E11D0764FA00242F48 /* OptionsRoute.swift */,
 			);
 			path = SwiftHTTPServer;
 			sourceTree = "<group>";
@@ -212,6 +224,8 @@
 				E2DEF4881CF34B5600E4A274 /* BasicAuthRouteTests.swift */,
 				E2DEF48A1CF35A1C00E4A274 /* LoggerTests.swift */,
 				E2CCD0721D00C94300BE4E1E /* NotAllowedRouteTests.swift */,
+				E2B400DF1D074F6B00242F48 /* RoutesTests.swift */,
+				E2B400E41D076DEC00242F48 /* OptionsRouteTests.swift */,
 			);
 			path = SwiftHTTPServerTests;
 			sourceTree = "<group>";
@@ -312,6 +326,7 @@
 				E267CD751CD00F6B001AB593 /* Route.swift in Sources */,
 				E24251691CEF3E7F00F164AA /* Logger.swift in Sources */,
 				E2E2D0521CDBCABB00C3BE34 /* Configuration.swift in Sources */,
+				E2B400E21D0764FA00242F48 /* OptionsRoute.swift in Sources */,
 				E2F5C8A41CD2588200793B5C /* NotFoundRoute.swift in Sources */,
 				E2F5C8AF1CD26FBD00793B5C /* FormRoute.swift in Sources */,
 				E24251641CEE184400F164AA /* FileOperations.swift in Sources */,
@@ -325,6 +340,7 @@
 				E2DEF4861CEF419F00E4A274 /* BasicAuthRoute.swift in Sources */,
 				E29B29E71CC83A4A00D60B87 /* Response.swift in Sources */,
 				E2F5C8AC1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
+				E2B400DD1D074B0900242F48 /* Routes.swift in Sources */,
 				E2F5C8B41CD2749F00793B5C /* ParameterRoute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +358,7 @@
 				E2E15EB91CC524400054DA4F /* HttpServer.swift in Sources */,
 				E29B29F01CCE60DB00D60B87 /* Router.swift in Sources */,
 				E2F5C8B71CD274FD00793B5C /* ParameterRouteTests.swift in Sources */,
+				E2B400E01D074F6B00242F48 /* RoutesTests.swift in Sources */,
 				E24251671CEE1CEC00F164AA /* FileOperationsTests.swift in Sources */,
 				E2D9C12F1CC7D08F00B7B5CB /* RequestTests.swift in Sources */,
 				E2E15EB01CC5240B0054DA4F /* SwiftHTTPServerTests.swift in Sources */,
@@ -360,13 +377,16 @@
 				E2E2D0501CDBAA5300C3BE34 /* DictionaryDefaultValueTests.swift in Sources */,
 				E242515F1CEDE17800F164AA /* FileServingRouteTests.swift in Sources */,
 				E2CCD0731D00C94300BE4E1E /* NotAllowedRouteTests.swift in Sources */,
+				E2B400E51D076DEC00242F48 /* OptionsRouteTests.swift in Sources */,
 				E2DEF4891CF34B5600E4A274 /* BasicAuthRouteTests.swift in Sources */,
 				E29B29F41CCE61A400D60B87 /* RouterTests.swift in Sources */,
 				E2E2D04C1CDBAA2F00C3BE34 /* DirectoryListRoute.swift in Sources */,
 				E267CD791CD00FF1001AB593 /* BasicRoute.swift in Sources */,
 				E2F5C8AD1CD25AD200793B5C /* DictionaryDefaultValue.swift in Sources */,
 				E24251651CEE184400F164AA /* FileOperations.swift in Sources */,
+				E2B400E31D0764FA00242F48 /* OptionsRoute.swift in Sources */,
 				E242516A1CEF3E7F00F164AA /* Logger.swift in Sources */,
+				E2B400DE1D074B0900242F48 /* Routes.swift in Sources */,
 				E2F5C8A71CD2590E00793B5C /* NotFoundRouteTests.swift in Sources */,
 				E267CD701CCFADE6001AB593 /* ParameterDecoderTests.swift in Sources */,
 				E2CCD0711D00C80E00BE4E1E /* NotAllowedRoute.swift in Sources */,

@@ -2,23 +2,8 @@ import Foundation
 
 class BasicRoute: Route {
     
-    var allowedMethods: [HTTPMethods]
-    var contentLength = 0
-    
-    required init(allowedMethods: [HTTPMethods]) {
-        self.allowedMethods = allowedMethods
-    }
-    
-    func getAllowedMethods() -> [HTTPMethods] {
-        return allowedMethods
-    }
-    
-    func isAllowedMethod(method: HTTPMethods) -> Bool {
-        return contains(allowedMethods: getAllowedMethods(), method: method)
-    }
-    
     func getResponseBody(uri: String, method: HTTPMethods, requestHeaders: Dictionary<String,String>, requestBody: String?) -> [UInt8] {
-        let bodyString: String = isAllowedMethod(method: method) ? "\(method.rawValue) for \(uri)" : "405 - Method Not Allowed"
+        let bodyString: String = "\(method.rawValue) for \(uri)"
         return removeNullBytes(byteArray: getByteArrayFromString(string: bodyString))
     }
     
@@ -26,14 +11,11 @@ class BasicRoute: Route {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
 
         headers["Content-Type"] = "text/html"
-        if (method == .Options) {
-            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
-        }
         return headers
     }
     
     func getResponseStatusCode(method: HTTPMethods) -> String {
-        let statusCode: String = isAllowedMethod(method: method) ? "200" : "405"
+        let statusCode: String = "200"
         return statusCode
     }
     
@@ -48,11 +30,9 @@ class BasicRoute: Route {
     }
     
     func getByteArrayFromString(string: String) -> [UInt8] {
-        contentLength = 0
         var myArray = [UInt8]()
         let myCString = string.cString(using: NSUTF8StringEncoding)
         for char in myCString! {
-            contentLength += 1
             myArray.append(UInt8(char))
         }
         return myArray

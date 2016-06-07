@@ -7,6 +7,7 @@ class LoggerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
+        Configuration.enableLogging = true
         fileOperations.write(string: "TEST")
     }
     
@@ -15,6 +16,7 @@ class LoggerTests: XCTestCase {
     }
     
     func testLog() {
+        
         logger.log(string: "testing")
         let testingBytes: [UInt8] = [116, 101, 115, 116, 105, 110, 103]
         

@@ -2,44 +2,64 @@ import XCTest
 
 class RouterTests: XCTestCase {
     
-    var router = Router(uri: "/Filler",method:.Get,body:"FILLER")
     
-    func testInitialiazeRouterDict() {
-        router.uriTypeDict = Dictionary<String,Route>()
+    override func setUp() {
+        super.setUp()
         
-        router.initializeRouterDict()
+        Configuration.enableLogging = false
+        Configuration.routes = Routes()
+        Configuration.routes.add(uri: "/", method: .Get, route: DirectoryListRoute())
+    }
+
+    override func tearDown() {
+        super.tearDown()
         
-        XCTAssert(router.uriTypeDict.count > 0)
+        Configuration.enableLogging = true
     }
     
-    func testSetRoute() {
-        router.uriTypeDict = Dictionary<String,Route>()
+    func testReturnsTheExpectedRoute() {
+        Configuration.enableLogging = false
+        let request = Request(requestString: "GET / HTTP/1.1\r\nHost: localhost:5000\r\nUser-Agent: curl/7.43.0\r\nAccept: */*\r\nContent-Length: 0\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\n")
         
-        router.setRoute(uri: "/Test", route: BasicRoute(allowedMethods: [.Get, .Options]))
+        let router = Router(request: request)
         
-        XCTAssert(router.uriTypeDict.keys.contains("/Test"))
-        XCTAssert(router.uriTypeDict.count > 0)
+        
+        XCTAssertEqual(router.getRoute().getResponseStatusCode(method: .Get), "200")
+        XCTAssertNotNil(router.getRoute() as? DirectoryListRoute)
+    }
+
+    func testReturns404WhenNotFound() {
+        Configuration.enableLogging = false
+        let request = Request(requestString: "GET / HTTP/1.1\r\nHost: localhost:5000\r\nUser-Agent: curl/7.43.0\r\nAccept: */*\r\nContent-Length: 0\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\n")
+        request.method = .Get
+        request.baseURI = "/YOLO"
+        
+        let router = Router(request: request)
+        
+        
+        XCTAssertEqual(router.getRoute().getResponseStatusCode(method: .Get), "404")
     }
     
-    func testGetRoute() {
-        let expectedRoute: Route = BasicRoute(allowedMethods: [.Get, .Options])
-        router = Router(uri:"/method_options2",method: .Options,body:nil)
-        router.initializeRouterDict()
+    func testReturns405WhenMethodNotFound() {
+        Configuration.enableLogging = false
+        let request = Request(requestString: "TAKA / HTTP/1.1\r\nHost: localhost:5000\r\nUser-Agent: curl/7.43.0\r\nAccept: */*\r\nContent-Length: 0\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\n")
         
-        let route = router.getRoute()
+        let router = Router(request: request)
         
-        XCTAssert(route.dynamicType == expectedRoute.dynamicType)
-        XCTAssertEqual(route.getAllowedMethods(), expectedRoute.getAllowedMethods())
+        
+        XCTAssertEqual(router.getRoute().getResponseStatusCode(method: .Get), "405")
     }
     
-    func testAddDynamicRoutes() {
-        router = Router(uri: "/dynamic_rotes", method: .Options,body:nil)
-        Configuration.publicDirectory = "."
-        XCTAssert(router.uriTypeDict.values.count == 0)
+    func testReturnsOptionsRouteWhenMethodIsOptions() {
+        Configuration.enableLogging = false
+        let request = Request(requestString: "OPTIONS / HTTP/1.1\r\nHost: localhost:5000\r\nUser-Agent: curl/7.43.0\r\nAccept: */*\r\nContent-Length: 0\r\nContent-Type: application/x-www-form-urlencoded\r\n\r\n")
         
-        router.addDynamicRoutes()
+        let router = Router(request: request)
         
-        XCTAssert(router.uriTypeDict.values.count != 0)
+        
+        XCTAssertEqual(router.getRoute().getResponseHeaders(uri: "/", method: .Options, requestBody: "")["Allow"], "GET")
     }
+    
+    
     
 }

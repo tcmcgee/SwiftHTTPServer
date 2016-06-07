@@ -3,7 +3,7 @@ import XCTest
 class NotAllowedRouteTests: XCTestCase {
     
     func testGetBody() {
-        let route = NotAllowedRoute(allowedMethods: [.Get])
+        let route = NotAllowedRoute()
         let expectedResponseBody = ("405 - Method Not Allowed")
         
         let responseBody = route.getResponseBody(uri: "/testing123", method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: nil)
@@ -13,7 +13,7 @@ class NotAllowedRouteTests: XCTestCase {
     }
     
     func testGetResponseStatusCode() {
-        let route = NotAllowedRoute(allowedMethods: [.Get, .Options])
+        let route = NotAllowedRoute()
         let expectedResponseCode = "405"
         
         XCTAssertEqual(expectedResponseCode, route.getResponseStatusCode(method: .Get))

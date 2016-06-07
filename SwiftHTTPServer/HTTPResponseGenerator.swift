@@ -1,8 +1,7 @@
 class HTTPResponseGenerator {
 
     func generateResponse(request: Request) -> [UInt8] {
-        let router = Router(uri: request.baseURI!, method: request.method, body: request.body)
-        router.initializeRouterDict()
+        let router = Router(request: request)
         let route = router.getRoute()
         let response = Response()
         

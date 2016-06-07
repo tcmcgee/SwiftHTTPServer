@@ -7,9 +7,6 @@ class RedirectRoute: BasicRoute {
     override func getResponseHeaders(uri: String, method: HTTPMethods, requestBody: String?) -> Dictionary<String,String> {
         var headers : Dictionary<String,String> = Dictionary<String,String>()
         headers["Location"] = "http://localhost:5000/"
-        if (method == .Options) {
-            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
-        }
         
         return headers
     }

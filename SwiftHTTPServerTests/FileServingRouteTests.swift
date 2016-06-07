@@ -3,7 +3,7 @@ import XCTest
 class FileServingRouteTests: XCTestCase {
     
     func testGetHeaders() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let expectedHeaders: Dictionary<String,String> = [:]
         let headers = fileServingRoute.getResponseHeaders(uri: "/blah", method: .Get, requestBody: "")
         
@@ -11,7 +11,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetStatusCodeAfterPartialRequest() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let requestHeaders: Dictionary<String,String> = ["Range": "bytes=0-1"]
         fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
@@ -19,7 +19,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetStatusCodeErrorAfterInvalidPartialRequest() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let requestHeaders: Dictionary<String,String> = ["Range": "bytes=30-1"]
         fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: requestHeaders, requestBody: "")
         
@@ -27,14 +27,14 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetStatusCodeWithoutPartialRequest() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         fileServingRoute.getResponseBody(uri: "/blah", method: .Get, requestHeaders: Dictionary<String,String>(), requestBody: "")
         
         XCTAssertEqual("200", fileServingRoute.getResponseStatusCode(method: .Get))
     }
     
     func testGetRangeStart() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let range = "bytes=0-1"
         let expectedStartIndex = 0
         
@@ -44,7 +44,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetRangeStartNoVal() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let range = "bytes=-1"
         let expectedStartIndex = 0
         
@@ -54,7 +54,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetRangeEnd() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let range = "bytes=0-1"
         let expectedendIndex = 1
         
@@ -64,7 +64,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetRangeEndNoVal() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let range = "bytes=0-"
         let expectedEndIndex = -2
         
@@ -74,7 +74,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetRangeStartEndNoVals() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get])
+        let fileServingRoute = FileServingRoute()
         let range = "bytes=-"
         let expectedStartIndex = 0
         let expectedEndIndex = -2
@@ -88,7 +88,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetStatusCodeAfterPatchRequest() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get, .Patch])
+        let fileServingRoute = FileServingRoute()
         let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
         fileServingRoute.getResponseBody(uri: "/blah", method: .Patch, requestHeaders: requestHeaders, requestBody: "")
         
@@ -96,7 +96,7 @@ class FileServingRouteTests: XCTestCase {
     }
     
     func testGetETagHeaderAfterPatchRequest() {
-        let fileServingRoute = FileServingRoute(allowedMethods: [.Get, .Patch])
+        let fileServingRoute = FileServingRoute()
         let requestHeaders: Dictionary<String,String> = ["If-Match": "12345"]
         let expectedResponseHeaders: Dictionary<String,String> = ["ETag": "12345"]
         

@@ -8,13 +8,13 @@ class RedirectRouteTests: XCTestCase {
     }
     
     func testGetStatusCode() {
-        let redirectRoute = RedirectRoute(allowedMethods: [.Get, .Options, .Redirect])
+        let redirectRoute = RedirectRoute()
         
         XCTAssertEqual(redirectRoute.getResponseStatusCode(method: .Redirect), "302")
     }
     
     func testGetHeaders() {
-        let redirectRoute = RedirectRoute(allowedMethods: [.Get, .Options, .Redirect])
+        let redirectRoute = RedirectRoute()
         
         let headers = redirectRoute.getResponseHeaders(uri: "/redirect", method: .Redirect, requestBody: "")
         

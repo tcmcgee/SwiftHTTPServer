@@ -10,6 +10,7 @@ class Request{
     init(requestString : String) {
         let head = getHead(requestString: requestString)
         statusLine = getStatusLine(head: head)
+        Logger.log(fileName: "/log.txt", pathToDir: Configuration.logDirectory, string: statusLine)
         method = (HTTPMethods(rawValue: getMethod(statusLine: statusLine))) ?? .NotAllowed
         URI = getURI(statusLine: statusLine)
         let splitURI = split(string: URI!, separator: "?")

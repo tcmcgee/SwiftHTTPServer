@@ -29,18 +29,11 @@ class FileServingRoute: BasicRoute {
         if (method == .Patch){
             headers["ETag"] = eTag!
         }
-        if (method == .Options) {
-            headers["Allow"] = joined(allowedMethods: allowedMethods, separator: ",")
-        }
         return headers
     }
     
     override func getResponseStatusCode(method: HTTPMethods) -> String {
-        if (isAllowedMethod(method: method)){
-            return statusCode
-        } else {
-            return "405"
-        }
+        return statusCode
     }
     
     func getPartialContent(fileOperations: FileOperations, range: String) -> [UInt8]{
