@@ -40,7 +40,6 @@ class BasicAuthRoute: BasicRoute {
         } else {
             let splitAuthorizationHeader = String(authorizationHeader.characters.split(separator: " ")[1])
             let decodedAuthorizationHeader = decodeBase64(base64: splitAuthorizationHeader)
-            print(decodedAuthorizationHeader)
             return decodedAuthorizationHeader == credentials
         }
     }

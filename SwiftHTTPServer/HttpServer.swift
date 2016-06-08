@@ -24,7 +24,7 @@ class HTTPServer {
         /* Initialize socket structure */
         
         serv_addr.sin_family = UInt8(AF_INET);
-        serv_addr.sin_port = UInt16(5000).bigEndian;
+        serv_addr.sin_port = UInt16(Configuration.port).bigEndian;
         
         /* Now bind the host address using bind() call.*/
         
@@ -34,6 +34,8 @@ class HTTPServer {
                 exit(1);
             }
         }
+        
+        print("Server is now running on localhost:\(Configuration.port)")
         
         /* Now start listening for the clients, here process will
          * go in sleep mode and will wait for the incoming connection

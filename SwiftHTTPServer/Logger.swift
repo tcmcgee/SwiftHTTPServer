@@ -13,15 +13,6 @@ class Logger {
         self.pathToDir = pathToDir
     }
     
-    func log(string: String) {
-        if (Configuration.enableLogging){
-            let logger = FileOperations(file: fileName, pathToDir: pathToDir)
-            let logString = Logger.getCurrentTime() + string + "\n"
-            
-            logger.append(string: logString)
-        }
-    }
-    
     static func log(fileName: String, pathToDir: String, string: String) {
         if (Configuration.enableLogging){
             let logger = FileOperations(file: fileName, pathToDir: pathToDir)

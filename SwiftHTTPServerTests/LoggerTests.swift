@@ -1,8 +1,7 @@
 import XCTest
 
 class LoggerTests: XCTestCase {
-
-    let logger = Logger(fileName: "/log.txt", pathToDir: ".")
+    
     let fileOperations = FileOperations(file:"/log.txt", pathToDir: ".")
     
     override func setUp() {
@@ -17,7 +16,7 @@ class LoggerTests: XCTestCase {
     
     func testLog() {
         
-        logger.log(string: "testing")
+        Logger.log(fileName: "/log.txt", pathToDir: ".", string: "testing")
         let testingBytes: [UInt8] = [116, 101, 115, 116, 105, 110, 103]
         
         let fileContents = fileOperations.read()
@@ -28,9 +27,9 @@ class LoggerTests: XCTestCase {
     
     
     func testLogKeepsContents() {
-        logger.log(string: "testing")
+        Logger.log(fileName: "/log.txt", pathToDir: ".", string: "testing")
         let testingBytes: [UInt8] = [116, 101, 115, 116, 105, 110, 103]
-        logger.log(string: "")
+        Logger.log(fileName: "/log.txt", pathToDir: ".", string: "")
         
         let fileContents = fileOperations.read()
         for byte in testingBytes {
